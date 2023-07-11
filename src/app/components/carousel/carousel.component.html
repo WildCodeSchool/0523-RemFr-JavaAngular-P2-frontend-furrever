@@ -1,17 +1,19 @@
 <!-- carousel -->
 <div class="carousel">
-    <div *ngIf="slides.length !== 0">
-      <ng-container *ngFor="let slide of slides; let i = index">
-        <div *ngIf="i === currentSlide" class="slide" @carouselAnimation>
-          <h3>{{ slide.username }}</h3>
-          <p>{{ slide.notes }}</p>
-        </div>
-      </ng-container>
-    </div>
+  <div *ngIf="commentList.length !== 0">
+    <ng-container *ngFor="let comment of commentList; let i = index">
+      <div *ngIf="i === currentSlide" class="slide" @carouselAnimation>
+        <app-comment-card [commentCard]="comment"></app-comment-card>
+        <!--<h3>{{ slide.username }}</h3>
+        <p>{{ slide.notes }}</p>-->
+      </div>
+    </ng-container>
+  </div>
 
-  <div *ngIf="slides.length === 0">
+  <div *ngIf="commentList.length === 0">
     <div class="slide" @carouselAnimation>
       <div class="empty">
+        <img src="assets/desktop_cable.png" alt="empty" />
         <h4>Pas de commentaires disponibles</h4>
       </div>
     </div>
@@ -24,5 +26,4 @@
   <button class="control next" (click)="onNextClick()">
     <span class="arrow right"></span>
   </button>
-
 </div>

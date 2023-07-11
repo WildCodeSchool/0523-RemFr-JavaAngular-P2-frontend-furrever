@@ -1,0 +1,8 @@
+<div>
+  <p>{{ commentCard.name }}</p>
+  <p>{{ commentCard.date }}</p>
+  <div *ngFor="let in of counter(commentCard.note)">
+    <img src="assets/patoune.png" alt="patte de chien" />
+  </div>
+  <p>{{ commentCard.content }}</p>
+</div>
