@@ -1,0 +1,42 @@
+footer {
+  background-color: #f2f2f2;
+  margin-bottom: 80px;
+  width: 100%;
+}
+
+.logo_container {
+  margin-top: 1rem;
+  width: 100%;
+  height: 50px;
+  text-align: center;
+}
+
+.logo_container img {
+  height: 100%;
+}
+
+.main_container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.infos_container {
+  width: 100%;
+  display: flex;
+}
+
+.left_container, .right_container {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+}
+
+.left_container {
+  margin-left: 1rem;
+}
+
+.right_container {
+  margin-right: 1rem;
+  align-items: end;
+}
