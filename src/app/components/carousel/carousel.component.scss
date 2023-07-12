@@ -1,5 +1,9 @@
+:host{
+  position: relative;
+}
+
 .carousel {
-  height: 10rem;
+  height: 15rem;
   position: relative;
   margin-bottom: 2rem;
 }
@@ -34,7 +38,7 @@
   font-weight: bold;
   font-size: 3em;
   user-select: none;
-  height: 10rem;
+  height: 15rem;
   opacity: 80%;
   transition: opacity 150ms cubic-bezier(0.25, 0.46, 0.45, 0.84);
 
