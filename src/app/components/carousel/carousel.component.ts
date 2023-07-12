@@ -19,11 +19,7 @@ import { Comment } from "../../models/Comment";
   ],
 })
 export class CarouselComponent {
-  //je recup les slides ici
   constructor(private router: Router) {}
-
-  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-  // @ts-ignore
   @Input() commentList: Comment[] = [
     {
       name: "bruno",

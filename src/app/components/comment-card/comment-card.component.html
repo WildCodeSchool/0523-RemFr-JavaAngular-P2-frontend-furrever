@@ -1,8 +1,14 @@
-<div>
-  <p>{{ commentCard.name }}</p>
-  <p>{{ commentCard.date }}</p>
-  <div *ngFor="let in of counter(commentCard.note)">
-    <img src="assets/patoune.png" alt="patte de chien" />
+<section>
+  <p class="user">{{ commentCard.name }}</p>
+  <p class="date">{{ commentCard.date | date : "dd/MM/YYYY" }}</p>
+  <div class="image-container">
+    <img class="user-note" *ngFor="let in of counter(commentCard.note)" src="assets/patoune.png" alt="patte de chien" />
+    <img
+      class="user-note"
+      *ngFor="let in of counter(5 - commentCard.note)"
+      src="assets/empty-patoune.png"
+      alt="patte de chien vide"
+    />
   </div>
-  <p>{{ commentCard.content }}</p>
-</div>
+  <p class="content">{{ commentCard.content }}</p>
+</section>

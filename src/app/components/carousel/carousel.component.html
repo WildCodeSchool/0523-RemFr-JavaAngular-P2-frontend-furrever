@@ -4,8 +4,7 @@
     <ng-container *ngFor="let comment of commentList; let i = index">
       <div *ngIf="i === currentSlide" class="slide" @carouselAnimation>
         <app-comment-card [commentCard]="comment"></app-comment-card>
-        <!--<h3>{{ slide.username }}</h3>
-        <p>{{ slide.notes }}</p>-->
+        <app-comment-card *ngIf="commentList[i + 1]" [commentCard]="commentList[i + 1]"></app-comment-card>
       </div>
     </ng-container>
   </div>

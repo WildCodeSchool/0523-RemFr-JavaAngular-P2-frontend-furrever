@@ -1,0 +1,53 @@
+:host {
+  width: 45%;
+}
+
+section {
+  max-width: 200px;
+  display: flex;
+  flex-direction: column;
+  padding: .8rem;
+  background-color: #f4f4f4;
+  border-radius: 20px;
+  box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
+
+  p {
+    font-style: italic;
+  }
+
+  .user {
+    font-weight: bold;
+    margin: 0;
+    font-style: normal;
+  }
+
+  .user-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .date {
+    font-size: .8em;
+    text-align: right;
+    margin-top: 0px;
+  }
+
+  .image-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-bottom: 8px;
+  }
+
+  .user-note {
+    width: 20px;
+    height: 20px;
+    margin-right: 4px;
+  }
+
+  .content {
+    margin-top: 8px;
+    margin-bottom: 0;
+  }
+}
