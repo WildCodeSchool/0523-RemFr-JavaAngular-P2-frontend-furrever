@@ -20,26 +20,7 @@ import { Comment } from "../../models/Comment";
 })
 export class CarouselComponent {
   constructor(private router: Router) {}
-  @Input() commentList: Comment[] = [
-    {
-      name: "bruno",
-      date: new Date("03/12/2023"),
-      note: 1,
-      content: "blab labla jdufhef blabla bla",
-    },
-    {
-      name: "bruno",
-      date: new Date("01/13/2023"),
-      note: 4,
-      content: "blab labla jdufhef blabla bla",
-    },
-    {
-      name: "bruno",
-      date: new Date("08/05/2022"),
-      note: 5,
-      content: "blab labla jdufhef blabla bla",
-    },
-  ];
+  @Input() commentList: Comment[] = [];
 
   currentSlide = 0;
 
