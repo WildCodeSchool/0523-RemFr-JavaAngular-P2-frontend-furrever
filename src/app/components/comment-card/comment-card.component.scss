@@ -46,7 +46,9 @@ section {
   }
 
   .content {
+    max-height: 8rem;
     margin-top: 8px;
     margin-bottom: 0;
+    overflow-y: scroll;
   }
 }
