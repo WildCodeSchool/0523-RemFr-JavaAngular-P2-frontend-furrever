@@ -1,5 +1,6 @@
 .carousel {
   height: 10rem;
+  position: relative;
 }
 
 .slide {
@@ -27,7 +28,7 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding: 0.5em;
+  padding: 0.2em;
   color: rgb(32, 31, 31);
   font-weight: bold;
   font-size: 3em;

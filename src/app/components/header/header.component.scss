@@ -1,0 +1,27 @@
+header {
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+
+  .header_container {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+
+    img {
+      margin: 1rem;
+      max-height: 30px;
+      margin-bottom: 0;
+    }
+  }
+
+  .wave {
+    width: 100%;
+
+    img {
+      width: 100%;
+    }
+  }
+
+}
+
