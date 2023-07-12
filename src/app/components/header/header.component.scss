@@ -11,13 +11,12 @@ header {
     img {
       margin: 1rem;
       max-height: 30px;
+      margin-bottom: 0;
     }
   }
 
   .wave {
     width: 100%;
-    position: absolute;
-    top: 44px;
 
     img {
       width: 100%;

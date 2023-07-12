@@ -1,10 +1,10 @@
-import { Directive, ElementRef } from '@angular/core';
+import { Directive, ElementRef } from "@angular/core";
 
 @Directive({
-  selector: '[appDemo]',
+  selector: "[appDemo]",
 })
 export class DemoDirective {
   constructor(private element: ElementRef) {
-    this.element.nativeElement.style.textDecoration = 'underline';
+    this.element.nativeElement.style.textDecoration = "underline";
   }
 }
