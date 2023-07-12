@@ -1,0 +1,28 @@
+<!-- carousel -->
+<div class="carousel">
+  <div *ngIf="commentList.length !== 0">
+    <ng-container *ngFor="let comment of commentList; let i = index">
+      <div *ngIf="i === currentSlide" class="slide" @carouselAnimation>
+        <app-comment-card [commentCard]="comment"></app-comment-card>
+        <app-comment-card *ngIf="commentList[i + 1]" [commentCard]="commentList[i + 1]"></app-comment-card>
+      </div>
+    </ng-container>
+  </div>
+
+  <div *ngIf="commentList.length === 0">
+    <div class="slide" @carouselAnimation>
+      <div class="empty">
+        <img src="assets/desktop_cable.png" alt="empty" />
+        <h4>Pas de commentaires disponibles</h4>
+      </div>
+    </div>
+  </div>
+
+  <!-- controls -->
+  <button class="control prev" (click)="onPreviousClick()">
+    <span class="arrow left"></span>
+  </button>
+  <button class="control next" (click)="onNextClick()">
+    <span class="arrow right"></span>
+  </button>
+</div>
