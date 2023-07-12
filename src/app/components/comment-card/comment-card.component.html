@@ -2,11 +2,11 @@
   <p class="user">{{ commentCard.firstName }} {{ commentCard.initialLastName }}</p>
   <p class="date">{{ commentCard.date | date : "dd/MM/YYYY" }}</p>
   <div class="image-container">
-    <img class="user-note" *ngFor="let in of counter(commentCard.note)" src="assets/patoune.png" alt="patte de chien" />
+    <img class="user-note" *ngFor="let in of counter(commentCard.note)" src="assets/images/patoune.png" alt="patte de chien" />
     <img
       class="user-note"
       *ngFor="let in of counter(5 - commentCard.note)"
-      src="assets/empty-patoune.png"
+      src="assets/images/empty-patoune.png"
       alt="patte de chien vide"
     />
   </div>
