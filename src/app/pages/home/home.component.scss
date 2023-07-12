@@ -1,0 +1,34 @@
+article {
+  margin: 1rem 0;
+  padding: .5rem;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.8)), url("../../../assets/images/lion.jpg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  min-height: 300px;
+  fill-opacity: complement(black);
+  color: white;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  h2 {
+    width: 40%;
+
+    img {
+      margin-top: .2rem;
+      width: 30px;
+    }
+  }
+}
+
+section {
+  padding: 1rem;
+  margin-bottom: 1rem;
+
+  p{
+    margin: .5rem;
+    text-align: justify;
+  }
+}
