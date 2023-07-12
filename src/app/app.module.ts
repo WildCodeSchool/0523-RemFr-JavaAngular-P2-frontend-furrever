@@ -18,6 +18,7 @@ import { CommentCardComponent } from "./components/comment-card/comment-card.com
 import { HomeComponent } from "./pages/home/home.component";
 import { ProfileComponent } from "./pages/profile/profile.component";
 import { LoginComponent } from "./pages/login/login.component";
+import { HttpClientModule } from "@angular/common/http";
 
 @NgModule({
   declarations: [
@@ -34,7 +35,7 @@ import { LoginComponent } from "./pages/login/login.component";
     CarouselComponent,
     CommentCardComponent,
   ],
-  imports: [BrowserModule, AppRoutingModule, BrowserAnimationsModule, NgOptimizedImage],
+  imports: [BrowserModule, AppRoutingModule, BrowserAnimationsModule, NgOptimizedImage, HttpClientModule],
   providers: [],
   bootstrap: [AppComponent],
 })

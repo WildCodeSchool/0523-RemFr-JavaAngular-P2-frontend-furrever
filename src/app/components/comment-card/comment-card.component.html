@@ -1,5 +1,5 @@
 <section>
-  <p class="user">{{ commentCard.name }}</p>
+  <p class="user">{{ commentCard.firstName }} {{ commentCard.initialLastName }}</p>
   <p class="date">{{ commentCard.date | date : "dd/MM/YYYY" }}</p>
   <div class="image-container">
     <img class="user-note" *ngFor="let in of counter(commentCard.note)" src="assets/images/patoune.png" alt="patte de chien" />
