@@ -19,6 +19,7 @@ import { HomeComponent } from "./pages/home/home.component";
 import { ProfileComponent } from "./pages/profile/profile.component";
 import { LoginComponent } from "./pages/login/login.component";
 import { HttpClientModule } from "@angular/common/http";
+import { SearchFormComponent } from './components/search-form/search-form.component';
 
 @NgModule({
   declarations: [
@@ -34,9 +35,10 @@ import { HttpClientModule } from "@angular/common/http";
     FooterComponent,
     CarouselComponent,
     CommentCardComponent,
+    SearchFormComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, BrowserAnimationsModule, NgOptimizedImage, HttpClientModule],
   providers: [],
   bootstrap: [AppComponent],
 })
-export class AppModule {}
+export class AppModule { }

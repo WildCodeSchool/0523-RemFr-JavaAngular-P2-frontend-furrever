@@ -1,0 +1,40 @@
+<h2>Je souhaite faire garder :</h2>
+<form>
+  <div class="species_container">
+    <label *ngFor="let species of speciesList" class="control control-checkbox">
+      {{ species.name }}
+      <input type="checkbox" />
+      <div class="control_indicator"></div>
+    </label>
+  </div>
+  <hr />
+  <div class="species_service_container">
+    <label class="control control-checkbox">
+      Promenade quotidienne
+      <input type="radio" id="walk" name="service" />
+      <div class="control_indicator"></div>
+    </label>
+    <label class="control control-checkbox">
+      Visite à domicile
+      <input type="radio" id="visit" name="service" />
+      <div class="control_indicator"></div>
+    </label>
+    <label class="control control-checkbox">
+      Garde prolongée
+      <input type="radio" id="homeKeeping" name="service" />
+      <div class="control_indicator"></div>
+    </label>
+  </div>
+  <hr />
+  <div class="location">
+    <label for="location">Dans quelle ville?</label>
+    <input type="text" name="location" id="location" />
+  </div>
+  <div class="date">
+    <label for="date">Pour quelle date?</label>
+    <input type="date" name="date" id="date" value="{{ today | date : 'YYYY-MM-dd' }}" />
+  </div>
+  <div class="button_container">
+    <input class="button" type="submit" value="Rechercher" />
+  </div>
+</form>
