@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from "@angular/common/http";
-import { map, Observable } from "rxjs";
+import { Observable } from "rxjs";
+import { Species } from "../../models/Species";
 
 @Injectable({
   providedIn: 'root'
@@ -9,7 +10,7 @@ export class ApiSpeciesService {
 
   constructor(private http: HttpClient) { }
 
-  getSpeciesName(): Observable<any> {
-    return this.http.get<any>("http://localhost:8080/api/species");
+  getSpeciesName(): Observable<Species[]> {
+    return this.http.get<Species[]>("http://localhost:8080/api/species");
   }
 }
