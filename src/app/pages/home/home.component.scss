@@ -1,5 +1,5 @@
 article {
-  margin: 1rem 0;
+  margin-top: 1rem;
   padding: .5rem;
   background-image: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.8)), url("../../../assets/images/lion.jpg");
   background-repeat: no-repeat;
@@ -13,8 +13,13 @@ article {
   flex-direction: column;
   justify-content: space-between;
 
-  h2 {
+  div {
+    text-align: center;
     width: 40%;
+
+    h2 {
+      margin-bottom: 0;
+    }
 
     img {
       margin-top: .2rem;
@@ -27,7 +32,7 @@ section {
   padding: 1rem;
   margin-bottom: 1rem;
 
-  p{
+  p {
     margin: .5rem;
     text-align: justify;
   }
