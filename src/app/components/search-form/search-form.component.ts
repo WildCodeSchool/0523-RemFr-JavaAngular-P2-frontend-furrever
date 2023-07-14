@@ -8,12 +8,10 @@ import { Species } from "../../models/Species";
   styleUrls: ["./search-form.component.scss"],
 })
 export class SearchFormComponent implements OnInit {
-
   speciesList: Species[] = [];
   today!: Date;
 
-  constructor(public apiSpeciesServices: ApiSpeciesService) {
-  }
+  constructor(private apiSpeciesServices: ApiSpeciesService) {}
 
   ngOnInit(): void {
     this.apiSpeciesServices.getSpeciesName().subscribe((speciesList: Species[]) => {

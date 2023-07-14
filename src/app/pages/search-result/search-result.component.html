@@ -1,0 +1,9 @@
+<article *ngIf="petsitterPreviewList.length > 0">
+  <app-petsitter-preview
+    *ngFor="let petsitterPreview of petsitterPreviewList"
+    [petsitter]="petsitterPreview"
+  ></app-petsitter-preview>
+</article>
+<article *ngIf="petsitterPreviewList.length <= 0">
+  <h1>cherche mieux laaaaaaaa</h1>
+</article>
