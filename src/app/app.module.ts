@@ -8,7 +8,6 @@ import { DemoPipe } from "./pipes/demo.pipe";
 import { DemoDirective } from "./directives/demo.directive";
 
 import { AppComponent } from "./app.component";
-import { DemoComponent } from "./components/demo/demo.component";
 import { HeaderComponent } from "./components/header/header.component";
 import { FooterComponent } from "./components/footer/footer.component";
 import { NavbarComponent } from "./components/navbar/navbar.component";
@@ -19,12 +18,11 @@ import { HomeComponent } from "./pages/home/home.component";
 import { ProfileComponent } from "./pages/profile/profile.component";
 import { LoginComponent } from "./pages/login/login.component";
 import { HttpClientModule } from "@angular/common/http";
-import { SearchFormComponent } from './components/search-form/search-form.component';
+import { SearchFormComponent } from "./components/search-form/search-form.component";
 
 @NgModule({
   declarations: [
     AppComponent,
-    DemoComponent,
     DemoPipe,
     DemoDirective,
     NavbarComponent,
