@@ -1,0 +1,18 @@
+<form [formGroup]="login" (ngSubmit)="sendLogin()">
+  <div class="field">
+    <input type="email" formControlName="email" placeholder="Email" name="email" id="email" required />
+    <label for="email">Email</label>
+  </div>
+  <div class="field">
+    <input
+      type="password"
+      formControlName="password"
+      placeholder="Mot de passe"
+      name="password"
+      id="password"
+      required
+    />
+    <label for="password">Mot de passe</label>
+  </div>
+  <input class="button" type="submit" value="valider" />
+</form>

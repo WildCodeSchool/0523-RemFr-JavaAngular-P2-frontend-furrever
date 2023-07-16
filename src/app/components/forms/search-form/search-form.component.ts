@@ -1,6 +1,6 @@
 import { Component, OnInit } from "@angular/core";
-import { ApiSpeciesService } from "../../services/api/api-species.service";
-import { Species } from "../../models/Species";
+import { ApiSpeciesService } from "../../../services/api/api-species.service";
+import { Species } from "../../../models/Species";
 
 @Component({
   selector: "app-search-form",
