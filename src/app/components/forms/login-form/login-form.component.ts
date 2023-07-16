@@ -11,7 +11,7 @@ export class LoginFormComponent {
     email: new FormControl(""),
     password: new FormControl(""),
   });
-  sendLogin(){
+  sendLogin() {
     console.table(this.login.getRawValue());
   }
 }

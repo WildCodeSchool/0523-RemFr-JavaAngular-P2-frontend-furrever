@@ -24,6 +24,9 @@ import { SearchResultComponent } from "./pages/search-result/search-result.compo
 import { PetsitterPreviewComponent } from "./components/petsitter-preview/petsitter-preview.component";
 import { LogInComponent } from "./pages/log-in/log-in.component";
 import { LoginFormComponent } from './components/forms/login-form/login-form.component';
+import { SignUpComponent } from './pages/sign-up/sign-up.component';
+import { SubHeaderComponent } from './components/sub-header/sub-header.component';
+import { SignupFormComponent } from './components/forms/signup-form/signup-form.component';
 
 @NgModule({
   declarations: [
@@ -43,6 +46,9 @@ import { LoginFormComponent } from './components/forms/login-form/login-form.com
     PetsitterPreviewComponent,
     LogInComponent,
     LoginFormComponent,
+    SignUpComponent,
+    SubHeaderComponent,
+    SignupFormComponent,
   ],
   imports: [
     BrowserModule,
