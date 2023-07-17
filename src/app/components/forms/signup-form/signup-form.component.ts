@@ -12,7 +12,6 @@ export class SignupFormComponent {
   signup = new FormGroup({
     firstname: new FormControl(""),
     lastname: new FormControl(""),
-    birthday: new FormControl(this.today.toString()),
     email: new FormControl(""),
     password: new FormControl(""),
     picture: new FormControl(""),
