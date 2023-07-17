@@ -3,8 +3,10 @@ import { BrowserModule } from "@angular/platform-browser";
 import { NgOptimizedImage } from "@angular/common";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { AppRoutingModule } from "./app-routing.module";
+import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 
 import { DemoPipe } from "./pipes/demo.pipe";
+import { InitialPipe } from "./pipes/initial.pipe";
 import { DemoDirective } from "./directives/demo.directive";
 
 import { AppComponent } from "./app.component";
@@ -16,27 +18,48 @@ import { CommentCardComponent } from "./components/comment-card/comment-card.com
 
 import { HomeComponent } from "./pages/home/home.component";
 import { ProfileComponent } from "./pages/profile/profile.component";
-import { LoginComponent } from "./pages/login/login.component";
 import { HttpClientModule } from "@angular/common/http";
-import { SearchFormComponent } from "./components/search-form/search-form.component";
+import { SearchFormComponent } from "./components/forms/search-form/search-form.component";
+import { SearchResultComponent } from "./pages/search-result/search-result.component";
+import { PetsitterPreviewComponent } from "./components/petsitter-preview/petsitter-preview.component";
+import { LogInComponent } from "./pages/log-in/log-in.component";
+import { LoginFormComponent } from './components/forms/login-form/login-form.component';
+import { SignUpComponent } from './pages/sign-up/sign-up.component';
+import { SubHeaderComponent } from './components/sub-header/sub-header.component';
+import { SignupFormComponent } from './components/forms/signup-form/signup-form.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     DemoPipe,
+    InitialPipe,
     DemoDirective,
     NavbarComponent,
     HomeComponent,
     ProfileComponent,
-    LoginComponent,
     HeaderComponent,
     FooterComponent,
     CarouselComponent,
     CommentCardComponent,
     SearchFormComponent,
+    SearchResultComponent,
+    PetsitterPreviewComponent,
+    LogInComponent,
+    LoginFormComponent,
+    SignUpComponent,
+    SubHeaderComponent,
+    SignupFormComponent,
   ],
-  imports: [BrowserModule, AppRoutingModule, BrowserAnimationsModule, NgOptimizedImage, HttpClientModule],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    BrowserAnimationsModule,
+    NgOptimizedImage,
+    HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule,
+  ],
   providers: [],
   bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

@@ -1,0 +1,46 @@
+<form [formGroup]="signup" (ngSubmit)="sendSignUp()">
+  <div class="species_service_container">
+    <p>Qui êtes vous?</p>
+    <div>
+      <label class="control control-checkbox">
+        Je suis propiétaire d'animal
+        <input type="radio" id="walk" name="service" checked />
+        <div class="control_indicator"></div>
+      </label>
+      <label class="control control-checkbox">
+        Je suis Pet-sitter
+        <input type="radio" id="visit" name="service" />
+        <div class="control_indicator"></div>
+      </label>
+    </div>
+
+  </div>
+  <div class="field">
+    <input type="email" formControlName="email" placeholder="Email" name="email" id="email" required />
+    <label for="email">Email</label>
+  </div>
+  <div class="field">
+    <input
+      type="password"
+      formControlName="password"
+      placeholder="Mot de passe"
+      name="password"
+      id="password"
+      required
+    />
+    <label for="password">Mot de passe</label>
+  </div>
+  <div class="field">
+    <input type="text" formControlName="firstname" placeholder="Prénom" name="firstname" id="firstname" required />
+    <label for="firstname">Prénom</label>
+  </div>
+  <div class="field">
+    <input type="text" formControlName="lastname" placeholder="Nom" name="lastname" id="lastname" required />
+    <label for="lastname">Nom</label>
+  </div>
+  <div class="field">
+    <input type="file" formControlName="picture" name="picture" id="picture" />
+    <label for="picture">Image de profil</label>
+  </div>
+  <input class="button" type="submit" value="Valider" />
+</form>
