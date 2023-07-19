@@ -13,10 +13,10 @@ export class SearchResultComponent implements OnInit {
   petsitterPreviewList?: PetsitterPreview[];
   constructor(private activatedRoute: ActivatedRoute, private apiCallService: ApiCallService) {}
   ngOnInit(): void {
-    /*const { city, typeService, species } = this.activatedRoute.snapshot.queryParams;
+    const { city, typeService, species } = this.activatedRoute.snapshot.queryParams;
     const searchRequest = new SearchRequest(city, typeService, species);
     this.apiCallService.getPetsitters(searchRequest).subscribe((response) => {
       this.petsitterPreviewList = response;
-    });*/
+    });
   }
 }

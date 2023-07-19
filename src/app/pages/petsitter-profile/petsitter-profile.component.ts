@@ -1,11 +1,11 @@
-import { Component } from '@angular/core';
+import { Component } from "@angular/core";
+import { Comment } from "../../models/Comment";
 
 @Component({
-  selector: 'app-petsitter-profile',
-  templateUrl: './petsitter-profile.component.html',
-  styleUrls: ['./petsitter-profile.component.scss']
+  selector: "app-petsitter-profile",
+  templateUrl: "./petsitter-profile.component.html",
+  styleUrls: ["./petsitter-profile.component.scss"],
 })
 export class PetsitterProfileComponent {
-
-  commentsList: Component[] = [];
+  commentList: Comment[] = [];
 }
