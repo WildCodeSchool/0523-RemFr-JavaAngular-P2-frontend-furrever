@@ -10,6 +10,7 @@ export class SignupFormComponent {
   today = Date;
 
   signup = new FormGroup({
+    ispetsitter: new FormControl(false),
     firstname: new FormControl(""),
     lastname: new FormControl(""),
     email: new FormControl(""),

@@ -1,5 +1,5 @@
 import { Component, OnInit } from "@angular/core";
-import { ApiCommentService } from "../../services/api/api-comment.service";
+import { ApiCallService } from "../../services/api/api-call.service";
 import { Comment } from "../../models/Comment";
 
 @Component({
@@ -9,7 +9,7 @@ import { Comment } from "../../models/Comment";
 })
 export class HomeComponent implements OnInit {
   comments: Comment[] = [];
-  constructor(public apiCommentService: ApiCommentService) {}
+  constructor(public apiCommentService: ApiCallService) {}
   ngOnInit(): void {
     this.apiCommentService.getTopComments().subscribe((comments: Comment[]) => {
       this.comments = comments;

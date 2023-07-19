@@ -5,6 +5,7 @@ import { ProfileComponent } from "./pages/profile/profile.component";
 import { SearchResultComponent } from "./pages/search-result/search-result.component";
 import { LogInComponent } from "./pages/log-in/log-in.component";
 import { SignUpComponent } from "./pages/sign-up/sign-up.component";
+import { PetsitterProfileComponent } from "./pages/petsitter-profile/petsitter-profile.component";
 
 const routes: Routes = [
   { path: "", component: HomeComponent },
@@ -12,6 +13,7 @@ const routes: Routes = [
   { path: "login", component: LogInComponent },
   { path: "search-result", component: SearchResultComponent },
   { path: "signup", component: SignUpComponent },
+  { path: "profile-petsitter/:id", component: PetsitterProfileComponent },
 ];
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

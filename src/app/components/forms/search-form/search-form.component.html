@@ -1,9 +1,9 @@
 <h2>Je souhaite faire garder :</h2>
-<form action="/search-result">
+<form [formGroup]="searchForm" (ngSubmit)="onSubmit()">
   <div class="species_container">
     <label *ngFor="let species of speciesList" class="control control-checkbox">
       {{ species.name }}
-      <input type="checkbox" />
+      <input type="checkbox" (click)="checkSpecies(species.name)" />
       <div class="control_indicator"></div>
     </label>
   </div>
@@ -11,29 +11,30 @@
   <div class="species_service_container">
     <label class="control control-checkbox">
       Promenade quotidienne
-      <input type="radio" id="walk" name="service" />
+      <input type="radio" id="walk" value="Promenade quotidienne" name="service" formControlName="service" checked />
       <div class="control_indicator"></div>
     </label>
     <label class="control control-checkbox">
       Visite à domicile
-      <input type="radio" id="visit" name="service" />
+      <input type="radio" id="visit" value="Visite à domicile" name="service" formControlName="service" />
       <div class="control_indicator"></div>
     </label>
     <label class="control control-checkbox">
       Garde prolongée
-      <input type="radio" id="homeKeeping" name="service" />
+      <input type="radio" id="homeKeeping" value="Garde prolongée" name="service" formControlName="service" />
       <div class="control_indicator"></div>
     </label>
   </div>
   <hr />
-  <div class="location">
+  <div class="field">
+    <input type="text" formControlName="city" placeholder="Dans quelle ville?" name="location" id="location" required />
     <label for="location">Dans quelle ville?</label>
-    <input type="text" name="location" id="location" />
   </div>
-  <div class="date">
+  <!-- TODO: input pour la date si on le remet -->
+  <!--<div class="date">
     <label for="date">Pour quelle date?</label>
     <input type="date" name="date" id="date" value="{{ today | date : 'YYYY-MM-dd' }}" />
-  </div>
+  </div>-->
   <div class="button_container">
     <input class="button" type="submit" value="Rechercher" />
   </div>
