@@ -118,7 +118,7 @@ hr {
 .control-checkbox input:checked + .control_indicator::before {
   animation-name: s-ripple-dup;
 }
-
+//TODO: css pour input date si on le remet
 /*.location, .date {
   width: 100%;
   display: flex;
