@@ -27,6 +27,7 @@ import { LoginFormComponent } from './components/forms/login-form/login-form.com
 import { SignUpComponent } from './pages/sign-up/sign-up.component';
 import { SubHeaderComponent } from './components/sub-header/sub-header.component';
 import { SignupFormComponent } from './components/forms/signup-form/signup-form.component';
+import { PetsitterProfileComponent } from './pages/petsitter-profile/petsitter-profile.component';
 
 @NgModule({
   declarations: [
@@ -49,6 +50,7 @@ import { SignupFormComponent } from './components/forms/signup-form/signup-form.
     SignUpComponent,
     SubHeaderComponent,
     SignupFormComponent,
+    PetsitterProfileComponent,
   ],
   imports: [
     BrowserModule,

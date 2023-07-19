@@ -1,27 +1,30 @@
 <section>
-  <img class="picture" src="{{ petsitter.picture }}" />
-  <div class="petsitter">
-    <h3>{{ petsitter.firstName }} {{ petsitter.lastName | initial }}.</h3>
-    <div class="note">
-      <img *ngFor="let in of counter(petsitter.rating)" src="assets/images/patoune.png" alt="patte de chien" />
-      <img
-        *ngFor="let in of counter(5 - petsitter.rating)"
-        src="assets/images/empty-patoune.png"
-        alt="patte de chien vide"
-      />
-      <p>({{ petsitter.noteNumber }} avis)</p>
+  <a routerLink="/profile-petsitter/{{ petsitter.idPetsitter }}">
+    <img *ngIf="petsitter.picture" class="picture" src="{{ petsitter.picture }}" />
+    <img *ngIf="!petsitter.picture" class="picture" src="assets/images/icons/profile.png" />
+    <div class="petsitter">
+      <h3>{{ petsitter.firstname }} {{ petsitter.lastname | initial }}.</h3>
+      <div class="note">
+        <img *ngFor="let in of counter(petsitter.rating)" src="assets/images/patoune.png" alt="patte de chien" />
+        <img
+          *ngFor="let in of counter(5 - petsitter.rating)"
+          src="assets/images/empty-patoune.png"
+          alt="patte de chien vide"
+        />
+        <p>({{ petsitter.ratingQuantity }} avis)</p>
+      </div>
+      <p>
+        <b><i>Description:</i></b>
+      </p>
+      <p class="description">
+        {{ petsitter.description }}
+      </p>
     </div>
-    <p>
-      <b><i>Description:</i></b>
-    </p>
-    <p class="description">
-      {{ petsitter.description }}
-    </p>
-  </div>
-  <div class="price">
-    <p>À partir de</p>
-    <p>
-      <b>{{ petsitter.price }}€</b>
-    </p>
-  </div>
+    <div class="price">
+      <p>À partir de</p>
+      <p>
+        <b>{{ petsitter.price }}€</b>
+      </p>
+    </div>
+  </a>
 </section>

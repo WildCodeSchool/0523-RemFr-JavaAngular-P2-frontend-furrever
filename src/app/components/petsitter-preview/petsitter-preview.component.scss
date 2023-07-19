@@ -1,4 +1,4 @@
-section {
+a {
   width: 100%;
   max-width: 350px;
   height: 150px;
@@ -6,6 +6,8 @@ section {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  text-decoration: none;
+  color: black;
 
   .picture{
     width: 60px;
