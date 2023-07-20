@@ -14,12 +14,12 @@ export class PetsitterProfileComponent implements OnInit {
   commentList: Comment[] = [];
   petSitterProfile!: PetsitterViewByOwner;
   serviceList: Service[] = [];
-  constructor(private activatedRoute: ActivatedRoute, private apiCallService: ApiCallService) {}
+
+  constructor(private activatedRoute: ActivatedRoute, private apiCallService: ApiCallService) {
+  }
 
   ngOnInit() {
     const userId = this.activatedRoute.snapshot.params["id"];
-    console.log(userId);
-
     this.apiCallService
       .getPetsittersById(userId)
       .subscribe(({ commentTemplateList, petSitterProfile, serviceTemplateList }) => {

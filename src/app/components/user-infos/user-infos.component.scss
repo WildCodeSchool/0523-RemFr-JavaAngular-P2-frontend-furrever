@@ -32,6 +32,7 @@ section {
   justify-content: space-between;
   align-items: center;
   font-size: small;
+
   .image-container {
     display: flex;
     flex-direction: row;
@@ -39,6 +40,7 @@ section {
     margin-bottom: 0;
     margin-right: 0.3rem;
   }
+
   p {
     margin: 0;
   }
@@ -67,9 +69,11 @@ section {
   width: 100%;
   display: flex;
   justify-content: space-evenly;
+
   .button_container {
     width: 35%;
     text-align: center;
+
     .button {
       background-color: #355F5B;
       color: #f2f2f2;
