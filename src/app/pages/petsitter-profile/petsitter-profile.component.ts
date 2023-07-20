@@ -1,10 +1,23 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from "@angular/core";
+import { ActivatedRoute } from "@angular/router";
+import { ApiCallService } from "../../services/api/api-call.service";
 
 @Component({
-  selector: 'app-petsitter-profile',
-  templateUrl: './petsitter-profile.component.html',
-  styleUrls: ['./petsitter-profile.component.scss']
+  selector: "app-petsitter-profile",
+  templateUrl: "./petsitter-profile.component.html",
+  styleUrls: ["./petsitter-profile.component.scss"],
 })
-export class PetsitterProfileComponent {
+export class PetsitterProfileComponent implements OnInit {
+  constructor(private activatedRoute: ActivatedRoute, private apiCallService: ApiCallService) {
+  }
+
+  ngOnInit() {
+    const userId = this.activatedRoute.snapshot.params["id"];
+    console.log(userId);
+
+    this.apiCallService.getPetsittersById(userId)
+      .subscribe((response: any) => console.log(response));
+  }
+
 
 }

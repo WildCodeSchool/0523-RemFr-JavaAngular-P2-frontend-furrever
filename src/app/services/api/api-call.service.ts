@@ -3,9 +3,15 @@ import { HttpClient } from "@angular/common/http";
 import { Observable, map } from "rxjs";
 import { Comment } from "../../models/Comment";
 import { Species } from "../../models/Species";
-import {PetsitterPreview} from "../../models/PetsitterPreview";
-import {SearchRequest} from "../../models/SearchRequest";
+import { PetsitterPreview } from "../../models/PetsitterPreview";
+import { SearchRequest } from "../../models/SearchRequest";
+import { PetsitterViewByOwner } from "../../models/PetsitterViewByOwner";
 
+type ResponsePetSitter = {
+  commentTemplateList: Comment[],
+  petSitterProfile: PetsitterViewByOwner,
+ // serviceTemplateList: Ser
+}
 @Injectable({
   providedIn: "root",
 })
@@ -14,6 +20,7 @@ export class ApiCallService {
   private endPointGetTopComments = "comments/top";
   private endPointGetSpecies = "species";
   private endPointSearchPetsitter = "petsitters/search";
+  private endPointGetPetSitterById = "petsitters/";
 
   constructor(public http: HttpClient) {}
 
@@ -27,5 +34,8 @@ export class ApiCallService {
 
   getPetsitters(payload: SearchRequest): Observable<PetsitterPreview[]> {
     return this.http.post<PetsitterPreview[]>(this.API_URL + this.endPointSearchPetsitter, payload);
+  }
+  getPetsittersById(id: string): any{
+    return this.http.get<any>(this.API_URL + this.endPointGetPetSitterById + id);
   }
 }

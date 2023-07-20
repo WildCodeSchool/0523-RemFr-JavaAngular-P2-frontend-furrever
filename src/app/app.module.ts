@@ -28,6 +28,7 @@ import { SignUpComponent } from './pages/sign-up/sign-up.component';
 import { SubHeaderComponent } from './components/sub-header/sub-header.component';
 import { SignupFormComponent } from './components/forms/signup-form/signup-form.component';
 import { PetsitterProfileComponent } from './pages/petsitter-profile/petsitter-profile.component';
+import { UserInfosComponent } from './components/user-infos/user-infos.component';
 
 @NgModule({
   declarations: [
@@ -51,6 +52,7 @@ import { PetsitterProfileComponent } from './pages/petsitter-profile/petsitter-p
     SubHeaderComponent,
     SignupFormComponent,
     PetsitterProfileComponent,
+    UserInfosComponent,
   ],
   imports: [
     BrowserModule,
