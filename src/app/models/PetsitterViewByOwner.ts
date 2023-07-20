@@ -11,6 +11,9 @@ export class PetsitterViewByOwner{
     public picture: string | null,
     public price: number,
     public rating: number,
-    public ratingQuantity: number
+    public ratingQuantity: number,
+    public street: string,
+    public city: string,
+    public zipCode: string
   ) {}
 }

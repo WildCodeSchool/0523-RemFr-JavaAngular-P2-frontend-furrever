@@ -25,6 +25,12 @@ export class PetsitterProfileComponent implements OnInit {
       .subscribe(({ commentTemplateList, petSitterProfile, serviceTemplateList }) => {
         this.commentList = commentTemplateList;
         this.petSitterProfile = petSitterProfile;
+        this.petSitterProfile.ratingQuantity = this.commentList.length;
+        let allNotes = 0;
+        this.commentList.forEach(({ note }) => {
+          return (allNotes += note);
+        });
+        this.petSitterProfile.rating = Math.round(allNotes / this.commentList.length);
         this.serviceList = serviceTemplateList;
       });
   }

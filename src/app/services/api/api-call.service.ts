@@ -24,8 +24,7 @@ export class ApiCallService {
   private endPointSearchPetsitter = "petsitters/search";
   private endPointGetPetSitterById = "petsitters/";
 
-  constructor(public http: HttpClient) {
-  }
+  constructor(public http: HttpClient) {}
 
   getTopComments(): Observable<Comment[]> {
     return this.http.get<Comment[]>(this.API_URL + this.endPointGetTopComments);

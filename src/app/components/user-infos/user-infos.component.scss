@@ -29,15 +29,15 @@ section {
 
 .note_container {
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: center;
   font-size: small;
-
   .image-container {
     display: flex;
     flex-direction: row;
     align-items: center;
     margin-bottom: 0;
+    margin-right: 0.3rem;
   }
   p {
     margin: 0;
