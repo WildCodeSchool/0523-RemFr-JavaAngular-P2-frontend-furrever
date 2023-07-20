@@ -1,4 +1,4 @@
-<section>
+<section (click)="isShowModal()">
   <div class="main-services">
     <h2 class="services_title">{{ service.typeService }}</h2>
     <p class="description"><i>{{ service.description }}</i></p>
@@ -7,3 +7,9 @@
     <p class="description"><b>{{ service.price }}€</b></p>
   </div>
 </section>
+<div class="modal" *ngIf="showModal">
+  <section>
+    <p class="button" (click)="isShowModal()">X</p>
+    <app-modal-service [service]="service"></app-modal-service>
+  </section>
+</div>

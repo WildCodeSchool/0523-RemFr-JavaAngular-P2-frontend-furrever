@@ -9,4 +9,9 @@ import { Service } from "../../models/Service";
 export class ServicesComponent {
   @Input()
   service!: Service;
+  showModal = false;
+
+  isShowModal() {
+    this.showModal = !this.showModal;
+  }
 }

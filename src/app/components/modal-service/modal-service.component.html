@@ -1,0 +1,18 @@
+<section>
+  <div class="w3-modal-content">
+    <div class="w3-container">
+      <p>Ce service comprend :</p>
+      <div>
+        <p *ngIf="service.healer">Le Pet Sitter peut donner des soins.</p>
+        <p *ngIf="!service.healer">Le Pet Sitter ne sait pas donner des soins.</p>
+      </div>
+      <p>Ce service comprend les animaux suivants :</p>
+      <span *ngFor="let oneSpecies of service.speciesList; let i = index">
+        {{ oneSpecies.name }}<span *ngIf="service.speciesList[i + 1]">,</span>
+      </span>
+      <p *ngIf="service.weightMin || service.weightMax">
+        Poids des animaux acceptés : minimum {{ service.weightMin }}, maximum : {{ service.weightMax }}
+      </p>
+    </div>
+  </div>
+</section>
