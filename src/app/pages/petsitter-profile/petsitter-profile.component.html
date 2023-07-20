@@ -1,3 +1,4 @@
+
 <app-user-infos [petSitterProfile]="petSitterProfile"></app-user-infos>
 <article>
   <div class="calendar">
@@ -5,3 +6,4 @@
   </div>
   <app-services-list [serviceList]="serviceList"></app-services-list>
 </article>
+<app-carousel *ngIf="commentList.length > 0" [commentList]="commentList"></app-carousel>

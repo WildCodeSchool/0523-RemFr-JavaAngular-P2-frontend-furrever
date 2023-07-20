@@ -31,6 +31,7 @@ import { PetsitterProfileComponent } from './pages/petsitter-profile/petsitter-p
 import { UserInfosComponent } from './components/user-infos/user-infos.component';
 import { ServicesListComponent } from './components/services-list/services-list.component';
 import { ServicesComponent } from './components/services/services.component';
+import { LoaderComponent } from './components/loader/loader.component';
 
 @NgModule({
   declarations: [
@@ -57,6 +58,8 @@ import { ServicesComponent } from './components/services/services.component';
     UserInfosComponent,
     ServicesListComponent,
     ServicesComponent,
+    LoaderComponent,
+e
   ],
   imports: [
     BrowserModule,
