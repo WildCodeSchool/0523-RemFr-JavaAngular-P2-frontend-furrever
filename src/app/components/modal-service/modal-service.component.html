@@ -1,18 +1,22 @@
 <section>
-  <div class="w3-modal-content">
-    <div class="w3-container">
-      <p>Ce service comprend :</p>
-      <div>
-        <p *ngIf="service.healer">Le Pet Sitter peut donner des soins.</p>
-        <p *ngIf="!service.healer">Le Pet Sitter ne sait pas donner des soins.</p>
-      </div>
-      <p>Ce service comprend les animaux suivants :</p>
+  <div class="w3-container">
+    <h1>Service de {{ petSitterFirstName }}</h1>
+    <div class="w3-modal-content">
+      <img class="my-icon" src="assets/images/patoune.png" />
+      <p>{{ service.description }}</p>
+      <h2>Prix du service :</h2>
+      <p><b>{{ service.price }}€</b></p>
+      <h2>Ce service comprend les animaux suivants :</h2>
       <span *ngFor="let oneSpecies of service.speciesList; let i = index">
         {{ oneSpecies.name }}<span *ngIf="service.speciesList[i + 1]">,</span>
       </span>
       <p *ngIf="service.weightMin || service.weightMax">
         Poids des animaux acceptés : minimum {{ service.weightMin }}, maximum : {{ service.weightMax }}
       </p>
+      <div *ngIf="service.healer">
+        <h3>{{ petSitterFirstName }} sait-il donner des soins ?</h3>
+        <p>Oui, merci de préparer les consignes ainsi que le traitement.</p>
+      </div>
     </div>
   </div>
 </section>

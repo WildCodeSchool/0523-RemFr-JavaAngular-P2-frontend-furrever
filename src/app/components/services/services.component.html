@@ -10,6 +10,6 @@
 <div class="modal" *ngIf="showModal">
   <section>
     <p class="button" (click)="isShowModal()">X</p>
-    <app-modal-service [service]="service"></app-modal-service>
+    <app-modal-service [service]="service" [petSitterFirstName]="petSitterFirstName"></app-modal-service>
   </section>
 </div>

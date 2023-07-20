@@ -7,10 +7,9 @@ import { Service } from "../../models/Service";
   styleUrls: ["./services.component.scss"],
 })
 export class ServicesComponent {
-  @Input()
-  service!: Service;
+  @Input() service!: Service;
   showModal = false;
-
+  @Input() petSitterFirstName!: string;
   isShowModal() {
     this.showModal = !this.showModal;
   }

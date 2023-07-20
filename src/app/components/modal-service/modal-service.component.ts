@@ -9,4 +9,6 @@ import { Service } from "../../models/Service";
 export class ModalServiceComponent {
   @Input()
   service!: Service;
+  @Input()
+  petSitterFirstName!: string;
 }
