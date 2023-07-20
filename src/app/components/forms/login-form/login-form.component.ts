@@ -1,5 +1,7 @@
-import { Component } from '@angular/core';
-import { FormControl, FormGroup } from "@angular/forms";
+import {Component} from '@angular/core';
+import {FormControl, FormGroup} from "@angular/forms";
+import {ApiCallService} from "../../../services/api/api-call.service";
+import {Router} from "@angular/router";
 
 @Component({
   selector: "app-login-form",
@@ -11,7 +13,13 @@ export class LoginFormComponent {
     email: new FormControl(""),
     password: new FormControl(""),
   });
+
+  constructor(private apiCallService: ApiCallService, private route: Router) {
+  }
+
   sendLogin() {
-    console.table(this.login.getRawValue());
+    this.apiCallService.loginRequest(this.login.getRawValue()).subscribe((token) => {
+      localStorage.setItem("authtoken", token);
+    });
   }
 }
