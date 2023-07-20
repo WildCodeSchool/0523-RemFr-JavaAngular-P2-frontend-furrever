@@ -1,46 +1,101 @@
-<form [formGroup]="signup" (ngSubmit)="sendSignUp()">
+<form (ngSubmit)="signup.valid && sendSignUp()" [formGroup]="signup">
   <div class="species_service_container">
     <p>Qui êtes vous?</p>
     <div>
       <label class="control control-checkbox">
         Je suis propiétaire d'animal
-        <input type="radio" id="walk" name="service" checked />
+        <input checked id="walk" name="service" type="radio" />
         <div class="control_indicator"></div>
       </label>
       <label class="control control-checkbox">
         Je suis Pet-sitter
-        <input type="radio" id="visit" name="service" />
+        <input id="visit" name="service" type="radio" />
         <div class="control_indicator"></div>
       </label>
     </div>
-
+    <div class="images_choice">
+      <div>
+        <p>Choisissez une image de profil :</p>
+      </div>
+      <div class="images_container">
+        <div>
+          <label>
+            <input checked formControlName="picture" name="picture" required type="radio" value="lion.jpg" />
+            <img src="assets/images/lion1.jpg" />
+          </label>
+        </div>
+        <div>
+          <label>
+            <input formControlName="picture" name="picture" required type="radio" value="gorilla.png" />
+            <img src="assets/images/gorilla.png" />
+          </label>
+        </div>
+        <div>
+          <label>
+            <input formControlName="picture" name="picture" required type="radio" value="cow.jpg" />
+            <img src="assets/images/cow.jpg" />
+          </label>
+        </div>
+        <div>
+          <label>
+            <input formControlName="picture" name="picture" required type="radio" value="sea_lion.jpg" />
+            <img src="assets/images/sea_lion.jpg" />
+          </label>
+        </div>
+        <div>
+          <label>
+            <input formControlName="picture" name="picture" required type="radio" value="donkey.jpg" />
+            <img src="assets/images/donkey.jpg" />
+          </label>
+        </div>
+        <div>
+          <label>
+            <input formControlName="picture" name="picture" required type="radio" value="otter.jpg" />
+            <img src="assets/images/otter.jpg" />
+          </label>
+        </div>
+      </div>
+    </div>
   </div>
   <div class="field">
-    <input type="email" formControlName="email" placeholder="Email" name="email" id="email" required />
+    <input formControlName="email" id="email" name="email" placeholder="Email" required type="email" />
     <label for="email">Email</label>
+    <div *ngIf="signup.controls['email'].errors && !signup.controls['email'].pristine" class="error-msg">
+      <div [hidden]="!signup.controls['email'].errors?.['required']">Une adresse mail est requise.</div>
+      <div [hidden]="!signup.controls['email'].invalid">L'adresse mail n'est pas valide.</div>
+    </div>
   </div>
   <div class="field">
     <input
-      type="password"
       formControlName="password"
-      placeholder="Mot de passe"
-      name="password"
       id="password"
+      name="password"
+      placeholder="Mot de passe"
       required
+      type="password"
     />
     <label for="password">Mot de passe</label>
+    <div *ngIf="signup.controls['password'].errors && !signup.controls['password'].pristine" class="error-msg">
+      <div [hidden]="!signup.controls['password'].errors?.['required']">Un mot de passe est requis.</div>
+      <div [hidden]="!signup.controls['password'].invalid">Le mot de passe n'est pas valide.</div>
+    </div>
   </div>
   <div class="field">
-    <input type="text" formControlName="firstname" placeholder="Prénom" name="firstname" id="firstname" required />
+    <input formControlName="firstName" id="firstname" name="firstName" placeholder="Prénom" required type="text" />
     <label for="firstname">Prénom</label>
+    <div *ngIf="signup.controls['firstName'].errors && !signup.controls['firstName'].pristine" class="error-msg">
+      <div [hidden]="!signup.controls['firstName'].errors?.['required']">Le prénom doit faire 3 caractères minimum.
+      </div>
+      <div [hidden]="!signup.controls['firstName'].invalid">Le prénom n'est pas valide.</div>
+    </div>
   </div>
   <div class="field">
-    <input type="text" formControlName="lastname" placeholder="Nom" name="lastname" id="lastname" required />
+    <input formControlName="lastName" id="lastname" name="lastName" placeholder="Nom" required type="text" />
     <label for="lastname">Nom</label>
-  </div>
-  <div class="field">
-    <input type="file" formControlName="picture" name="picture" id="picture" />
-    <label for="picture">Image de profil</label>
+    <div *ngIf="signup.controls['lastName'].errors && !signup.controls['lastName'].pristine" class="error-msg">
+      <div [hidden]="!signup.controls['lastName'].errors?.['required']">Le nom doit faire 3 caractères minimum.</div>
+      <div [hidden]="!signup.controls['lastName'].invalid">Le nom n'est pas valide.</div>
+    </div>
   </div>
   <input class="button" type="submit" value="Valider" />
 </form>

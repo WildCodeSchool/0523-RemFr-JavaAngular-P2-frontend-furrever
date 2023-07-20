@@ -1,5 +1,6 @@
 import { Component } from "@angular/core";
-import { FormControl, FormGroup } from "@angular/forms";
+import { FormControl, FormGroup, Validators } from "@angular/forms";
+import { ApiCallService } from "../../../services/api/api-call.service";
 
 @Component({
   selector: "app-signup-form",
@@ -10,14 +11,19 @@ export class SignupFormComponent {
   today = Date;
 
   signup = new FormGroup({
-    ispetsitter: new FormControl(false),
-    firstname: new FormControl(""),
-    lastname: new FormControl(""),
-    email: new FormControl(""),
-    password: new FormControl(""),
-    picture: new FormControl(""),
+    email: new FormControl("", [Validators.required, Validators.email]),
+    password: new FormControl("", [Validators.required, Validators.minLength(6)]),
+    firstName: new FormControl("", [Validators.required, Validators.minLength(3)]),
+    lastName: new FormControl("", [Validators.required, Validators.minLength(3)]),
+    picture: new FormControl("lion.jpg", [Validators.required]),
+    isPetsitter: new FormControl(false, [Validators.required]),
   });
+  protected readonly onsubmit = onsubmit;
+
+  constructor(private apiCallService: ApiCallService) {
+  }
+
   sendSignUp() {
-    console.table(this.signup.getRawValue());
+    this.apiCallService.createUser(this.signup.getRawValue()).subscribe((response) => console.log(response));
   }
 }

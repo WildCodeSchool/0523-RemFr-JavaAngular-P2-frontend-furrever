@@ -14,6 +14,15 @@ type ResponsePetSitter = {
   serviceTemplateList: Service[];
 };
 
+export type User = {
+  firstName: string | null;
+  lastName: string | null;
+  email: string | null;
+  password: string | null;
+  isPetsitter: boolean | null;
+  picture: string | null;
+};
+
 @Injectable({
   providedIn: "root",
 })
@@ -23,6 +32,7 @@ export class ApiCallService {
   private endPointGetSpecies = "species";
   private endPointSearchPetsitter = "petsitters/search";
   private endPointGetPetSitterById = "petsitters/";
+  private endPointCreateUser = "auth/register";
 
   constructor(public http: HttpClient) {}
 
@@ -40,5 +50,9 @@ export class ApiCallService {
 
   getPetsittersById(id: string): Observable<ResponsePetSitter> {
     return this.http.get<ResponsePetSitter>(this.API_URL + this.endPointGetPetSitterById + id);
+  }
+
+  createUser(payload: User) {
+    return this.http.post<User>(this.API_URL + this.endPointCreateUser, payload);
   }
 }

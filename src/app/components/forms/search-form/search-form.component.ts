@@ -3,7 +3,7 @@ import { ApiCallService } from "../../../services/api/api-call.service";
 import { Species } from "../../../models/Species";
 import { FormControl, FormGroup } from "@angular/forms";
 import { SearchRequest } from "../../../models/SearchRequest";
-import { Router} from "@angular/router";
+import { Router } from "@angular/router";
 
 @Component({
   selector: "app-search-form",
@@ -14,8 +14,13 @@ export class SearchFormComponent implements OnInit {
   speciesList: Species[] = [];
   today!: Date;
   speciesSelect: string[] = [];
+  searchForm = new FormGroup({
+    service: new FormControl("Promenade quotidienne"),
+    city: new FormControl(""),
+  });
 
-  constructor(private apiCallService: ApiCallService, private route: Router) {}
+  constructor(private apiCallService: ApiCallService, private route: Router) {
+  }
 
   ngOnInit(): void {
     this.apiCallService.getSpeciesName().subscribe((speciesList: Species[]) => {
@@ -23,11 +28,6 @@ export class SearchFormComponent implements OnInit {
     });
     this.today = new Date();
   }
-
-  searchForm = new FormGroup({
-    service: new FormControl("Promenade quotidienne"),
-    city: new FormControl(""),
-  });
 
   checkSpecies(name: string) {
     if (this.speciesSelect.includes(name)) {
@@ -41,7 +41,7 @@ export class SearchFormComponent implements OnInit {
     const searchRequest = new SearchRequest(
       this.searchForm.getRawValue().city,
       this.searchForm.getRawValue().service,
-      this.speciesSelect
+      this.speciesSelect,
     );
     this.route.navigate(["/search-result"], { queryParams: searchRequest });
   }
