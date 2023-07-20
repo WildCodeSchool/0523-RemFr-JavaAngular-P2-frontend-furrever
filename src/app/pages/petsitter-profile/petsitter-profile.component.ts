@@ -14,17 +14,21 @@ export class PetsitterProfileComponent implements OnInit {
   commentList: Comment[] = [];
   petSitterProfile!: PetsitterViewByOwner;
   serviceList: Service[] = [];
-  constructor(private activatedRoute: ActivatedRoute, private apiCallService: ApiCallService) {}
+
+  constructor(private activatedRoute: ActivatedRoute, private apiCallService: ApiCallService) {
+  }
 
   ngOnInit() {
     const userId = this.activatedRoute.snapshot.params["id"];
-    console.log(userId);
-
     this.apiCallService
       .getPetsittersById(userId)
       .subscribe(({ commentTemplateList, petSitterProfile, serviceTemplateList }) => {
         this.commentList = commentTemplateList;
         this.petSitterProfile = petSitterProfile;
+        this.petSitterProfile.ratingQuantity = this.commentList.length;
+        let allNotes = 0;
+        this.commentList.forEach(({ note }) => (allNotes += note));
+        this.petSitterProfile.rating = Math.round(allNotes / this.commentList.length);
         this.serviceList = serviceTemplateList;
       });
   }

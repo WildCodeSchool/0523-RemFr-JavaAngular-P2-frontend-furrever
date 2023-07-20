@@ -1,4 +1,4 @@
-:host{
+:host {
   display: flex;
   justify-content: center;
 }
@@ -6,7 +6,7 @@
 form {
   width: 100%;
   max-width: 450px;
-  padding: 1rem 0;
+  padding: 2rem 0;
   margin: 1rem;
   display: flex;
   flex-direction: column;
@@ -24,7 +24,7 @@ form {
     border: dashed 2px #b17a3a;
     border-radius: 20px;
 
-    p{
+    p {
       font-size: 1.3em;
       color: #355f5b;
       margin-bottom: 0;
@@ -199,4 +199,45 @@ form {
     text-decoration: none;
     color: #355f5b;
   }
+
+  .images_choice {
+    display: flex;
+    flex-direction: column;
+    margin: 0 1rem;
+
+    p {
+      margin: 0 0 1rem 0;
+    }
+
+    .images_container {
+      width: 80%;
+      margin: 0 auto;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-flow: row wrap;
+    }
+
+    img {
+      width: 60px;
+      height: 60px;
+      border-radius: 50px;
+      margin: 0.5rem;
+    }
+  }
+}
+
+[type=radio] {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+[type=radio] + img {
+  cursor: pointer;
+}
+
+[type=radio]:checked + img {
+  outline: thick double #355F5B;
 }
