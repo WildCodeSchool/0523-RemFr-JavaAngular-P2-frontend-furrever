@@ -68,7 +68,6 @@ import { PetsitterProfileComponent } from './pages/petsitter-profile/petsitter-p
     ServicesComponent,
     LoaderComponent,
     ModalServiceComponent,
-
   ],
   imports: [
     BrowserModule,
