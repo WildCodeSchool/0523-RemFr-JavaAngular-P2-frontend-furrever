@@ -1,0 +1,45 @@
+<section>
+  <div class="first_container">
+    <img alt="image de l'utilisateur" class="avatar" src="assets/images/icons/profile.png" />
+    <div>
+      <p class="name">
+        {{ petSitterProfile.firstname }} {{ petSitterProfile.lastname ? (petSitterProfile.lastname | initial) : "" }}.
+      </p>
+      <p class="average">Moyenne du Pet Sitter</p>
+      <div class="note_container">
+        <div class="image-container">
+          <img
+            *ngFor="let in of counter(petSitterProfile.rating)"
+            alt="patte de chien"
+            class="user-note"
+            src="assets/images/patoune.png"
+          />
+          <img
+            *ngFor="let in of counter(5 - petSitterProfile.rating)"
+            alt="patte de chien vide"
+            class="user-note"
+            src="assets/images/empty-patoune.png"
+          />
+        </div>
+        <p>sur {{ petSitterProfile.ratingQuantity }} avis</p>
+      </div>
+    </div>
+  </div>
+  <div class="second_container">
+    <h4>À propos de ce Pet Sitter</h4>
+    <p>
+      {{ petSitterProfile.description }}
+    </p>
+    <h4>Où trouver ce Pet Sitter</h4>
+    <p>{{ petSitterProfile.street }}, {{ petSitterProfile.zipCode }}, {{ petSitterProfile.city }}</p>
+  </div>
+  <div class="third_container">
+    <div class="button_container">
+      <!-- TODO: faire une petite modale pour montrer l'adresse mail -->
+      <input class="button" type="submit" value="Contacter le Pet Sitter" />
+    </div>
+    <div class="button_container">
+      <input class="button" type="submit" value="Donner un avis" />
+    </div>
+  </div>
+</section>

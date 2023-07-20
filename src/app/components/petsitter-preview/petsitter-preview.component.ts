@@ -1,10 +1,10 @@
-import {Component, Input} from '@angular/core';
-import {PetsitterPreview} from "../../models/PetsitterPreview";
+import { Component, Input } from "@angular/core";
+import { PetsitterPreview } from "../../models/PetsitterPreview";
 
 @Component({
-  selector: 'app-petsitter-preview',
-  templateUrl: './petsitter-preview.component.html',
-  styleUrls: ['./petsitter-preview.component.scss']
+  selector: "app-petsitter-preview",
+  templateUrl: "./petsitter-preview.component.html",
+  styleUrls: ["./petsitter-preview.component.scss"],
 })
 export class PetsitterPreviewComponent {
   @Input()
