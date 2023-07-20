@@ -1,7 +1,7 @@
 section {
   display: flex;
   justify-content: space-between;
-  align-items: end;
+  align-items: center;
   margin-bottom: 10px;
 
   h2{
@@ -29,6 +29,37 @@ section {
     b {
       color: black;
       font-size: 1rem;
+      margin-left: 5px;
     }
+  }
+}
+
+.modal{
+  position: fixed;
+  background-color: rgba(0, 0, 0, 0.7);
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  right: 0;
+
+  section{
+    background-color: white;
+    width: 90%;
+    align-content: center;
+    margin: 20% auto auto;
+    padding: 15px 15px 25px;
+    display: flex;
+    flex-direction: row-reverse;
+    position: relative;
+    border-radius: 20px;
+  }
+
+  .button{
+    text-align: end;
+    margin: 0;
+    position: absolute;
+    top: 10px;
+    font-weight: bolder;
+    font-size: larger;
   }
 }

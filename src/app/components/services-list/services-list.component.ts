@@ -7,6 +7,6 @@ import { Service } from "../../models/Service";
   styleUrls: ["./services-list.component.scss"],
 })
 export class ServicesListComponent {
-  @Input()
-  serviceList!: Service[];
+  @Input() serviceList!: Service[];
+  @Input() petSitterFirstName!: string;
 }
