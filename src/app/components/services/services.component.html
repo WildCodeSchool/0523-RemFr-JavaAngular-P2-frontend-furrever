@@ -1,4 +1,4 @@
-<section (click)="isShowModal()">
+<section class="before_modal" (click)="isShowModal()">
   <div class="main-services">
     <h2 class="services_title">{{ service.typeService }}</h2>
     <p class="description"><i>{{ service.description }}</i></p>
@@ -9,7 +9,7 @@
 </section>
 <div class="modal" *ngIf="showModal">
   <section>
-    <p class="button" (click)="isShowModal()">X</p>
+    <input type="button" class="button" (click)="isShowModal()" value="X" />
     <app-modal-service [service]="service" [petSitterFirstName]="petSitterFirstName"></app-modal-service>
   </section>
 </div>

@@ -24,7 +24,7 @@ export class LoginFormComponent {
     if (this.errors.length <= 0) {
       this.apiCallService.loginRequest(this.login.getRawValue()).subscribe(({ token }) => {
         localStorage.setItem("authtoken", token);
-        //TODO: console log pour la demo pour montrer que l'on recupere bien le token
+        //TODO: console log pour la demo pour montrer que l'on récupère bien le token
         console.log(token);
         this.route.navigate(["/"]);
       });
@@ -33,10 +33,10 @@ export class LoginFormComponent {
 
   validation(email: string | null, password: string | null) {
     if (!email || !email.trim() || !email.match(/[a-z0-9_\-\.]+@[a-z0-9_\-\.]+\.[a-z]+/i)) {
-      this.errors.push("Votre adresse email n'est pas une adresse valide");
+      this.errors.push("Votre adresse mail n'est pas une adresse valide.");
     }
     if (!password) {
-      this.errors.push("Votre mot de passe n'est pas un mot de passe valide");
+      this.errors.push("Votre mot de passe n'est pas un mot de passe valide.");
     }
   }
 }
