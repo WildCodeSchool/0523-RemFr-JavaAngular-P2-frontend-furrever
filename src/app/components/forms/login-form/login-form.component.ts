@@ -1,7 +1,7 @@
 import { Component } from "@angular/core";
 import { FormControl, FormGroup } from "@angular/forms";
 import { ApiCallService } from "../../../services/api/api-call.service";
-import {ActivatedRoute, Router} from "@angular/router";
+import { ActivatedRoute, Router } from "@angular/router";
 
 @Component({
   selector: "app-login-form",
@@ -24,6 +24,7 @@ export class LoginFormComponent {
     if (this.errors.length <= 0) {
       this.apiCallService.loginRequest(this.login.getRawValue()).subscribe(({ token }) => {
         localStorage.setItem("authtoken", token);
+        console.log(token);
         this.route.navigate(["/"]);
       });
     }
@@ -38,5 +39,3 @@ export class LoginFormComponent {
     }
   }
 }
-
-//!email.match(/[a-z0-9_\-\.]+@[a-z0-9_\-\.]+\.[a-z]+/i)
