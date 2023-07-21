@@ -9,13 +9,27 @@ section {
   flex-direction: column;
   align-items: center;
 
+  h2 {
+    color: #355f5b;
+  }
+
   img {
     width: 350px;
     border-radius: 10px;
   }
 
-  p{
+  p {
     text-align: justify;
     margin: .5rem;
   }
+}
+
+.backSearch {
+  text-decoration: none;
+  background-color: #355f5b;
+  color: white;
+  padding: 0.7rem 1.8em;
+  font-size: 1.3rem;
+  border-radius: 50px;
+  margin: 2rem;
 }
