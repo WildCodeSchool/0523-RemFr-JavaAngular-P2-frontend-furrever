@@ -84,7 +84,7 @@
     <input formControlName="firstName" id="firstname" name="firstName" placeholder="Prénom" required type="text" />
     <label for="firstname">Prénom</label>
     <div *ngIf="signup.controls['firstName'].errors && !signup.controls['firstName'].pristine" class="error-msg">
-      <div [hidden]="!signup.controls['firstName'].errors?.['required']">Le prénom doit faire 3 caractères minimum.
+      <div [hidden]="!signup.controls['firstName'].errors?.['required']">Le prénom doit faire 2 caractères minimum.
       </div>
       <div [hidden]="!signup.controls['firstName'].invalid">Le prénom n'est pas valide.</div>
     </div>
@@ -93,7 +93,7 @@
     <input formControlName="lastName" id="lastname" name="lastName" placeholder="Nom" required type="text" />
     <label for="lastname">Nom</label>
     <div *ngIf="signup.controls['lastName'].errors && !signup.controls['lastName'].pristine" class="error-msg">
-      <div [hidden]="!signup.controls['lastName'].errors?.['required']">Le nom doit faire 3 caractères minimum.</div>
+      <div [hidden]="!signup.controls['lastName'].errors?.['required']">Le nom doit faire 2 caractères minimum.</div>
       <div [hidden]="!signup.controls['lastName'].invalid">Le nom n'est pas valide.</div>
     </div>
   </div>

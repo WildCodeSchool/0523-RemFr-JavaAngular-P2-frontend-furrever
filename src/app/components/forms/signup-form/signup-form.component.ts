@@ -13,8 +13,8 @@ export class SignupFormComponent {
   signup = new FormGroup({
     email: new FormControl("", [Validators.required, Validators.email]),
     password: new FormControl("", [Validators.required, Validators.minLength(6)]),
-    firstName: new FormControl("", [Validators.required, Validators.minLength(3)]),
-    lastName: new FormControl("", [Validators.required, Validators.minLength(3)]),
+    firstName: new FormControl("", [Validators.required, Validators.minLength(2)]),
+    lastName: new FormControl("", [Validators.required, Validators.minLength(2)]),
     picture: new FormControl("lion.jpg", [Validators.required]),
     isPetsitter: new FormControl(false, [Validators.required]),
   });
@@ -24,6 +24,6 @@ export class SignupFormComponent {
   }
 
   sendSignUp() {
-    this.apiCallService.createUser(this.signup.getRawValue()).subscribe((response) => console.log(response));
+    this.apiCallService.createUser(this.signup.getRawValue()).subscribe((response) => console.log("Vous êtes bien inscrit."));
   }
 }
