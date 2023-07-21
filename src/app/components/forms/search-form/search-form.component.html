@@ -2,7 +2,7 @@
 <form [formGroup]="searchForm" (ngSubmit)="onSubmit()">
   <div class="species_container">
     <label *ngFor="let species of speciesList" class="control control-checkbox">
-      {{ species.name }}
+      {{ species.name | titlecase }}
       <input type="checkbox" (click)="checkSpecies(species.name)" />
       <div class="control_indicator"></div>
     </label>
