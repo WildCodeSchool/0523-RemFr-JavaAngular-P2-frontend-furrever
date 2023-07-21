@@ -24,6 +24,7 @@ export class LoginFormComponent {
     if (this.errors.length <= 0) {
       this.apiCallService.loginRequest(this.login.getRawValue()).subscribe(({ token }) => {
         localStorage.setItem("authtoken", token);
+        //TODO: console log pour la demo pour montrer que l'on recupere bien le token
         console.log(token);
         this.route.navigate(["/"]);
       });
