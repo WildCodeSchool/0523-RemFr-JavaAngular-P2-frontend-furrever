@@ -10,7 +10,7 @@ import { ApiCallService } from "../../services/api/api-call.service";
   styleUrls: ["./search-result.component.scss"],
 })
 export class SearchResultComponent implements OnInit {
-  petsitterPreviewList: PetsitterPreview[] = [];
+  petsitterPreviewList?: PetsitterPreview[];
   constructor(private activatedRoute: ActivatedRoute, private apiCallService: ApiCallService) {}
   ngOnInit(): void {
     const { city, typeService, species } = this.activatedRoute.snapshot.queryParams;

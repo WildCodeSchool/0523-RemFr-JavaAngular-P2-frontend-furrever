@@ -2,3 +2,4 @@
 <article>
   <app-services-list [serviceList]="serviceList" [petSitterFirstName]="petSitterProfile.firstname"></app-services-list>
 </article>
+<app-carousel *ngIf="commentList.length > 0" [commentList]="commentList"></app-carousel>
