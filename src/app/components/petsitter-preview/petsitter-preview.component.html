@@ -1,7 +1,6 @@
 <section>
   <a routerLink="/profile-petsitter/{{ petsitter.idPetsitter }}">
-    <img *ngIf="petsitter.picture" class="picture" src="{{ petsitter.picture }}" />
-    <img *ngIf="!petsitter.picture" class="picture" src="assets/images/icons/profile.png" />
+    <img class="picture" src="assets/images/{{ petsitter.picture }}" />
     <div class="petsitter">
       <h3>{{ petsitter.firstname }} {{ petsitter.lastname | initial }}.</h3>
       <div class="note">
