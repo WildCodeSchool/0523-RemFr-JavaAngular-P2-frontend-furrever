@@ -28,31 +28,39 @@ export type User = {
 })
 export class ApiCallService {
   readonly API_URL = "http://localhost:8080/api/";
-  private endPointGetTopComments = "comments/top";
-  private endPointGetSpecies = "species";
-  private endPointSearchPetsitter = "petsitters/search";
-  private endPointGetPetSitterById = "petsitters/";
-  private endPointCreateUser = "auth/register";
+
+  private endPoints = {
+    getTopComments: "comments/top",
+    getSpecies: "species",
+    searchPetsitter: "petsitters/search",
+    login: "auth/login",
+    getPetSitterById: "petsitters/",
+    createUser: "auth/register",
+  };
 
   constructor(public http: HttpClient) {}
 
   getTopComments(): Observable<Comment[]> {
-    return this.http.get<Comment[]>(this.API_URL + this.endPointGetTopComments);
+    return this.http.get<Comment[]>(this.API_URL + this.endPoints.getTopComments);
   }
 
   getSpeciesName(): Observable<Species[]> {
-    return this.http.get<Species[]>(this.API_URL + this.endPointGetSpecies);
+    return this.http.get<Species[]>(this.API_URL + this.endPoints.getSpecies);
   }
 
   getPetsitters(payload: SearchRequest): Observable<PetsitterPreview[]> {
-    return this.http.post<PetsitterPreview[]>(this.API_URL + this.endPointSearchPetsitter, payload);
+    return this.http.post<PetsitterPreview[]>(this.API_URL + this.endPoints.searchPetsitter, payload);
   }
 
   getPetsittersById(id: string): Observable<ResponsePetSitter> {
-    return this.http.get<ResponsePetSitter>(this.API_URL + this.endPointGetPetSitterById + id);
+    return this.http.get<ResponsePetSitter>(this.API_URL + this.endPoints.getPetSitterById + id);
   }
 
   createUser(payload: User) {
-    return this.http.post<User>(this.API_URL + this.endPointCreateUser, payload);
+    return this.http.post<User>(this.API_URL + this.endPoints.createUser, payload);
+  }
+
+  loginRequest(payload: any): Observable<any> {
+    return this.http.post<any>(this.API_URL + this.endPoints.login, payload);
   }
 }

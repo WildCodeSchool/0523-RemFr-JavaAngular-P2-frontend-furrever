@@ -14,6 +14,10 @@
     />
     <label for="password">Mot de passe</label>
   </div>
+  <div *ngIf="errors.length > 0" class="errors">
+    <p *ngFor="let error of errors">{{ error }}</p>
+  </div>
   <input class="button" type="submit" value="Valider" />
   <a routerLink="/signup">Pas encore de compte ? Inscrivez-vous.</a>
 </form>
+

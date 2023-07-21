@@ -15,8 +15,7 @@ export class PetsitterProfileComponent implements OnInit {
   petSitterProfile!: PetsitterViewByOwner;
   serviceList: Service[] = [];
 
-  constructor(private activatedRoute: ActivatedRoute, private apiCallService: ApiCallService) {
-  }
+  constructor(private activatedRoute: ActivatedRoute, private apiCallService: ApiCallService) {}
 
   ngOnInit() {
     const userId = this.activatedRoute.snapshot.params["id"];
