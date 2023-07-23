@@ -7,14 +7,23 @@
     </li>
     <li>
       <a routerLink="/profile">
-        <img *ngIf="isLog" src="assets/images/" alt="icon profile" title="Profile" />
-        <img *ngIf="!isLog" src="assets/images/icons/profile.jpg" alt="icon profile" title="Profile" />
+        <img src="assets/images/{{ (userStore | async)?.picture }}" alt="icon profile" title="Profile" />
       </a>
     </li>
     <li>
       <a routerLink="/login">
-        <img *ngIf="isLog" src="assets/images/icons/logout.png" alt="icon logout" title="Déconnexion" />
-        <img *ngIf="!isLog" src="assets/images/icons/login.png" alt="icon login" title="Connexion" />
+        <img
+          *ngIf="(userStore | async)?.isLog"
+          src="assets/images/icons/logout.png"
+          alt="icon logout"
+          title="Déconnexion"
+        />
+        <img
+          *ngIf="!(userStore | async)?.isLog"
+          src="assets/images/icons/login.png"
+          alt="icon login"
+          title="Connexion"
+        />
       </a>
     </li>
   </ul>

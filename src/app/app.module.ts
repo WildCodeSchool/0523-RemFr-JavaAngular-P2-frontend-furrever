@@ -5,6 +5,7 @@ import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { AppRoutingModule } from "./app-routing.module";
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { HttpClientModule } from "@angular/common/http";
+import { StoreModule } from "@ngrx/store";
 
 import { DemoPipe } from "./pipes/demo.pipe";
 import { InitialPipe } from "./pipes/initial.pipe";
@@ -33,6 +34,8 @@ import { SearchResultComponent } from "./pages/search-result/search-result.compo
 import { LogInComponent } from "./pages/log-in/log-in.component";
 import { SignUpComponent } from "./pages/sign-up/sign-up.component";
 import { PetsitterProfileComponent } from "./pages/petsitter-profile/petsitter-profile.component";
+import { userStoreReducer } from "./services/state/userStore.reducer";
+
 
 @NgModule({
   declarations: [
@@ -70,6 +73,7 @@ import { PetsitterProfileComponent } from "./pages/petsitter-profile/petsitter-p
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
+    StoreModule.forRoot({ userStore: userStoreReducer }),
   ],
   providers: [],
   bootstrap: [AppComponent],
