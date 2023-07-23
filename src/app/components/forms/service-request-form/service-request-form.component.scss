@@ -1,33 +1,61 @@
-:host{
-  display: flex;
-  justify-content: center;
+.w3-modal-content, .my-icon {
+  position: relative;
+  border: 1px solid #cfd7de;
+  border-radius: 10px;
+  padding: 40px 10px 10px;
+  width: 100%;
 }
 
 form {
-  width: 100%;
-  max-width: 450px;
+  max-width: 500px;
   padding: 1rem 0;
-  margin: 1rem;
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: #f4f4f4;
   border-radius: 20px;
+  margin: 1rem 1rem 0;
 
+  h1 {
+    margin-top: 0;
+    text-align: center;
+    font-size: 1.2em;
+  }
+
+  p{
+    text-align: justify;
+    color: #355f5b;
+    margin-bottom: 0;
+  }
+  .my-icon {
+    padding-top: 6px;
+    right: 0;
+    height: 35px;
+    width: 100%;
+    border-bottom-right-radius: 4px;
+    border-bottom-left-radius: 4px;
+    background-color: #eee;
+    position: absolute;
+    left: 0;
+    top: 0;
+    object-fit: contain;
+  }
 
   .field {
     position: relative;
     padding: 15px 0 0;
     margin-top: 10px;
-    width: 50%;
+    width: 100%;
     margin-bottom: 1rem;
 
-    input {
+    textarea{
+      height: 6rem;
+    }
+
+    input, textarea {
       width: 100%;
       border: 0;
       border-bottom: 2px solid #355f5b;
       outline: 0;
-      font-size: 1.3rem;
       padding: 7px 0;
       background: transparent;
       transition: border-color 0.2s;
@@ -53,9 +81,9 @@ form {
       color: #355f5b;
     }
 
-    input:focus {
+    input:focus, textarea:focus {
       ~ label {
-        position: absolute;
+        //position: absolute;
         top: 0;
         display: block;
         transition: 0.2s;
@@ -77,7 +105,6 @@ form {
     border: none;
     margin-top: 1rem;
     padding: 0.7rem 1.8em;
-    font-size: 1.3rem;
   }
 
   a {

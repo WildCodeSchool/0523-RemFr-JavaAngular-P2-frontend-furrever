@@ -7,6 +7,9 @@ import { PetsitterPreview } from "../../models/PetsitterPreview";
 import { SearchRequest } from "../../models/SearchRequest";
 import { PetsitterViewByOwner } from "../../models/PetsitterViewByOwner";
 import { Service } from "../../models/Service";
+import {TokenJwt} from "../../models/TokenJwt";
+import {Login} from "../../models/Login";
+import {SendService} from "../../models/SendService";
 
 type ResponsePetSitter = {
   commentTemplateList: Comment[];
@@ -23,6 +26,8 @@ export type User = {
   picture: string | null;
 };
 
+
+
 @Injectable({
   providedIn: "root",
 })
@@ -36,6 +41,7 @@ export class ApiCallService {
     login: "auth/login",
     getPetSitterById: "petsitters/",
     createUser: "auth/register",
+    createTransaction: "transactions/",
   };
 
   constructor(public http: HttpClient) {}
@@ -60,7 +66,11 @@ export class ApiCallService {
     return this.http.post<User>(this.API_URL + this.endPoints.createUser, payload);
   }
 
-  loginRequest(payload: any): Observable<any> {
-    return this.http.post<any>(this.API_URL + this.endPoints.login, payload);
+  loginRequest(payload: Login): Observable<TokenJwt> {
+    return this.http.post<TokenJwt>(this.API_URL + this.endPoints.login, payload);
+  }
+
+  createTransaction(payload: SendService) {
+    return this.http.post<any>(this.API_URL + this.endPoints.createTransaction, payload);
   }
 }

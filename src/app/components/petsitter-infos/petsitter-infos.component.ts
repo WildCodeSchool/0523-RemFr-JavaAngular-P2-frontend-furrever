@@ -3,10 +3,10 @@ import { PetsitterViewByOwner } from "../../models/PetsitterViewByOwner";
 
 @Component({
   selector: "app-user-infos",
-  templateUrl: "./user-infos.component.html",
-  styleUrls: ["./user-infos.component.scss"],
+  templateUrl: "./petsitter-infos.component.html",
+  styleUrls: ["./petsitter-infos.component.scss"],
 })
-export class UserInfosComponent implements OnInit {
+export class PetsitterInfosComponent implements OnInit {
   @Input() petSitterProfile!: PetsitterViewByOwner;
 
   ngOnInit() {

@@ -7,8 +7,7 @@ import { PetsitterPreview } from "../../models/PetsitterPreview";
   styleUrls: ["./petsitter-preview.component.scss"],
 })
 export class PetsitterPreviewComponent {
-  @Input()
-  petsitter!: PetsitterPreview;
+  @Input() petsitter!: PetsitterPreview;
   counter(i: number) {
     return new Array(i);
   }

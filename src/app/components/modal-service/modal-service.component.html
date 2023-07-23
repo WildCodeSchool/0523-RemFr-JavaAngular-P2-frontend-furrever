@@ -1,14 +1,16 @@
-<section>
-  <div class="w3-container">
+<section *ngIf="!isResquest">
+  <div>
     <h1>Service de {{ petSitterFirstName }}</h1>
     <div class="w3-modal-content">
-      <img class="my-icon" src="assets/images/patoune.png" />
+      <img class="my-icon" src="assets/images/patoune.png" alt="une patoune" />
       <p>{{ service.description }}</p>
       <h2>Prix du service :</h2>
-      <p><b>{{ service.price }}€</b></p>
+      <p>
+        <b>{{ service.price }}€</b>
+      </p>
       <h2>Ce service comprend les animaux suivants :</h2>
       <span *ngFor="let oneSpecies of service.speciesList; let i = index">
-        {{ oneSpecies.name }}<span *ngIf="service.speciesList[i + 1]">,</span>
+        {{ oneSpecies.name }} <span *ngIf="service.speciesList[i + 1]">,</span>
       </span>
       <p *ngIf="service.weightMin || service.weightMax">
         Poids des animaux acceptés : minimum {{ service.weightMin }}, maximum : {{ service.weightMax }}
@@ -19,4 +21,11 @@
       </div>
     </div>
   </div>
+  <!-- TODO: faire une petite modale pour montrer l'adresse mail -->
+  <input class="button" type="button" (click)="resquestService(service.id)" value="Réserver ce service" />
 </section>
+<app-service-request-form
+  *ngIf="isResquest"
+  [petSitterFirstName]="petSitterFirstName"
+  [serviceId]="service.id"
+></app-service-request-form>
