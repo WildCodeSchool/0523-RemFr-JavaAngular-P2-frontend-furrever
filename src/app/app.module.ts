@@ -36,7 +36,6 @@ import { SignUpComponent } from "./pages/sign-up/sign-up.component";
 import { PetsitterProfileComponent } from "./pages/petsitter-profile/petsitter-profile.component";
 import { userStoreReducer } from "./services/state/userStore.reducer";
 
-
 @NgModule({
   declarations: [
     AppComponent,
