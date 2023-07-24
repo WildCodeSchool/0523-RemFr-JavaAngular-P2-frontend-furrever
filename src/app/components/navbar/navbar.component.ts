@@ -1,4 +1,8 @@
-import { Component } from "@angular/core";
+import { Component, Input } from "@angular/core";
+import { AuthService } from "../../services/auth.service";
+import { Store } from "@ngrx/store";
+import { Observable } from "rxjs";
+import { UserStore } from "../../models/UserStore";
 
 @Component({
   selector: "app-navbar",
@@ -6,9 +10,5 @@ import { Component } from "@angular/core";
   styleUrls: ["./navbar.component.scss"],
 })
 export class NavbarComponent {
-  isLog = false;
-
-  log() {
-    this.isLog = !this.isLog;
-  }
+  @Input() userStore!: Observable<UserStore>;
 }

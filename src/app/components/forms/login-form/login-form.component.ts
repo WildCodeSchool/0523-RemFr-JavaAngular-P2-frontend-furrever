@@ -1,33 +1,52 @@
-import { Component } from "@angular/core";
+import { Component, OnInit } from "@angular/core";
 import { FormControl, FormGroup } from "@angular/forms";
 import { ApiCallService } from "../../../services/api/api-call.service";
-import { ActivatedRoute, Router } from "@angular/router";
+import { Router } from "@angular/router";
+import { Observable } from "rxjs";
+import { Store } from "@ngrx/store";
+import { addUserOnStore, removeUserOnStore } from "../../../services/state/userStore.actions";
+import { AuthService } from "../../../services/auth.service";
+import jwtDecode from "jwt-decode";
+import { PayloadToken } from "../../../models/PayloadToken";
 
 @Component({
   selector: "app-login-form",
   templateUrl: "./login-form.component.html",
   styleUrls: ["./login-form.component.scss"],
 })
-export class LoginFormComponent {
+export class LoginFormComponent implements OnInit {
   login = new FormGroup({
     email: new FormControl(""),
     password: new FormControl(""),
   });
-
   errors: string[] = [];
 
-  constructor(private apiCallService: ApiCallService, private route: Router, private activatedRoute: ActivatedRoute) {}
+  userStore$!: Observable<boolean>;
+  constructor(
+    private apiCallService: ApiCallService,
+    private route: Router,
+    private store: Store<{ userStore: boolean }>,
+    private authService: AuthService
+  ) {}
+
+  ngOnInit(): void {
+    if (this.authService.isConnectedVerif()){
+      this.store.dispatch(removeUserOnStore());
+    }
+    localStorage.removeItem("authToken");
+    this.userStore$ = this.store.select("userStore");
+  }
 
   sendLogin() {
     this.errors = [];
     this.validation(this.login.getRawValue().email, this.login.getRawValue().password);
     if (this.errors.length <= 0) {
       this.apiCallService.loginRequest(this.login.getRawValue()).subscribe(({ token }) => {
-        localStorage.setItem("authtoken", token);
-        //TODO: console log pour la demo pour montrer que l'on récupère bien le token
-        console.log(token);
-        this.route.navigate(["/"]);
+        localStorage.setItem("authToken", token);
+        const payloadToken: PayloadToken = jwtDecode(token);
+        this.store.dispatch(addUserOnStore({ picture: payloadToken.sub }));
       });
+      this.route.navigate(["/"]);
     }
   }
 
