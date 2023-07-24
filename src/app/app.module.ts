@@ -37,6 +37,7 @@ import { SearchResultComponent } from "./pages/search-result/search-result.compo
 import { LogInComponent } from "./pages/log-in/log-in.component";
 import { SignUpComponent } from "./pages/sign-up/sign-up.component";
 import { PetsitterProfileComponent } from "./pages/petsitter-profile/petsitter-profile.component";
+import { TransactionsManagementComponent } from './components/transactions-management/transactions-management.component';
 
 
 @NgModule({
@@ -67,6 +68,7 @@ import { PetsitterProfileComponent } from "./pages/petsitter-profile/petsitter-p
     LoaderComponent,
     ModalServiceComponent,
     ServiceRequestFormComponent,
+    TransactionsManagementComponent,
   ],
   imports: [
     BrowserModule,

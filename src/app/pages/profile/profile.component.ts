@@ -8,6 +8,7 @@ import { Router } from "@angular/router";
   styleUrls: ["./profile.component.scss"],
 })
 export class ProfileComponent implements OnInit {
+  transactionList = [];
   constructor(private authService: AuthService, private route: Router) {}
 
   ngOnInit(): void {

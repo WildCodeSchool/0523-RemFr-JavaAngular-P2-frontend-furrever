@@ -14,6 +14,7 @@ export class AuthService {
         return true;
       }
     }
+    localStorage.removeItem("authToken");
     return false;
   }
 }
