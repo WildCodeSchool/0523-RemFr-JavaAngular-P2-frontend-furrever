@@ -7,7 +7,4 @@ import { Component, Input } from "@angular/core";
 })
 export class TransactionsManagementComponent {
   @Input() transactionList!: any[];
-
-
-
 }
