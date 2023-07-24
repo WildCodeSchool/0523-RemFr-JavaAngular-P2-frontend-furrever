@@ -2,7 +2,7 @@ import { Component, Input, OnInit } from "@angular/core";
 import { UserProfile } from "../../models/UserProfile";
 
 @Component({
-  selector: "app-user-infos",
+  selector: "app-petsitter-infos",
   templateUrl: "./petsitter-infos.component.html",
   styleUrls: ["./petsitter-infos.component.scss"],
 })

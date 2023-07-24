@@ -1,0 +1,19 @@
+<!-- carousel -->
+<div class="carousel">
+  <div *ngIf="animalList.length !== 0">
+    <ng-container *ngFor="let animal of animalList; let i = index">
+      <div *ngIf="i === currentSlide" class="slide" @carouselAnimation>
+        <app-animal-card [animal]="animal"></app-animal-card>
+        <app-animal-card *ngIf="animalList[i + 1]" [animal]="animalList[i + 1]"></app-animal-card>
+      </div>
+    </ng-container>
+  </div>
+
+  <!-- controls -->
+  <button class="control prev" (click)="onPreviousClick()">
+    <span class="arrow left"></span>
+  </button>
+  <button class="control next" (click)="onNextClick()">
+    <span class="arrow right"></span>
+  </button>
+</div>

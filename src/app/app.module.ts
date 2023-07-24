@@ -38,7 +38,9 @@ import { LogInComponent } from "./pages/log-in/log-in.component";
 import { SignUpComponent } from "./pages/sign-up/sign-up.component";
 import { PetsitterProfileComponent } from "./pages/petsitter-profile/petsitter-profile.component";
 import { TransactionsManagementComponent } from "./components/transactions-management/transactions-management.component";
-import { UserComponent } from './components/user/user.component';
+import { UserInfosComponent } from "./components/user-infos/user-infos.component";
+import { AnimalCardComponent } from "./components/animal-card/animal-card.component";
+import { CarouselAnimalComponent } from "./components/carousel-animal/carousel-animal.component";
 
 @NgModule({
   declarations: [
@@ -69,7 +71,9 @@ import { UserComponent } from './components/user/user.component';
     ModalServiceComponent,
     ServiceRequestFormComponent,
     TransactionsManagementComponent,
-    UserComponent,
+    UserInfosComponent,
+    AnimalCardComponent,
+    CarouselAnimalComponent,
   ],
   imports: [
     BrowserModule,
