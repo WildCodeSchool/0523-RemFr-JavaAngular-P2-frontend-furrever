@@ -5,7 +5,7 @@ import { Comment } from "../../models/Comment";
 import { Species } from "../../models/Species";
 import { PetsitterPreview } from "../../models/PetsitterPreview";
 import { SearchRequest } from "../../models/SearchRequest";
-import { PetsitterViewByOwner } from "../../models/PetsitterViewByOwner";
+import { UserProfile } from "../../models/UserProfile";
 import { Service } from "../../models/Service";
 import { TokenJwt } from "../../models/TokenJwt";
 import { Login } from "../../models/Login";
@@ -13,7 +13,7 @@ import { SendService } from "../../models/SendService";
 
 type ResponsePetSitter = {
   commentTemplateList: Comment[];
-  petSitterProfile: PetsitterViewByOwner;
+  petSitterProfile: UserProfile;
   serviceTemplateList: Service[];
 };
 

@@ -1,7 +1,7 @@
 import { Component, OnInit } from "@angular/core";
 import { ActivatedRoute } from "@angular/router";
 import { ApiCallService } from "../../services/api/api-call.service";
-import { PetsitterViewByOwner } from "../../models/PetsitterViewByOwner";
+import { UserProfile } from "../../models/UserProfile";
 import { Comment } from "../../models/Comment";
 import { Service } from "../../models/Service";
 
@@ -12,7 +12,7 @@ import { Service } from "../../models/Service";
 })
 export class PetsitterProfileComponent implements OnInit {
   commentList: Comment[] = [];
-  petSitterProfile!: PetsitterViewByOwner;
+  petSitterProfile!: UserProfile;
   serviceList: Service[] = [];
 
   constructor(private activatedRoute: ActivatedRoute, private apiCallService: ApiCallService) {}

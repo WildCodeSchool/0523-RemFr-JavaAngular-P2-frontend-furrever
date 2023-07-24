@@ -37,8 +37,8 @@ import { SearchResultComponent } from "./pages/search-result/search-result.compo
 import { LogInComponent } from "./pages/log-in/log-in.component";
 import { SignUpComponent } from "./pages/sign-up/sign-up.component";
 import { PetsitterProfileComponent } from "./pages/petsitter-profile/petsitter-profile.component";
-import { TransactionsManagementComponent } from './components/transactions-management/transactions-management.component';
-
+import { TransactionsManagementComponent } from "./components/transactions-management/transactions-management.component";
+import { UserComponent } from './components/user/user.component';
 
 @NgModule({
   declarations: [
@@ -69,6 +69,7 @@ import { TransactionsManagementComponent } from './components/transactions-manag
     ModalServiceComponent,
     ServiceRequestFormComponent,
     TransactionsManagementComponent,
+    UserComponent,
   ],
   imports: [
     BrowserModule,
@@ -80,9 +81,7 @@ import { TransactionsManagementComponent } from './components/transactions-manag
     ReactiveFormsModule,
     StoreModule.forRoot({ userStore: userStoreReducer }),
   ],
-  providers: [
-    { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
-  ],
+  providers: [{ provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true }],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
