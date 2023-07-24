@@ -1,6 +1,4 @@
 import { Component, Input } from "@angular/core";
-import { AuthService } from "../../services/auth.service";
-import { Store } from "@ngrx/store";
 import { Observable } from "rxjs";
 import { UserStore } from "../../models/UserStore";
 

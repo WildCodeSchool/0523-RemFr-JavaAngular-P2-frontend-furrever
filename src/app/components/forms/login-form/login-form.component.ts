@@ -5,7 +5,7 @@ import { ActivatedRoute, Router } from "@angular/router";
 import { Observable } from "rxjs";
 import { Store } from "@ngrx/store";
 import { addUserOnStore, removeUserOnStore } from "../../../services/state/userStore.actions";
-import { AuthService } from "../../../services/auth.service";
+import { AuthService } from "../../../services/auth/auth.service";
 import jwtDecode from "jwt-decode";
 import { PayloadToken } from "../../../models/PayloadToken";
 

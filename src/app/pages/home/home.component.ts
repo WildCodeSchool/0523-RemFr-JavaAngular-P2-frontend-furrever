@@ -1,7 +1,7 @@
 import { Component, OnInit } from "@angular/core";
 import { ApiCallService } from "../../services/api/api-call.service";
 import { Comment } from "../../models/Comment";
-import { AuthService } from "../../services/auth.service";
+import { AuthService } from "../../services/auth/auth.service";
 
 @Component({
   selector: "app-home",

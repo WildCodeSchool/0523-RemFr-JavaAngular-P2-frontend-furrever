@@ -1,11 +1,11 @@
 import { Component, OnInit } from "@angular/core";
 import { Observable } from "rxjs";
 import { Store } from "@ngrx/store";
-import { AuthService } from "./services/auth.service";
+import { AuthService } from "./services/auth/auth.service";
 import { PayloadToken } from "./models/PayloadToken";
 import jwtDecode from "jwt-decode";
 import { addUserOnStore } from "./services/state/userStore.actions";
-import {UserState, UserStore} from "./models/UserStore";
+import { UserState, UserStore } from "./models/UserStore";
 @Component({
   selector: "app-root",
   templateUrl: "./app.component.html",
