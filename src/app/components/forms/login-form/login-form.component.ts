@@ -46,7 +46,7 @@ export class LoginFormComponent implements OnInit {
       this.apiCallService.loginRequest(this.login.getRawValue()).subscribe(({ token }) => {
         localStorage.setItem("authToken", token);
         const payloadToken: PayloadToken = jwtDecode(token);
-        this.store.dispatch(addUserOnStore({ picture: payloadToken.sub }));
+        this.store.dispatch(addUserOnStore({ picture: payloadToken.picture }));
         const queryParam = this.activatedRoute.snapshot.queryParams;
         if (queryParam["id"]) {
           this.route.navigate(["profile-petsitter/" + queryParam["id"]]);

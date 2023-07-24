@@ -20,7 +20,7 @@ export class AppComponent implements OnInit {
       const token = localStorage.getItem("authToken");
       if (token) {
         const payloadToken: PayloadToken = jwtDecode(token);
-        this.store.dispatch(addUserOnStore({ picture: payloadToken.sub }));
+        this.store.dispatch(addUserOnStore({ picture: payloadToken.picture }));
       }
     }
     this.userStore$ = this.store.select((state: UserState) => state.userStore);

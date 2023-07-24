@@ -32,14 +32,14 @@ export type User = {
 export class ApiCallService {
   readonly API_URL = "http://localhost:8080/api/";
 
-  private endPoints = {
+  readonly endPoints = {
     getTopComments: "comments/top",
     getSpecies: "species",
     searchPetsitter: "petsitters/search",
     login: "auth/login",
     getPetSitterById: "petsitters/",
     createUser: "auth/register",
-    createTransaction: "transactions/",
+    createTransaction: "transactions",
   };
 
   constructor(public http: HttpClient) {}
