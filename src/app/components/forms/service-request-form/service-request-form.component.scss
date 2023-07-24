@@ -21,11 +21,12 @@ form {
     font-size: 1.2em;
   }
 
-  p{
+  p {
     text-align: justify;
     color: #355f5b;
     margin-bottom: 0;
   }
+
   .my-icon {
     padding-top: 6px;
     right: 0;
@@ -47,7 +48,7 @@ form {
     width: 100%;
     margin-bottom: 1rem;
 
-    textarea{
+    textarea {
       height: 6rem;
     }
 
@@ -97,6 +98,7 @@ form {
       border-image-slice: 1;
     }
   }
+
   .button {
     background-color: #355F5B;
     color: #f2f2f2;
@@ -113,7 +115,7 @@ form {
     color: #355f5b;
   }
 
-  .errors{
+  .errors {
     color: red;
     font-size: .8em;
   }
