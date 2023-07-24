@@ -7,9 +7,9 @@ import { PetsitterPreview } from "../../models/PetsitterPreview";
 import { SearchRequest } from "../../models/SearchRequest";
 import { PetsitterViewByOwner } from "../../models/PetsitterViewByOwner";
 import { Service } from "../../models/Service";
-import {TokenJwt} from "../../models/TokenJwt";
-import {Login} from "../../models/Login";
-import {SendService} from "../../models/SendService";
+import { TokenJwt } from "../../models/TokenJwt";
+import { Login } from "../../models/Login";
+import { SendService } from "../../models/SendService";
 
 type ResponsePetSitter = {
   commentTemplateList: Comment[];
@@ -25,8 +25,6 @@ export type User = {
   isPetsitter: boolean | null;
   picture: string | null;
 };
-
-
 
 @Injectable({
   providedIn: "root",
