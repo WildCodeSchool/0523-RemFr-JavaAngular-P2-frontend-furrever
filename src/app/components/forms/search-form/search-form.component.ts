@@ -19,8 +19,7 @@ export class SearchFormComponent implements OnInit {
     city: new FormControl(""),
   });
 
-  constructor(private apiCallService: ApiCallService, private route: Router) {
-  }
+  constructor(private apiCallService: ApiCallService, private route: Router) {}
 
   ngOnInit(): void {
     this.apiCallService.getSpeciesName().subscribe((speciesList: Species[]) => {
@@ -41,7 +40,7 @@ export class SearchFormComponent implements OnInit {
     const searchRequest = new SearchRequest(
       this.searchForm.getRawValue().city,
       this.searchForm.getRawValue().service,
-      this.speciesSelect,
+      this.speciesSelect
     );
     this.route.navigate(["/search-result"], { queryParams: searchRequest });
   }

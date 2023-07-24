@@ -1,0 +1,43 @@
+<form [formGroup]="requestServiceForm" (ngSubmit)="sendRequestService()">
+  <div>
+    <h1>Service de {{ petSitterFirstName }}</h1>
+    <div class="w3-modal-content">
+      <img class="my-icon" src="assets/images/patoune.png" alt="une patoune" />
+      <p>
+        Merci de décrire au mieux votre demande, en précisant la ou les espèces d'animaux et toutes informations dont le
+        petsitter pourrait avoir besoin.
+      </p>
+      <div class="field">
+        <input
+          type="date"
+          formControlName="dateStart"
+          placeholder="Date de début"
+          name="dateStart"
+          id="dateStart"
+          required
+        />
+        <label for="dateStart">Date de debut</label>
+      </div>
+      <div class="field">
+        <input type="date" formControlName="dateEnd" placeholder="Date de fin" name="dateEnd" id="dateEnd" required />
+        <label for="dateEnd">Date de fin</label>
+      </div>
+      <div class="field">
+        <textarea
+          type="text"
+          formControlName="content"
+          placeholder="Votre demande."
+          name="content"
+          id="content"
+          class="content"
+          required
+        ></textarea>
+        <label for="content">Votre demande</label>
+      </div>
+    </div>
+  </div>
+  <input class="button" type="submit" value="Envoyez votre demande" />
+  <div *ngIf="errors.length > 0">
+    <p class="errors" *ngFor="let error of errors">{{ error }}</p>
+  </div>
+</form>

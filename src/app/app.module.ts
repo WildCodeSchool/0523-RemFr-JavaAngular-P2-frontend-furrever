@@ -4,12 +4,14 @@ import { NgOptimizedImage } from "@angular/common";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { AppRoutingModule } from "./app-routing.module";
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
-import { HttpClientModule } from "@angular/common/http";
+import { HTTP_INTERCEPTORS, HttpClientModule } from "@angular/common/http";
 import { StoreModule } from "@ngrx/store";
 
 import { DemoPipe } from "./pipes/demo.pipe";
 import { InitialPipe } from "./pipes/initial.pipe";
 import { DemoDirective } from "./directives/demo.directive";
+import { userStoreReducer } from "./services/state/userStore.reducer";
+import { AuthInterceptor } from "./services/auth/auth.interceptor";
 
 import { AppComponent } from "./app.component";
 import { HeaderComponent } from "./components/header/header.component";
@@ -20,13 +22,14 @@ import { CommentCardComponent } from "./components/comment-card/comment-card.com
 import { LoaderComponent } from "./components/loader/loader.component";
 import { PetsitterPreviewComponent } from "./components/petsitter-preview/petsitter-preview.component";
 import { SearchFormComponent } from "./components/forms/search-form/search-form.component";
-import { UserInfosComponent } from "./components/user-infos/user-infos.component";
+import { PetsitterInfosComponent } from "./components/petsitter-infos/petsitter-infos.component";
 import { ServicesListComponent } from "./components/services-list/services-list.component";
 import { ServicesComponent } from "./components/services/services.component";
 import { ModalServiceComponent } from "./components/modal-service/modal-service.component";
 import { LoginFormComponent } from "./components/forms/login-form/login-form.component";
 import { SubHeaderComponent } from "./components/sub-header/sub-header.component";
 import { SignupFormComponent } from "./components/forms/signup-form/signup-form.component";
+import { ServiceRequestFormComponent } from "./components/forms/service-request-form/service-request-form.component";
 
 import { HomeComponent } from "./pages/home/home.component";
 import { ProfileComponent } from "./pages/profile/profile.component";
@@ -34,7 +37,7 @@ import { SearchResultComponent } from "./pages/search-result/search-result.compo
 import { LogInComponent } from "./pages/log-in/log-in.component";
 import { SignUpComponent } from "./pages/sign-up/sign-up.component";
 import { PetsitterProfileComponent } from "./pages/petsitter-profile/petsitter-profile.component";
-import { userStoreReducer } from "./services/state/userStore.reducer";
+
 
 @NgModule({
   declarations: [
@@ -58,11 +61,12 @@ import { userStoreReducer } from "./services/state/userStore.reducer";
     SubHeaderComponent,
     SignupFormComponent,
     PetsitterProfileComponent,
-    UserInfosComponent,
+    PetsitterInfosComponent,
     ServicesListComponent,
     ServicesComponent,
     LoaderComponent,
     ModalServiceComponent,
+    ServiceRequestFormComponent,
   ],
   imports: [
     BrowserModule,
@@ -74,7 +78,9 @@ import { userStoreReducer } from "./services/state/userStore.reducer";
     ReactiveFormsModule,
     StoreModule.forRoot({ userStore: userStoreReducer }),
   ],
-  providers: [],
+  providers: [
+    { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

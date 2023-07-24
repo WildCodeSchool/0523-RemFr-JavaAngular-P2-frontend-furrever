@@ -1,11 +1,11 @@
 import { Component, OnInit } from "@angular/core";
 import { FormControl, FormGroup } from "@angular/forms";
 import { ApiCallService } from "../../../services/api/api-call.service";
-import { Router } from "@angular/router";
+import { ActivatedRoute, Router } from "@angular/router";
 import { Observable } from "rxjs";
 import { Store } from "@ngrx/store";
 import { addUserOnStore, removeUserOnStore } from "../../../services/state/userStore.actions";
-import { AuthService } from "../../../services/auth.service";
+import { AuthService } from "../../../services/auth/auth.service";
 import jwtDecode from "jwt-decode";
 import { PayloadToken } from "../../../models/PayloadToken";
 
@@ -22,15 +22,17 @@ export class LoginFormComponent implements OnInit {
   errors: string[] = [];
 
   userStore$!: Observable<boolean>;
+
   constructor(
     private apiCallService: ApiCallService,
     private route: Router,
+    private activatedRoute: ActivatedRoute,
     private store: Store<{ userStore: boolean }>,
     private authService: AuthService
   ) {}
 
   ngOnInit(): void {
-    if (this.authService.isConnectedVerif()){
+    if (this.authService.isConnectedVerif()) {
       this.store.dispatch(removeUserOnStore());
     }
     localStorage.removeItem("authToken");
@@ -45,8 +47,13 @@ export class LoginFormComponent implements OnInit {
         localStorage.setItem("authToken", token);
         const payloadToken: PayloadToken = jwtDecode(token);
         this.store.dispatch(addUserOnStore({ picture: payloadToken.sub }));
+        const queryParam = this.activatedRoute.snapshot.queryParams;
+        if (queryParam["id"]) {
+          this.route.navigate(["profile-petsitter/" + queryParam["id"]]);
+        } else {
+          this.route.navigate(["/profile"]);
+        }
       });
-      this.route.navigate(["/"]);
     }
   }
 

@@ -1,7 +1,4 @@
-import { Location } from "./Location";
-import { Comment } from "./Comment";
-
-export class PetsitterViewByOwner{
+export class PetsitterViewByOwner {
   constructor(
     public idPetsitter: string,
     public email: string,
