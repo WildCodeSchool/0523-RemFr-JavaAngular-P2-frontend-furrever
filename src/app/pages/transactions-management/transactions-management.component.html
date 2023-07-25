@@ -1,0 +1,118 @@
+<section>
+  <p>Liste de vos transactions, cliquez sur le "type" pour voir le détail.</p>
+  <div class="modal" *ngIf="showModal">
+    <div>
+      <input type="button" class="button" (click)="isShowModal('close')" value="X" />
+      <app-transaction-details
+        *ngIf="transaction"
+        [isPetsitter]="isPetsitter"
+        [transaction]="transaction"
+      ></app-transaction-details>
+    </div>
+  </div>
+  <div class="pending">
+    <h3>En attentes :</h3>
+    <table class="blueTable">
+      <thead>
+        <tr>
+          <th>Type de service</th>
+          <th>Début</th>
+          <th>Fin</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngIf="pendingTransactionList.length < 1">
+          <td></td>
+          <td>Aucune transcation</td>
+          <td></td>
+        </tr>
+        <tr *ngFor="let pendingTransaction of pendingTransactionList">
+          <td>
+            <a (click)="isShowModal(pendingTransaction.id)">{{ pendingTransaction.serviceType }}</a>
+          </td>
+          <td>{{ pendingTransaction.dateSart }}</td>
+          <td>{{ pendingTransaction.dateEnd }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="validate">
+    <h3>Validées :</h3>
+    <table class="blueTable">
+      <thead>
+        <tr>
+          <th>Type de service</th>
+          <th>Début</th>
+          <th>Fin</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngIf="transactionListValidated.length < 1">
+          <td></td>
+          <td>Aucune transcation</td>
+          <td></td>
+        </tr>
+        <tr *ngFor="let transactionValidated of transactionListValidated">
+          <td>
+            <a (click)="isShowModal(transactionValidated.id)">{{ transactionValidated.serviceType }}</a>
+          </td>
+          <td>{{ transactionValidated.dateSart }}</td>
+          <td>{{ transactionValidated.dateEnd }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="refused">
+    <h3>Refusées :</h3>
+    <table class="blueTable">
+      <thead>
+        <tr>
+          <th>Type de service</th>
+          <th>Début</th>
+          <th>Fin</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngIf="transactionListRefused.length < 1">
+          <td></td>
+          <td>Aucune transcation</td>
+          <td></td>
+        </tr>
+        <tr *ngFor="let transactionRefused of transactionListRefused">
+          <td>
+            <a (click)="isShowModal(transactionRefused.id)">{{ transactionRefused.serviceType }}</a>
+          </td>
+          <td>{{ transactionRefused.dateSart }}</td>
+          <td>{{ transactionRefused.dateEnd }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="completed">
+    <h3>Terminées :</h3>
+    <table class="blueTable">
+      <thead>
+        <tr>
+          <th>Type de service</th>
+          <th>Début</th>
+          <th>Fin</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngIf="transactionListCompleted.length < 1">
+          <td></td>
+          <td>Aucune transcation</td>
+          <td></td>
+        </tr>
+        <tr *ngFor="let transactionCompleted of transactionListCompleted">
+          <td>
+            <a (click)="isShowModal(transactionCompleted.id)">{{ transactionCompleted.serviceType }}</a>
+          </td>
+          <td>{{ transactionCompleted.dateSart }}</td>
+          <td>{{ transactionCompleted.dateEnd }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+

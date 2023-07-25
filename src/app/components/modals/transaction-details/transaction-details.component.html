@@ -1,0 +1,67 @@
+<div *ngIf="isPetsitter" class="modal">
+  <div>
+    <h3>
+      Demande de {{ transaction?.userName }}
+    </h3>
+    <div class="status">
+      <app-status [statusFlag]="transaction?.statusFlag"></app-status>
+    </div>
+    <div class="w3-modal-content">
+      <img class="my-icon" src="../../../../assets/images/patoune.png" alt="une patoune" />
+      <p>
+        <b>Motif : </b>
+        {{ transaction?.serviceType }} .
+      </p>
+      <p>
+        <b>Du </b>
+        {{ transaction?.dateSart }}
+        <b>au </b>
+        {{ transaction?.dateEnd }} .
+      </p>
+      <p>
+        <b>Description : </b>
+        {{ transaction?.content }}
+      </p>
+    </div>
+  </div>
+  <div *ngIf="transaction?.statusFlag === 'pending'" class="buttonGroupe">
+    <input class="button accept" type="button" value="Accepter" />
+    <input class="button refuse" type="button" value="Refuser" />
+  </div>
+  <div *ngIf="transaction?.statusFlag === 'completed'" class="buttonGroupe">
+    <input class="button comment" type="button" value="Commentaire" />
+  </div>
+</div>
+<div *ngIf="!isPetsitter" class="modal">
+  <div>
+    <h3>
+      Demande à {{ transaction?.petsitter }}
+    </h3>
+    <div class="status">
+      <app-status [statusFlag]="transaction?.statusFlag"></app-status>
+    </div>
+    <div class="w3-modal-content">
+      <img class="my-icon" src="../../../../assets/images/patoune.png" alt="une patoune" />
+      <p>
+        <b>Motif : </b>
+        {{ transaction?.serviceType }} .
+      </p>
+      <p>
+        <b>Du </b>
+        {{ transaction?.dateSart }}
+        <b>au </b>
+        {{ transaction?.dateEnd }} .
+      </p>
+      <p>
+        <b>Description : </b>
+        {{ transaction?.content }}
+      </p>
+    </div>
+  </div>
+  <div *ngIf="transaction?.statusFlag === 'pending'" class="buttonGroupe">
+    <input class="button accept" type="button" value="Supprimer" />
+  </div>
+  <div *ngIf="transaction?.statusFlag === 'completed'" class="buttonGroupe">
+    <input class="button comment" type="button" value="Commenter" />
+  </div>
+</div>
