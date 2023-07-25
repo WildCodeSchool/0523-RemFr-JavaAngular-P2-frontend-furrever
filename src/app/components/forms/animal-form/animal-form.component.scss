@@ -1,0 +1,255 @@
+form {
+  max-width: 500px;
+  padding: 1rem 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 1rem 1rem 0;
+
+  h1 {
+    margin-top: 0;
+    text-align: center;
+    font-size: 1.2em;
+  }
+
+  p {
+    text-align: justify;
+    color: #355f5b;
+    margin-bottom: 15px;
+    margin-top: 0;
+  }
+
+  .my-icon {
+    padding-top: 6px;
+    right: 0;
+    height: 35px;
+    width: 100%;
+    border-bottom-right-radius: 4px;
+    border-bottom-left-radius: 4px;
+    background-color: #eee;
+    position: absolute;
+    left: 0;
+    top: 0;
+    object-fit: contain;
+  }
+
+  .field {
+    position: relative;
+    padding: 15px 0 0;
+    margin-top: 10px;
+    width: 100%;
+    margin-bottom: 1rem;
+
+    textarea {
+      height: 6rem;
+    }
+
+    input, textarea {
+      width: 100%;
+      border: 0;
+      border-bottom: 2px solid #355f5b;
+      outline: 0;
+      padding: 7px 0;
+      background: transparent;
+      transition: border-color 0.2s;
+
+      &::placeholder {
+        color: transparent;
+      }
+
+      &:placeholder-shown ~ label {
+        font-size: 1.2rem;
+        cursor: text;
+        top: 20px;
+        color: #355f5b;
+      }
+    }
+
+    label {
+      position: absolute;
+      top: 0;
+      display: block;
+      transition: 0.2s;
+      font-size: 1rem;
+      color: #355f5b;
+    }
+
+    input:focus, textarea:focus {
+      ~ label {
+        top: 0;
+        display: block;
+        transition: 0.2s;
+        font-size: 1rem;
+        color: #b17a3a;
+      }
+
+      padding-bottom: 6px;
+      border-width: 3px;
+      border-bottom: 2px solid #b17a3a;
+      border-image-slice: 1;
+    }
+  }
+
+  .button {
+    background-color: #355F5B;
+    color: #f2f2f2;
+    cursor: pointer;
+    border-radius: 25px;
+    border: none;
+    margin-top: 1rem;
+    padding: 0.7rem 1.8em;
+  }
+
+  a {
+    margin-top: 1rem;
+    text-decoration: none;
+    color: #355f5b;
+  }
+
+  .errors {
+    color: red;
+    font-size: .8em;
+  }
+}
+
+.control {
+  display: flex;
+  align-items: center;
+  position: relative;
+  flex-direction: row;
+  padding-left: 30px;
+  padding-top: 3px;
+  cursor: pointer;
+  font-size: 16px;
+  margin: 0.7rem 1rem;
+  width: 30%;
+}
+
+.control input {
+  position: absolute;
+  z-index: -1;
+  opacity: 0;
+}
+
+.control_indicator {
+  position: absolute;
+  top: 2px;
+  left: 0;
+  height: 20px;
+  width: 20px;
+  background: #ffffff;
+  border: 1px solid #355f5b;
+  border-radius: 4px;
+}
+
+.control:hover input ~ .control_indicator,
+.control input:focus ~ .control_indicator {
+  background: #b17a3a;
+  border: none;
+}
+
+.control input:checked ~ .control_indicator {
+  background: #b17a3a;
+}
+
+.control:hover input:not([disabled]):checked ~ .control_indicator,
+.control input:checked:focus ~ .control_indicator {
+  background: #b17a3a;
+}
+
+.control input:disabled ~ .control_indicator {
+  background: #e6e6e6;
+  opacity: 0.6;
+  pointer-events: none;
+}
+
+.control_indicator:after {
+  box-sizing: unset;
+  content: '';
+  position: absolute;
+  display: none;
+}
+
+.control input:checked ~ .control_indicator:after {
+  display: block;
+}
+
+.control-radio .control_indicator {
+  border-radius: 15%;
+}
+
+.control-radio .control_indicator:after {
+  left: 7px;
+  top: 7px;
+  height: 6px;
+  width: 6px;
+  border-radius: 50%;
+  background: #ffffff;
+  transition: background 250ms;
+}
+
+.control-radio input:disabled ~ .control_indicator:after {
+  background: #7b7b7b;
+}
+
+.control-radio .control_indicator::before {
+   content: '';
+   display: block;
+   position: absolute;
+   left: 0;
+   top: 0;
+   width: 4.5rem;
+   height: 4.5rem;
+   margin-left: -1.3rem;
+   margin-top: -1.3rem;
+   background: #355f5b;
+   border-radius: 3rem;
+   opacity: 0.6;
+   z-index: 99999;
+   transform: scale(0);
+}
+
+@keyframes s-ripple {
+  0% {
+    opacity: 0;
+    transform: scale(0);
+  }
+  20% {
+    transform: scale(1);
+  }
+  100% {
+    opacity: 0.01;
+    transform: scale(1);
+  }
+}
+
+@keyframes s-ripple-dup {
+  0% {
+    transform: scale(0);
+  }
+  30% {
+    transform: scale(1);
+  }
+  60% {
+    transform: scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(1);
+  }
+}
+
+.control-radio input + .control_indicator::before {
+  animation: s-ripple 250ms ease-out;
+}
+
+.control-radio input:checked + .control_indicator::before {
+  animation-name: s-ripple-dup;
+}
+
+.species_container{
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+  flex-wrap: wrap;
+}

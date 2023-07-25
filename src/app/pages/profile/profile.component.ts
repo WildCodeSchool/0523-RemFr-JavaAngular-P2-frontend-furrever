@@ -2,6 +2,8 @@ import { Component, OnInit } from "@angular/core";
 import { AuthService } from "../../services/auth/auth.service";
 import { Router } from "@angular/router";
 import { Animal } from "../../models/Animal";
+import { ApiCallService, User } from "../../services/api/api-call.service";
+import { GetProfileUserResponse } from "../../models/GetProfileUserResponse";
 
 @Component({
   selector: "app-profile",
@@ -10,16 +12,17 @@ import { Animal } from "../../models/Animal";
 })
 export class ProfileComponent implements OnInit {
   transactionList = [];
-  animalList: Animal[] = [
-    { firstname: "Boubou", birthday: new Date("2023-03-06"), species: "Tigre", description: "bruno le poux" },
-    { firstname: "Bruno", birthday: new Date("2023-03-06"), species: "Ane", description: "Grand gourmand de foin" },
-    { firstname: "Hélène", birthday: new Date("2023-03-06"), species: "Panthère", description: "Fait ses griffes sur vos fauteuils" },
-  ];
-  constructor(private authService: AuthService, private route: Router) {}
+  animalList: Animal[] = [];
+  user!: User;
+  constructor(private authService: AuthService, private route: Router, private apiCallService: ApiCallService) {}
 
   ngOnInit(): void {
     if (!this.authService.isConnectedVerif()) {
       this.route.navigate(["/login"]);
     }
+    this.apiCallService.getCurrentUser().subscribe((profile: GetProfileUserResponse) => {
+      this.animalList = profile.animalTemplateList;
+      console.log(profile);
+    });
   }
 }

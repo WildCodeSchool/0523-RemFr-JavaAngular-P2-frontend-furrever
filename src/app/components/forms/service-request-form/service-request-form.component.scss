@@ -84,7 +84,6 @@ form {
 
     input:focus, textarea:focus {
       ~ label {
-        //position: absolute;
         top: 0;
         display: block;
         transition: 0.2s;

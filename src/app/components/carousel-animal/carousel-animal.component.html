@@ -17,3 +17,12 @@
     <span class="arrow right"></span>
   </button>
 </div>
+<div class="button_container">
+  <input type="button" value="Ajouter un animal" (click)="showModalForCreateAnimal()" class="button" />
+</div>
+<div class="modal" *ngIf="showModalAnimal">
+  <div>
+    <input type="button" class="button" (click)="showModalForCreateAnimal()" value="X" />
+    <app-modal-animal></app-modal-animal>
+  </div>
+</div>

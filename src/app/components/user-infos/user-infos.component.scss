@@ -65,3 +65,22 @@ section {
     margin-top: 0;
   }
 }
+
+.button_container{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-bottom: 25px;
+
+  .button{
+    background-color: #355F5B;
+    color: #f2f2f2;
+    border-radius: 25px;
+    border: none;
+    font-size: 0.75rem;
+    cursor: pointer;
+    padding: 10px;
+  }
+}
+
+

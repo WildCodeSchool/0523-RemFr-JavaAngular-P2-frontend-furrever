@@ -33,7 +33,8 @@ section {
   .date {
     font-size: .8em;
     text-align: right;
-    margin-top: 0px;
+    margin-top: 5px;
+    margin-right: 5px;
   }
 
   .image-container {
@@ -49,9 +50,14 @@ section {
   }
 
   .content {
-    max-height: 8rem;
+    max-height: 13rem;
     margin-top: 8px;
     margin-bottom: 0;
     overflow-y: scroll;
+  }
+
+  .title {
+    font-style: normal;
+    font-weight: 500;
   }
 }

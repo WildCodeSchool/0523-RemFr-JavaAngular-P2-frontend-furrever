@@ -1,0 +1,55 @@
+<form (ngSubmit)="animalForm.valid && sendAnimalForm()" [formGroup]="animalForm">
+  <div>
+    <div class="w3-modal-content">
+      <p>
+        Merci d'indiquer, le prénom, l'espèce ainsi que la date de naissance de votre animal.
+      </p>
+      <div class="field">
+        <input
+          type="text"
+          formControlName="firstName"
+          placeholder="Prénom de l'animal."
+          name="firstName"
+          id="firstName"
+          class="firstName"
+          required
+        />
+        <label for="firstName">Prénom de l'animal</label>
+      </div>
+      <div class="species_container">
+        <label *ngFor="let species of speciesList" class="control control-checkbox">
+          {{ species.name | titlecase }}
+          <input formControlName="species" type="radio" name="species" value="{{ species.id }}" />
+          <div class="control_indicator"></div>
+        </label>
+      </div>
+      <div class="field">
+        <input
+          type="date"
+          formControlName="birthday"
+          placeholder="Date de naissance"
+          name="birthday"
+          id="birthday"
+          required
+        />
+        <label for="birthday">Date de naissance</label>
+      </div>
+      <div class="field">
+        <textarea
+          type="text"
+          formControlName="description"
+          placeholder="Votre demande."
+          name="description"
+          id="description"
+          class="description"
+          required
+        ></textarea>
+        <label for="description">Description</label>
+      </div>
+    </div>
+  </div>
+  <input class="button" type="button" (click)="sendAnimalForm()" value="Créer l'animal" />
+<!--  <div *ngIf="errors.length > 0">-->
+<!--    <p class="errors" *ngFor="let error of errors">{{ error }}</p>-->
+<!--  </div>-->
+</form>

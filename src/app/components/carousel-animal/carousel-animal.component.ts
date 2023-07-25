@@ -1,8 +1,9 @@
 import { Component, Input } from "@angular/core";
 import { transition, trigger, useAnimation } from "@angular/animations";
 import { fadeIn, fadeOut, scaleIn, scaleOut } from "../carousel/carousel.animations";
-import { Router } from "@angular/router";
+import { ActivatedRoute, Router } from "@angular/router";
 import { Animal } from "../../models/Animal";
+import { AuthService } from "../../services/auth/auth.service";
 
 @Component({
   selector: "app-carousel-animal",
@@ -19,8 +20,9 @@ import { Animal } from "../../models/Animal";
   ],
 })
 export class CarouselAnimalComponent {
-  constructor(private router: Router) {}
+  constructor(private authService: AuthService, private activatedRoute: ActivatedRoute, private route: Router) {}
   @Input() animalList: Animal[] = [];
+  showModalAnimal = false;
 
   currentSlide = 0;
 
@@ -32,5 +34,12 @@ export class CarouselAnimalComponent {
   onNextClick() {
     const next = this.currentSlide + 1;
     this.currentSlide = next === this.animalList.length ? 0 : next;
+  }
+
+  showModalForCreateAnimal() {
+    if (!this.authService.isConnectedVerif()) {
+      this.route.navigate(["/login"]);
+    }
+    this.showModalAnimal = !this.showModalAnimal;
   }
 }
