@@ -16,7 +16,7 @@ export class SignupFormComponent {
     firstName: new FormControl("", [Validators.required, Validators.minLength(2)]),
     lastName: new FormControl("", [Validators.required, Validators.minLength(2)]),
     picture: new FormControl("lion.jpg", [Validators.required]),
-    isPetsitter: new FormControl(false, [Validators.required]),
+    isPetSitter: new FormControl(false, [Validators.required]),
   });
   protected readonly onsubmit = onsubmit;
 
