@@ -22,7 +22,7 @@ export type User = {
   lastName: string | null;
   email: string | null;
   password: string | null;
-  isPetsitter: boolean | null;
+  isPetSitter: boolean | null;
   picture: string | null;
 };
 
