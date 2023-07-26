@@ -31,6 +31,9 @@
       {{ petSitterProfile.description }}
     </p>
     <h4>Où trouver ce Pet Sitter</h4>
-    <p>{{ petSitterProfile.street }}, {{ petSitterProfile.zipCode }}, {{ petSitterProfile.city }}</p>
+    <p>
+      {{ petSitterProfile.location?.street }}, {{ petSitterProfile.location?.zipCode }},
+      {{ petSitterProfile.location?.city }}
+    </p>
   </div>
 </section>

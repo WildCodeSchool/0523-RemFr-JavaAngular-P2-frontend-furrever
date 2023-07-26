@@ -11,10 +11,16 @@ export class AuthInterceptor implements HttpInterceptor {
   intercept(request: HttpRequest<unknown>, next: HttpHandler): Observable<HttpEvent<unknown>> {
     if (this.authService.isConnectedVerif()) {
       const token = localStorage.getItem("authToken");
-      const callApiRoute = request.url.startsWith(
+      const callApiRouteTransaction = request.url.startsWith(
         this.apiCallService.API_URL + this.apiCallService.endPoints.transaction
       );
-      if (token && callApiRoute) {
+      const callApiRouteAnimal = request.url.startsWith(
+        this.apiCallService.API_URL + this.apiCallService.endPoints.createAnimal
+      );
+      const callApiRouteUser = request.url.startsWith(
+        this.apiCallService.API_URL + this.apiCallService.endPoints.getCurrentUser
+      );
+      if (token && (callApiRouteTransaction || callApiRouteAnimal || callApiRouteUser)) {
         request = request.clone({
           setHeaders: { Authorization: `Bearer ${token}` },
         });

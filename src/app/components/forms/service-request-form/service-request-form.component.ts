@@ -30,12 +30,14 @@ export class ServiceRequestFormComponent {
     );
     if (this.errors.length < 1) {
       const sendService: SendService = {
-        service: this.serviceId,
+        service: {
+          id: this.serviceId,
+        },
         dateStart: this.requestServiceForm.getRawValue().dateStart,
         dateEnd: this.requestServiceForm.getRawValue().dateEnd,
+        content: this.requestServiceForm.getRawValue().content,
       };
-      console.log(sendService);
-      this.apiCallService.createTransaction(sendService).subscribe((response) => console.log(response))
+      this.apiCallService.createTransaction(sendService).subscribe();
     }
   }
 

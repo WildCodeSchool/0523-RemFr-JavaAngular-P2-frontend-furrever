@@ -30,6 +30,16 @@ import { LoginFormComponent } from "./components/forms/login-form/login-form.com
 import { SubHeaderComponent } from "./components/sub-header/sub-header.component";
 import { SignupFormComponent } from "./components/forms/signup-form/signup-form.component";
 import { ServiceRequestFormComponent } from "./components/forms/service-request-form/service-request-form.component";
+import { TransactionDetailsComponent } from "./components/modals/transaction-details/transaction-details.component";
+import { StatusComponent } from "./components/status/status.component";
+import { TransactionArrayComponent } from "./components/transaction-array/transaction-array.component";
+import { UserInfosComponent } from "./components/user-infos/user-infos.component";
+import { AnimalCardComponent } from "./components/animal-card/animal-card.component";
+import { CarouselAnimalComponent } from "./components/carousel-animal/carousel-animal.component";
+import { AnimalFormComponent } from "./components/forms/animal-form/animal-form.component";
+import { ModalAnimalComponent } from "./components/modals/modal-animal/modal-animal.component";
+import { UpdateProfileFormComponent } from "./components/forms/update-profile-form/update-profile-form.component";
+import { UpdateProfileComponent } from "./components/update-profile/update-profile.component";
 
 import { HomeComponent } from "./pages/home/home.component";
 import { ProfileComponent } from "./pages/profile/profile.component";
@@ -38,9 +48,6 @@ import { LogInComponent } from "./pages/log-in/log-in.component";
 import { SignUpComponent } from "./pages/sign-up/sign-up.component";
 import { PetsitterProfileComponent } from "./pages/petsitter-profile/petsitter-profile.component";
 import { TransactionsManagementComponent } from "./pages/transactions-management/transactions-management.component";
-import { TransactionDetailsComponent } from './components/modals/transaction-details/transaction-details.component';
-import { StatusComponent } from './components/status/status.component';
-import { TransactionArrayComponent } from './components/transaction-array/transaction-array.component';
 
 @NgModule({
   declarations: [
@@ -74,6 +81,13 @@ import { TransactionArrayComponent } from './components/transaction-array/transa
     TransactionDetailsComponent,
     StatusComponent,
     TransactionArrayComponent,
+    UserInfosComponent,
+    AnimalCardComponent,
+    CarouselAnimalComponent,
+    AnimalFormComponent,
+    ModalAnimalComponent,
+    UpdateProfileFormComponent,
+    UpdateProfileComponent,
   ],
   imports: [
     BrowserModule,
@@ -85,9 +99,7 @@ import { TransactionArrayComponent } from './components/transaction-array/transa
     ReactiveFormsModule,
     StoreModule.forRoot({ userStore: userStoreReducer }),
   ],
-  providers: [
-    { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
-  ],
+  providers: [{ provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true }],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

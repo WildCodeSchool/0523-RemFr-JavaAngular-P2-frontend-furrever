@@ -1,3 +1,7 @@
+import { Animal } from "./Animal";
+import { Service } from "./Service";
+import { UserProfile } from "./UserProfile";
+
 export type Transaction = {
   id: string;
   dateStart: string;
@@ -14,16 +18,9 @@ export type Transaction = {
   statusFlag: string | null;
 };
 
-export type GetTransaction = {
-  transactionForPetsitter: Transaction[];
-  transactionFromUser: Transaction[];
-  petsitter: boolean;
-};
-
-export type CreateTransactionResponse = {
-  comment: null;
-  content: string;
-  dateEnd: string;
-  dateStart: string;
-  id: string;
+export type GetProfileUserResponse = {
+  animalTemplateList: Animal[];
+  serviceTemplateList: Service[];
+  transactionUserTemplateList: Transaction[];
+  userProfile: UserProfile;
 };

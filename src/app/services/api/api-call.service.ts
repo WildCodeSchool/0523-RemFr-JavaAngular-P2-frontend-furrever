@@ -5,16 +5,18 @@ import { Comment } from "../../models/Comment";
 import { Species } from "../../models/Species";
 import { PetsitterPreview } from "../../models/PetsitterPreview";
 import { SearchRequest } from "../../models/SearchRequest";
-import {InfoPertsitter, PetsitterViewByOwner} from "../../models/PetsitterViewByOwner";
+import { UserProfile } from "../../models/UserProfile";
 import { Service } from "../../models/Service";
 import { TokenJwt } from "../../models/TokenJwt";
 import { Login } from "../../models/Login";
 import { SendService } from "../../models/SendService";
-import {GetTransaction} from "../../models/Transaction";
+import { CreateTransactionResponse, GetTransaction } from "../../models/Transaction";
+import { Animal } from "../../models/Animal";
+import { GetProfileUserResponse } from "../../models/GetProfileUserResponse";
 
 type ResponsePetSitter = {
   commentTemplateList: Comment[];
-  petSitterProfile: PetsitterViewByOwner;
+  petSitterProfile: UserProfile;
   serviceTemplateList: Service[];
 };
 
@@ -23,7 +25,7 @@ export type User = {
   lastName: string | null;
   email: string | null;
   password: string | null;
-  isPetsitter: boolean | null;
+  isPetSitter: boolean | null;
   picture: string | null;
 };
 
@@ -42,6 +44,8 @@ export class ApiCallService {
     createUser: "auth/register",
     transaction: "transactions",
     updateTransaction: "transactions/",
+    createAnimal: "users/animals",
+    getCurrentUser: "users",
   };
 
   constructor(public http: HttpClient) {}
@@ -70,15 +74,25 @@ export class ApiCallService {
     return this.http.post<TokenJwt>(this.API_URL + this.endPoints.login, payload);
   }
 
+  //TODO changer le any faire un typage
   createTransaction(payload: SendService) {
-    return this.http.post<InfoPertsitter>(this.API_URL + this.endPoints.transaction, payload);
+    return this.http.post<CreateTransactionResponse>(this.API_URL + this.endPoints.transaction, payload);
   }
 
   getTransactions() {
     return this.http.get<GetTransaction>(this.API_URL + this.endPoints.transaction);
   }
 
+  //TODO pour pas que Bastien nous embete :D
   /*updateTransaction(payload: any) {
     return this.http.post<any>(this.API_URL + this.endPoints.updateTransaction, payload);
   }*/
+
+  createAnimal(payload: Animal): Observable<Animal> {
+    return this.http.post<Animal>(this.API_URL + this.endPoints.createAnimal, payload);
+  }
+
+  getCurrentUser(){
+    return this.http.get<GetProfileUserResponse>(this.API_URL + this.endPoints.getCurrentUser);
+  }
 }
