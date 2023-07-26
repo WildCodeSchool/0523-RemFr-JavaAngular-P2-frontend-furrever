@@ -6,14 +6,8 @@ import { UserProfile } from "../../models/UserProfile";
   templateUrl: "./petsitter-infos.component.html",
   styleUrls: ["./petsitter-infos.component.scss"],
 })
-export class PetsitterInfosComponent implements OnInit {
+export class PetsitterInfosComponent {
   @Input() petSitterProfile!: UserProfile;
-
-  ngOnInit() {
-    if (this.petSitterProfile == undefined) {
-      this.petSitterProfile = new UserProfile("", "", "", "", "", "", 0, 0, 0, false, null);
-    }
-  }
 
   counter(i: number) {
     return new Array(i);

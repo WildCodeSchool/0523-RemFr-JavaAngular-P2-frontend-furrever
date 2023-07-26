@@ -15,3 +15,12 @@ export class UserProfile {
     public location: Location | null
   ) {}
 }
+
+export type User = {
+  firstname: string | null;
+  lastname: string | null;
+  email: string | null;
+  password: string | null;
+  isPetSitter: boolean | null;
+  picture: string | null;
+};
