@@ -2,7 +2,7 @@
   <app-loader></app-loader>
 </ng-container>
 <ng-container *ngIf="commentList && petSitterProfile && serviceList">
-  <app-user-infos [petSitterProfile]="petSitterProfile"></app-user-infos>
+  <app-petsitter-infos [petSitterProfile]="petSitterProfile"></app-petsitter-infos>
   <article>
     <app-services-list
       [serviceList]="serviceList"

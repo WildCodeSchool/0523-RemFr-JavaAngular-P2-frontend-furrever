@@ -37,8 +37,14 @@ import { SearchResultComponent } from "./pages/search-result/search-result.compo
 import { LogInComponent } from "./pages/log-in/log-in.component";
 import { SignUpComponent } from "./pages/sign-up/sign-up.component";
 import { PetsitterProfileComponent } from "./pages/petsitter-profile/petsitter-profile.component";
-import { TransactionsManagementComponent } from './components/transactions-management/transactions-management.component';
-
+import { TransactionsManagementComponent } from "./components/transactions-management/transactions-management.component";
+import { UserInfosComponent } from "./components/user-infos/user-infos.component";
+import { AnimalCardComponent } from "./components/animal-card/animal-card.component";
+import { CarouselAnimalComponent } from "./components/carousel-animal/carousel-animal.component";
+import { AnimalFormComponent } from "./components/forms/animal-form/animal-form.component";
+import { ModalAnimalComponent } from "./components/modal-animal/modal-animal.component";
+import { UpdateProfileFormComponent } from "./components/forms/update-profile-form/update-profile-form.component";
+import { UpdateProfileComponent } from "./components/update-profile/update-profile.component";
 
 @NgModule({
   declarations: [
@@ -69,6 +75,13 @@ import { TransactionsManagementComponent } from './components/transactions-manag
     ModalServiceComponent,
     ServiceRequestFormComponent,
     TransactionsManagementComponent,
+    UserInfosComponent,
+    AnimalCardComponent,
+    CarouselAnimalComponent,
+    AnimalFormComponent,
+    ModalAnimalComponent,
+    UpdateProfileFormComponent,
+    UpdateProfileComponent,
   ],
   imports: [
     BrowserModule,
@@ -80,9 +93,7 @@ import { TransactionsManagementComponent } from './components/transactions-manag
     ReactiveFormsModule,
     StoreModule.forRoot({ userStore: userStoreReducer }),
   ],
-  providers: [
-    { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
-  ],
+  providers: [{ provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true }],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

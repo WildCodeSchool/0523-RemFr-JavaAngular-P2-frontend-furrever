@@ -1,17 +1,17 @@
 import { Component, Input, OnInit } from "@angular/core";
-import { PetsitterViewByOwner } from "../../models/PetsitterViewByOwner";
+import { UserProfile } from "../../models/UserProfile";
 
 @Component({
-  selector: "app-user-infos",
+  selector: "app-petsitter-infos",
   templateUrl: "./petsitter-infos.component.html",
   styleUrls: ["./petsitter-infos.component.scss"],
 })
 export class PetsitterInfosComponent implements OnInit {
-  @Input() petSitterProfile!: PetsitterViewByOwner;
+  @Input() petSitterProfile!: UserProfile;
 
   ngOnInit() {
     if (this.petSitterProfile == undefined) {
-      this.petSitterProfile = new PetsitterViewByOwner("", "", "", "", "", "", 0, 0, 0, "", "", "");
+      this.petSitterProfile = new UserProfile("", "", "", "", "", "", 0, 0, 0, false, null);
     }
   }
 

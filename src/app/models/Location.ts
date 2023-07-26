@@ -5,6 +5,6 @@ export class Location {
     public streetNumber: string | null,
     public additionalAddress: string | null,
     public city: string,
-    public zipCode: string
+    public zipCode: string | null
   ) {}
 }

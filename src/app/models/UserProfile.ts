@@ -1,4 +1,6 @@
-export class PetsitterViewByOwner {
+import { Location } from "./Location";
+
+export class UserProfile {
   constructor(
     public idPetsitter: string,
     public email: string,
@@ -9,8 +11,7 @@ export class PetsitterViewByOwner {
     public price: number,
     public rating: number,
     public ratingQuantity: number,
-    public street: string,
-    public city: string,
-    public zipCode: string
+    public isPetSitter: boolean,
+    public location: Location | null
   ) {}
 }

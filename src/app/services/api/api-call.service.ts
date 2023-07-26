@@ -5,15 +5,17 @@ import { Comment } from "../../models/Comment";
 import { Species } from "../../models/Species";
 import { PetsitterPreview } from "../../models/PetsitterPreview";
 import { SearchRequest } from "../../models/SearchRequest";
-import { PetsitterViewByOwner } from "../../models/PetsitterViewByOwner";
+import { UserProfile } from "../../models/UserProfile";
 import { Service } from "../../models/Service";
 import { TokenJwt } from "../../models/TokenJwt";
 import { Login } from "../../models/Login";
 import { SendService } from "../../models/SendService";
+import { Animal } from "../../models/Animal";
+import { GetProfileUserResponse } from "../../models/GetProfileUserResponse";
 
 type ResponsePetSitter = {
   commentTemplateList: Comment[];
-  petSitterProfile: PetsitterViewByOwner;
+  petSitterProfile: UserProfile;
   serviceTemplateList: Service[];
 };
 
@@ -40,6 +42,8 @@ export class ApiCallService {
     getPetSitterById: "petsitters/",
     createUser: "auth/register",
     createTransaction: "transactions",
+    createAnimal: "users/animals",
+    getCurrentUser: "users",
   };
 
   constructor(public http: HttpClient) {}
@@ -70,5 +74,13 @@ export class ApiCallService {
 
   createTransaction(payload: SendService) {
     return this.http.post<any>(this.API_URL + this.endPoints.createTransaction, payload);
+  }
+
+  createAnimal(payload: Animal): Observable<Animal> {
+    return this.http.post<any>(this.API_URL + this.endPoints.createAnimal, payload);
+  }
+
+  getCurrentUser(){
+    return this.http.get<GetProfileUserResponse>(this.API_URL + this.endPoints.getCurrentUser);
   }
 }

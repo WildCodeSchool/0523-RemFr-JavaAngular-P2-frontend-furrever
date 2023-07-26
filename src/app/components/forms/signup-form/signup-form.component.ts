@@ -18,7 +18,6 @@ export class SignupFormComponent {
     picture: new FormControl("lion.jpg", [Validators.required]),
     isPetSitter: new FormControl(false, [Validators.required]),
   });
-  protected readonly onsubmit = onsubmit;
 
   constructor(private apiCallService: ApiCallService) {
   }
