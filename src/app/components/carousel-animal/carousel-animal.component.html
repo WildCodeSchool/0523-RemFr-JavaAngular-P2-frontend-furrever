@@ -1,5 +1,5 @@
 <!-- carousel -->
-<div class="carousel">
+<div class="carousel" *ngIf="animalList.length > 0">
   <div *ngIf="animalList.length !== 0">
     <ng-container *ngFor="let animal of animalList; let i = index">
       <div *ngIf="i === currentSlide" class="slide" @carouselAnimation>

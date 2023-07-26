@@ -25,11 +25,21 @@ import { SearchFormComponent } from "./components/forms/search-form/search-form.
 import { PetsitterInfosComponent } from "./components/petsitter-infos/petsitter-infos.component";
 import { ServicesListComponent } from "./components/services-list/services-list.component";
 import { ServicesComponent } from "./components/services/services.component";
-import { ModalServiceComponent } from "./components/modal-service/modal-service.component";
+import { ModalServiceComponent } from "./components/modals/modal-service/modal-service.component";
 import { LoginFormComponent } from "./components/forms/login-form/login-form.component";
 import { SubHeaderComponent } from "./components/sub-header/sub-header.component";
 import { SignupFormComponent } from "./components/forms/signup-form/signup-form.component";
 import { ServiceRequestFormComponent } from "./components/forms/service-request-form/service-request-form.component";
+import { TransactionDetailsComponent } from "./components/modals/transaction-details/transaction-details.component";
+import { StatusComponent } from "./components/status/status.component";
+import { TransactionArrayComponent } from "./components/transaction-array/transaction-array.component";
+import { UserInfosComponent } from "./components/user-infos/user-infos.component";
+import { AnimalCardComponent } from "./components/animal-card/animal-card.component";
+import { CarouselAnimalComponent } from "./components/carousel-animal/carousel-animal.component";
+import { AnimalFormComponent } from "./components/forms/animal-form/animal-form.component";
+import { ModalAnimalComponent } from "./components/modals/modal-animal/modal-animal.component";
+import { UpdateProfileFormComponent } from "./components/forms/update-profile-form/update-profile-form.component";
+import { UpdateProfileComponent } from "./components/update-profile/update-profile.component";
 
 import { HomeComponent } from "./pages/home/home.component";
 import { ProfileComponent } from "./pages/profile/profile.component";
@@ -37,14 +47,7 @@ import { SearchResultComponent } from "./pages/search-result/search-result.compo
 import { LogInComponent } from "./pages/log-in/log-in.component";
 import { SignUpComponent } from "./pages/sign-up/sign-up.component";
 import { PetsitterProfileComponent } from "./pages/petsitter-profile/petsitter-profile.component";
-import { TransactionsManagementComponent } from "./components/transactions-management/transactions-management.component";
-import { UserInfosComponent } from "./components/user-infos/user-infos.component";
-import { AnimalCardComponent } from "./components/animal-card/animal-card.component";
-import { CarouselAnimalComponent } from "./components/carousel-animal/carousel-animal.component";
-import { AnimalFormComponent } from "./components/forms/animal-form/animal-form.component";
-import { ModalAnimalComponent } from "./components/modal-animal/modal-animal.component";
-import { UpdateProfileFormComponent } from "./components/forms/update-profile-form/update-profile-form.component";
-import { UpdateProfileComponent } from "./components/update-profile/update-profile.component";
+import { TransactionsManagementComponent } from "./pages/transactions-management/transactions-management.component";
 
 @NgModule({
   declarations: [
@@ -75,6 +78,9 @@ import { UpdateProfileComponent } from "./components/update-profile/update-profi
     ModalServiceComponent,
     ServiceRequestFormComponent,
     TransactionsManagementComponent,
+    TransactionDetailsComponent,
+    StatusComponent,
+    TransactionArrayComponent,
     UserInfosComponent,
     AnimalCardComponent,
     CarouselAnimalComponent,

@@ -12,7 +12,6 @@ import { UserProfile } from "../../models/UserProfile";
   styleUrls: ["./profile.component.scss"],
 })
 export class ProfileComponent implements OnInit {
-  transactionList = [];
   animalList: Animal[] = [];
   user!: UserProfile;
   constructor(private authService: AuthService, private route: Router, private apiCallService: ApiCallService) {}

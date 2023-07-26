@@ -1,0 +1,22 @@
+<article>
+  <p>Liste de vos transactions, cliquez sur le "type" pour voir le détail.</p>
+  <div *ngIf="isPetsitter" class="btnGroup">
+    <input *ngIf="!showTransaction" (click)="showTransactionRequest()" class="button" type="button" value="Reçues" />
+    <span *ngIf="counter > 0 && !showTransaction">
+      <b>{{ counter }}</b>
+    </span>
+    <input
+      *ngIf="showTransaction"
+      (click)="showTransactionRequest()"
+      class="button request"
+      type="button"
+      value="Demandes"
+    />
+  </div>
+  <h3 *ngIf="showTransaction">Vos demandes de transactions reçues</h3>
+  <h3 *ngIf="!showTransaction">Vos demandes de transactions envoyées</h3>
+  <app-transaction-array [className]="'pending'" [transactionList]="pendingTransactionList"></app-transaction-array>
+  <app-transaction-array [className]="'validate'" [transactionList]="transactionListValidated"></app-transaction-array>
+  <app-transaction-array [className]="'refused'" [transactionList]="transactionListRefused"></app-transaction-array>
+  <app-transaction-array [className]="'completed'" [transactionList]="transactionListCompleted"></app-transaction-array>
+</article>

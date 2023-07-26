@@ -1,0 +1,38 @@
+<section>
+  <div *ngIf="showModal" class="modal">
+    <div>
+      <input (click)="isShowModal('close')" class="button close" type="button" value="X" />
+      <app-transaction-details
+        *ngIf="transaction"
+        [isPetsitter]="isPetsitter"
+        [transaction]="transaction"
+      ></app-transaction-details>
+    </div>
+  </div>
+  <div [ngClass]="className">
+    <h3>{{ title }} :</h3>
+    <table class="blueTable">
+      <thead>
+        <tr>
+          <th>Type de service</th>
+          <th>Début</th>
+          <th>Fin</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngIf="transactionList.length < 1">
+          <td></td>
+          <td>Aucune transaction</td>
+          <td></td>
+        </tr>
+        <tr *ngFor="let transaction of transactionList">
+          <td>
+            <a (click)="isShowModal(transaction.id)">{{ transaction.typeService }}</a>
+          </td>
+          <td>{{ transaction.dateStart }}</td>
+          <td>{{ transaction.dateEnd }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>

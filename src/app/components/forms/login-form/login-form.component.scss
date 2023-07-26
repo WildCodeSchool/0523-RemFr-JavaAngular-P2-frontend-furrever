@@ -27,7 +27,7 @@ form {
       border: 0;
       border-bottom: 2px solid #355f5b;
       outline: 0;
-      font-size: 1.3rem;
+      font-size: 1.2rem;
       padding: 7px 0;
       background: transparent;
       transition: border-color 0.2s;
@@ -37,7 +37,7 @@ form {
       }
 
       &:placeholder-shown ~ label {
-        font-size: 1.3rem;
+        font-size: 1.2rem;
         cursor: text;
         top: 20px;
         color: #355f5b;
@@ -77,7 +77,7 @@ form {
     border: none;
     margin-top: 1rem;
     padding: 0.7rem 1.8em;
-    font-size: 1.3rem;
+    font-size: 1.2rem;
   }
 
   a {

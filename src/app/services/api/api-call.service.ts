@@ -10,6 +10,7 @@ import { Service } from "../../models/Service";
 import { TokenJwt } from "../../models/TokenJwt";
 import { Login } from "../../models/Login";
 import { SendService } from "../../models/SendService";
+import { CreateTransactionResponse, GetTransaction } from "../../models/Transaction";
 import { Animal } from "../../models/Animal";
 import { GetProfileUserResponse } from "../../models/GetProfileUserResponse";
 
@@ -41,7 +42,8 @@ export class ApiCallService {
     login: "auth/login",
     getPetSitterById: "petsitters/",
     createUser: "auth/register",
-    createTransaction: "transactions",
+    transaction: "transactions",
+    updateTransaction: "transactions/",
     createAnimal: "users/animals",
     getCurrentUser: "users",
   };
@@ -72,12 +74,22 @@ export class ApiCallService {
     return this.http.post<TokenJwt>(this.API_URL + this.endPoints.login, payload);
   }
 
+  //TODO changer le any faire un typage
   createTransaction(payload: SendService) {
-    return this.http.post<any>(this.API_URL + this.endPoints.createTransaction, payload);
+    return this.http.post<CreateTransactionResponse>(this.API_URL + this.endPoints.transaction, payload);
   }
 
+  getTransactions() {
+    return this.http.get<GetTransaction>(this.API_URL + this.endPoints.transaction);
+  }
+
+  //TODO pour pas que Bastien nous embete :D
+  /*updateTransaction(payload: any) {
+    return this.http.post<any>(this.API_URL + this.endPoints.updateTransaction, payload);
+  }*/
+
   createAnimal(payload: Animal): Observable<Animal> {
-    return this.http.post<any>(this.API_URL + this.endPoints.createAnimal, payload);
+    return this.http.post<Animal>(this.API_URL + this.endPoints.createAnimal, payload);
   }
 
   getCurrentUser(){

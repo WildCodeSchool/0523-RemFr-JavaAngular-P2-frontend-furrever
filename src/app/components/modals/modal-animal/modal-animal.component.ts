@@ -1,7 +1,7 @@
 import { Component, Input } from "@angular/core";
-import { AuthService } from "../../services/auth/auth.service";
+import { AuthService } from "../../../services/auth/auth.service";
 import { ActivatedRoute, Router } from "@angular/router";
-import { Animal } from "../../models/Animal";
+import { Animal } from "../../../models/Animal";
 
 @Component({
   selector: "app-modal-animal",

@@ -1,0 +1,20 @@
+p {
+  text-align: center;
+  font-size: .5em;
+  color: white;
+  padding: .3rem;
+  border-radius: 20px;
+}
+
+.pending {
+  background-color: #b17a3a;
+}
+.refused{
+  background-color: #800000;
+}
+.validated{
+  background-color: #355f5b;
+}
+.completed{
+  background-color: #62686e;
+}
