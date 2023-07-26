@@ -7,6 +7,7 @@ import { LogInComponent } from "./pages/log-in/log-in.component";
 import { SignUpComponent } from "./pages/sign-up/sign-up.component";
 import { PetsitterProfileComponent } from "./pages/petsitter-profile/petsitter-profile.component";
 import { TransactionsManagementComponent } from "./pages/transactions-management/transactions-management.component";
+import { ServiceManagerComponent } from "./pages/service-manager/service-manager.component";
 
 const routes: Routes = [
   { path: "", component: HomeComponent },
@@ -16,6 +17,7 @@ const routes: Routes = [
   { path: "signup", component: SignUpComponent },
   { path: "profile-petsitter/:id", component: PetsitterProfileComponent },
   { path: "transactions", component: TransactionsManagementComponent },
+  { path: "services", component: ServiceManagerComponent },
 ];
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

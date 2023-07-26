@@ -1,0 +1,45 @@
+<form [formGroup]="addService" (ngSubmit)="onSubmit()">
+  <div class="species_service_container">
+    <p>Renseignez-vos services</p>
+    <div class="species_container">
+      <label *ngFor="let species of speciesList" class="control control-checkbox">
+        {{ species.name | titlecase }}
+        <input type="checkbox" (click)="checkSpecies(species.name)" />
+        <div class="control_indicator"></div>
+      </label>
+    </div>
+    <div>
+      <label class="control control-checkbox">
+        Promenade quotidienne
+        <input checked id="test" formControlName="serviceType" name="serviceType" type="radio" required value="false" />
+        <div class="control_indicator"></div>
+      </label>
+      <label class="control control-checkbox">
+        Visite à domicile
+        <input id="pouet" formControlName="serviceType" name="serviceType" type="radio" required value="true" />
+        <div class="control_indicator"></div>
+      </label>
+      <label class="control control-checkbox">
+        Garde prolongée
+        <input id="zou" formControlName="serviceType" name="serviceType" type="radio" required value="true" />
+        <div class="control_indicator"></div>
+      </label>
+    </div>
+    <div class="field">
+      <input formControlName="price" id="price" name="price" placeholder="price" required type="price" />
+      <label for="price">Prix du service (€)</label>
+    </div>
+    <div class="field">
+      <textarea
+        type="text"
+        formControlName="description"
+        placeholder="description"
+        name="description"
+        id="description"
+        class="description"
+        required
+      ></textarea>
+      <label for="description">Description</label>
+    </div>
+  </div>
+</form>
