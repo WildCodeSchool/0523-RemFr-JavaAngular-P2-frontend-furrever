@@ -6,6 +6,7 @@ import { AppRoutingModule } from "./app-routing.module";
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { HTTP_INTERCEPTORS, HttpClientModule } from "@angular/common/http";
 import { StoreModule } from "@ngrx/store";
+import { ToastrModule } from "ngx-toastr";
 
 import { DemoPipe } from "./pipes/demo.pipe";
 import { InitialPipe } from "./pipes/initial.pipe";
@@ -100,6 +101,7 @@ import { ServiceManagerComponent } from "./pages/service-manager/service-manager
     FormsModule,
     ReactiveFormsModule,
     StoreModule.forRoot({ userStore: userStoreReducer }),
+    ToastrModule.forRoot({ positionClass: "toast-top-center" }),
   ],
   providers: [{ provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true }],
   bootstrap: [AppComponent],

@@ -2,6 +2,8 @@ import { Component, Input } from "@angular/core";
 import { FormControl, FormGroup, Validators } from "@angular/forms";
 import { SendService } from "../../../models/SendService";
 import { ApiCallService } from "../../../services/api/api-call.service";
+import { ActivatedRoute, Router } from "@angular/router";
+import {ToastrService} from "ngx-toastr";
 
 @Component({
   selector: "app-service-request-form",
@@ -19,7 +21,12 @@ export class ServiceRequestFormComponent {
   });
   errors: string[] = [];
 
-  constructor(private apiCallService: ApiCallService) {}
+  constructor(
+    private apiCallService: ApiCallService,
+    private activeRoute: ActivatedRoute,
+    private route: Router,
+    private toastr: ToastrService
+  ) {}
 
   sendRequestService() {
     this.errors = [];
@@ -37,10 +44,15 @@ export class ServiceRequestFormComponent {
         dateEnd: this.requestServiceForm.getRawValue().dateEnd,
         content: this.requestServiceForm.getRawValue().content,
       };
-      this.apiCallService.createTransaction(sendService).subscribe();
+      this.apiCallService.createTransaction(sendService).subscribe(() => {
+        this.toastr.success("Votre demande a été envoyée avec succès!");
+        const { id } = this.activeRoute.snapshot.params;
+        this.route
+          .navigateByUrl("/", { skipLocationChange: true })
+          .then(() => this.route.navigate(["profile-petsitter/" + id]));
+      });
     }
   }
-
   validation(dateStart: string | null, dateEnd: string | null, content: string | null) {
     if (!dateStart || !dateStart.trim()) {
       this.errors.push("Une date de début valide doit être entrée.");

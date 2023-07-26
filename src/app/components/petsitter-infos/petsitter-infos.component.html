@@ -30,8 +30,8 @@
     <p>
       {{ petSitterProfile.description }}
     </p>
-    <h4>Où trouver ce Pet Sitter</h4>
-    <p>
+    <h4 *ngIf="petSitterProfile.location?.street && petSitterProfile.location?.city">Où trouver ce Pet Sitter</h4>
+    <p *ngIf="petSitterProfile.location?.street && petSitterProfile.location?.city">
       {{ petSitterProfile.location?.street }}, {{ petSitterProfile.location?.zipCode }},
       {{ petSitterProfile.location?.city }}
     </p>

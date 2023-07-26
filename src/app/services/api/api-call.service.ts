@@ -1,11 +1,10 @@
 import { Injectable } from "@angular/core";
 import { HttpClient } from "@angular/common/http";
-import { Observable } from "rxjs";
 import { Comment } from "../../models/Comment";
 import { Species } from "../../models/Species";
-import { PetsitterPreview } from "../../models/PetsitterPreview";
+import { PetsitterPreview, PetsitterResponse, ResponsePetSitter } from "../../models/PetsitterPreview";
 import { SearchRequest } from "../../models/SearchRequest";
-import { UserProfile } from "../../models/UserProfile";
+import {User, UserProfile} from "../../models/UserProfile";
 import { Service } from "../../models/Service";
 import { TokenJwt } from "../../models/TokenJwt";
 import { Login } from "../../models/Login";
@@ -13,21 +12,6 @@ import { SendService } from "../../models/SendService";
 import { CreateTransactionResponse, GetTransaction } from "../../models/Transaction";
 import { Animal } from "../../models/Animal";
 import { GetProfileUserResponse } from "../../models/GetProfileUserResponse";
-
-type ResponsePetSitter = {
-  commentTemplateList: Comment[];
-  petSitterProfile: UserProfile;
-  serviceTemplateList: Service[];
-};
-
-export type User = {
-  firstName: string | null;
-  lastName: string | null;
-  email: string | null;
-  password: string | null;
-  isPetSitter: boolean | null;
-  picture: string | null;
-};
 
 @Injectable({
   providedIn: "root",
@@ -67,7 +51,7 @@ export class ApiCallService {
   }
 
   createUser(payload: User) {
-    return this.http.post<User>(this.API_URL + this.endPoints.createUser, payload);
+    return this.http.post<PetsitterResponse>(this.API_URL + this.endPoints.createUser, payload);
   }
 
   loginRequest(payload: Login) {
