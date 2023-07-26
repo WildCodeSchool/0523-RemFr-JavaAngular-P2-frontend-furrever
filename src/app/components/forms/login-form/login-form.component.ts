@@ -1,15 +1,14 @@
-import {Component, OnInit} from "@angular/core";
-import {FormControl, FormGroup} from "@angular/forms";
-import {ApiCallService} from "../../../services/api/api-call.service";
-import {ActivatedRoute, Router} from "@angular/router";
-import {Observable} from "rxjs";
-import {Store} from "@ngrx/store";
-import {addUserOnStore, removeUserOnStore} from "../../../services/state/userStore.actions";
-import {AuthService} from "../../../services/auth/auth.service";
+import { Component, OnInit } from "@angular/core";
+import { FormControl, FormGroup } from "@angular/forms";
+import { ApiCallService } from "../../../services/api/api-call.service";
+import { ActivatedRoute, Router } from "@angular/router";
+import { Observable } from "rxjs";
+import { Store } from "@ngrx/store";
+import { addUserOnStore, removeUserOnStore } from "../../../services/state/userStore.actions";
+import { AuthService } from "../../../services/auth/auth.service";
 import jwtDecode from "jwt-decode";
-import {PayloadToken} from "../../../models/PayloadToken";
-import {ToastrService} from "ngx-toastr";
-
+import { PayloadToken } from "../../../models/PayloadToken";
+import { ToastrService } from "ngx-toastr";
 
 @Component({
   selector: "app-login-form",
@@ -32,8 +31,7 @@ export class LoginFormComponent implements OnInit {
     private store: Store<{ userStore: boolean }>,
     private authService: AuthService,
     private toastr: ToastrService
-  ) {
-  }
+  ) {}
 
   ngOnInit(): void {
     if (this.authService.isConnectedVerif()) {
