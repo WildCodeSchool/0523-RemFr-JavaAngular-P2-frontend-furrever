@@ -1,6 +1,6 @@
 export class Comment {
   constructor(
-    public firstName: string,
+    public firstname: string,
     public initialLastName: string,
     public date: Date,
     public note: number,

@@ -13,3 +13,27 @@ body {
   margin: 0;
   width: 100vw;
 }
+
+.toast-success {
+  border: solid 3px #355f5b;
+  color: #355F5B !important;
+  background-image: url("assets/images/patoune.png") !important;
+  background-color: white !important;
+  text-align: center !important;
+}
+
+.toast-warning {
+  border: solid 3px #b17a3a;
+  color: black !important;
+  background-image: url("assets/images/patoune.png") !important;
+  background-color: white !important;
+  text-align: center !important;
+}
+
+.toast-error {
+  border: solid 3px #800000;
+  color: black !important;
+  background-image: url("assets/images/patoune.png") !important;
+  background-color: white !important;
+  text-align: center !important;
+}

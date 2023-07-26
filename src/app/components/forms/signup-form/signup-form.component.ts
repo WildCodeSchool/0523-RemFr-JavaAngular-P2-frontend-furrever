@@ -7,18 +7,19 @@ import jwtDecode from "jwt-decode";
 import { addUserOnStore } from "../../../services/state/userStore.actions";
 import { Store } from "@ngrx/store";
 import { AuthService } from "../../../services/auth/auth.service";
+import { ToastrService } from "ngx-toastr";
 
 @Component({
   selector: "app-signup-form",
   templateUrl: "./signup-form.component.html",
   styleUrls: ["./signup-form.component.scss"],
 })
-export class SignupFormComponent implements OnInit{
+export class SignupFormComponent implements OnInit {
   signup = new FormGroup({
     email: new FormControl("", [Validators.required, Validators.email]),
     password: new FormControl("", [Validators.required, Validators.minLength(6)]),
-    firstName: new FormControl("", [Validators.required, Validators.minLength(2)]),
-    lastName: new FormControl("", [Validators.required, Validators.minLength(2)]),
+    firstname: new FormControl("", [Validators.required, Validators.minLength(2)]),
+    lastname: new FormControl("", [Validators.required, Validators.minLength(2)]),
     picture: new FormControl("lionHero.jpg", [Validators.required]),
     isPetSitter: new FormControl(false, [Validators.required]),
   });
@@ -27,11 +28,13 @@ export class SignupFormComponent implements OnInit{
     private apiCallService: ApiCallService,
     private route: Router,
     private store: Store<{ userStore: boolean }>,
-    private authService: AuthService
+    private authService: AuthService,
+    private toastr: ToastrService
   ) {}
 
   ngOnInit(): void {
     if (this.authService.isConnectedVerif()) {
+      this.toastr.error("Vous êtes connecté donc déjà inscrit !");
       this.route.navigate(["/profile"]);
     }
   }
@@ -42,6 +45,7 @@ export class SignupFormComponent implements OnInit{
       this.apiCallService.loginRequest({ email, password }).subscribe(({ token }) => {
         localStorage.setItem("authToken", token);
         const payloadToken: PayloadToken = jwtDecode(token);
+        this.toastr.success("Vous êtes connecté !");
         this.store.dispatch(addUserOnStore({ picture: payloadToken.picture }));
         this.route.navigate(["/profile"]);
       });

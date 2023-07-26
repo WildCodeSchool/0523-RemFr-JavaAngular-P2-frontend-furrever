@@ -15,7 +15,7 @@ export class AnimalFormComponent implements OnInit {
   constructor(private apiCallService: ApiCallService, private route: Router) {}
 
   animalForm = new FormGroup({
-    firstName: new FormControl("", [Validators.required]),
+    firstname: new FormControl("", [Validators.required]),
     birthday: new FormControl("", [Validators.required]),
     species: new FormControl("", [Validators.required]),
     description: new FormControl("", [Validators.required]),
@@ -31,7 +31,7 @@ export class AnimalFormComponent implements OnInit {
     const species = this.speciesList.find((species) => species.id === this.animalForm.getRawValue().species);
     if (species) {
       const payload = {
-        firstName: this.animalForm.getRawValue().firstName,
+        firstname: this.animalForm.getRawValue().firstname,
         birthday: this.animalForm.getRawValue().birthday,
         species,
         description: this.animalForm.getRawValue().description,

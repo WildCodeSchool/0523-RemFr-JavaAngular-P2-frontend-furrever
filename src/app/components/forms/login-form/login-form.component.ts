@@ -8,6 +8,7 @@ import { addUserOnStore, removeUserOnStore } from "../../../services/state/userS
 import { AuthService } from "../../../services/auth/auth.service";
 import jwtDecode from "jwt-decode";
 import { PayloadToken } from "../../../models/PayloadToken";
+import { ToastrService } from "ngx-toastr";
 
 @Component({
   selector: "app-login-form",
@@ -28,11 +29,13 @@ export class LoginFormComponent implements OnInit {
     private route: Router,
     private activatedRoute: ActivatedRoute,
     private store: Store<{ userStore: boolean }>,
-    private authService: AuthService
+    private authService: AuthService,
+    private toastr: ToastrService
   ) {}
 
   ngOnInit(): void {
     if (this.authService.isConnectedVerif()) {
+      this.toastr.warning("Revenez nous vite !");
       this.store.dispatch(removeUserOnStore());
     }
     localStorage.removeItem("authToken");
@@ -48,6 +51,7 @@ export class LoginFormComponent implements OnInit {
         const payloadToken: PayloadToken = jwtDecode(token);
         this.store.dispatch(addUserOnStore({ picture: payloadToken.picture }));
         const queryParam = this.activatedRoute.snapshot.queryParams;
+        this.toastr.success("Vous êtes connecté !");
         if (queryParam["id"]) {
           this.route.navigate(["profile-petsitter/" + queryParam["id"]]);
         } else {

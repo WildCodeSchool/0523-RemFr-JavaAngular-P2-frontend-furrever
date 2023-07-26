@@ -10,9 +10,8 @@ export class PetsitterInfosComponent implements OnInit {
   @Input() petSitterProfile!: UserProfile;
 
   ngOnInit() {
-    if (this.petSitterProfile == undefined) {
-      this.petSitterProfile = new UserProfile("", "", "", "", "", "", 0, 0, 0, false, null);
-    }
+
+    console.log(this.petSitterProfile)
   }
 
   counter(i: number) {
