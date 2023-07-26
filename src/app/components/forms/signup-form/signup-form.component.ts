@@ -15,7 +15,7 @@ export class SignupFormComponent {
     password: new FormControl("", [Validators.required, Validators.minLength(6)]),
     firstName: new FormControl("", [Validators.required, Validators.minLength(2)]),
     lastName: new FormControl("", [Validators.required, Validators.minLength(2)]),
-    picture: new FormControl("lion.jpg", [Validators.required]),
+    picture: new FormControl("lionHero.jpg", [Validators.required]),
     isPetSitter: new FormControl(false, [Validators.required]),
   });
 

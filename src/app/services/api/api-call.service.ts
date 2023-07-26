@@ -50,19 +50,19 @@ export class ApiCallService {
 
   constructor(public http: HttpClient) {}
 
-  getTopComments(): Observable<Comment[]> {
+  getTopComments() {
     return this.http.get<Comment[]>(this.API_URL + this.endPoints.getTopComments);
   }
 
-  getSpeciesName(): Observable<Species[]> {
+  getSpeciesName() {
     return this.http.get<Species[]>(this.API_URL + this.endPoints.getSpecies);
   }
 
-  getPetsitters(payload: SearchRequest): Observable<PetsitterPreview[]> {
+  getPetsitters(payload: SearchRequest) {
     return this.http.post<PetsitterPreview[]>(this.API_URL + this.endPoints.searchPetsitter, payload);
   }
 
-  getPetsittersById(id: string): Observable<ResponsePetSitter> {
+  getPetsittersById(id: string) {
     return this.http.get<ResponsePetSitter>(this.API_URL + this.endPoints.getPetSitterById + id);
   }
 
@@ -70,11 +70,10 @@ export class ApiCallService {
     return this.http.post<User>(this.API_URL + this.endPoints.createUser, payload);
   }
 
-  loginRequest(payload: Login): Observable<TokenJwt> {
+  loginRequest(payload: Login) {
     return this.http.post<TokenJwt>(this.API_URL + this.endPoints.login, payload);
   }
 
-  //TODO changer le any faire un typage
   createTransaction(payload: SendService) {
     return this.http.post<CreateTransactionResponse>(this.API_URL + this.endPoints.transaction, payload);
   }
@@ -88,11 +87,11 @@ export class ApiCallService {
     return this.http.post<any>(this.API_URL + this.endPoints.updateTransaction, payload);
   }*/
 
-  createAnimal(payload: Animal): Observable<Animal> {
+  createAnimal(payload: Animal) {
     return this.http.post<Animal>(this.API_URL + this.endPoints.createAnimal, payload);
   }
 
-  getCurrentUser(){
+  getCurrentUser() {
     return this.http.get<GetProfileUserResponse>(this.API_URL + this.endPoints.getCurrentUser);
   }
 }
