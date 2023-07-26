@@ -6,7 +6,6 @@ import { Component, Input, OnInit } from "@angular/core";
   styleUrls: ["./status.component.scss"],
 })
 export class StatusComponent implements OnInit {
-
   @Input() statusFlag: string | null | undefined;
   classeName = "pending";
   title = "En attente";
@@ -34,5 +33,4 @@ export class StatusComponent implements OnInit {
         this.title = "En attente";
     }
   }
-
 }
