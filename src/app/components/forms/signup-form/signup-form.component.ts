@@ -24,6 +24,7 @@ export class SignupFormComponent implements OnInit {
     isPetSitter: new FormControl(false, [Validators.required]),
   });
 
+  errorRegistration?: string;
   constructor(
     private apiCallService: ApiCallService,
     private route: Router,
@@ -41,14 +42,20 @@ export class SignupFormComponent implements OnInit {
   sendSignUp() {
     const email = this.signup.getRawValue().email;
     const password = this.signup.getRawValue().password;
-    this.apiCallService.createUser(this.signup.getRawValue()).subscribe((response) => {
-      this.apiCallService.loginRequest({ email, password }).subscribe(({ token }) => {
-        localStorage.setItem("authToken", token);
-        const payloadToken: PayloadToken = jwtDecode(token);
-        this.toastr.success("Vous êtes connecté !");
-        this.store.dispatch(addUserOnStore({ picture: payloadToken.picture }));
-        this.route.navigate(["/profile"]);
-      });
+    this.apiCallService.createUser(this.signup.getRawValue()).subscribe({
+      next: () => {
+        this.apiCallService.loginRequest({ email, password }).subscribe(({ token }) => {
+          localStorage.setItem("authToken", token);
+          const payloadToken: PayloadToken = jwtDecode(token);
+          this.toastr.success("Vous êtes connecté !");
+          this.store.dispatch(addUserOnStore({ picture: payloadToken.picture }));
+          this.route.navigate(["/profile"]);
+        });
+      },
+      error: () => {
+        this.errorRegistration =
+          "Une erreur est survenue lors de votre inscription, votre adresse email est surement déjà utilisée.";
+      },
     });
   }
 }

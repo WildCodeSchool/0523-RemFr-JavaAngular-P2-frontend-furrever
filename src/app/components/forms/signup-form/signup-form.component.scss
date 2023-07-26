@@ -240,7 +240,7 @@ form {
 [type=radio]:checked + img {
   outline: thick double #355F5B;
 }
-.error-msg {
+.error-msg, .errors {
   color: red;
   margin-top: 0.3rem;
   font-size: 0.8em;

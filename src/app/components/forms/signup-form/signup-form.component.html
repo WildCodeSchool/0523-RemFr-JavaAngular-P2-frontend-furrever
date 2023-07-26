@@ -98,5 +98,8 @@
       <div [hidden]="!signup.controls['lastname'].invalid">Le nom n'est pas valide.</div>
     </div>
   </div>
+  <div *ngIf="errorRegistration">
+    <p class="errors">{{ errorRegistration }}</p>
+  </div>
   <input class="button" type="submit" value="Valider" />
 </form>
