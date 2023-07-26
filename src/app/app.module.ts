@@ -42,9 +42,9 @@ import { UserInfosComponent } from "./components/user-infos/user-infos.component
 import { AnimalCardComponent } from "./components/animal-card/animal-card.component";
 import { CarouselAnimalComponent } from "./components/carousel-animal/carousel-animal.component";
 import { AnimalFormComponent } from "./components/forms/animal-form/animal-form.component";
-import { ModalAnimalComponent } from './components/modal-animal/modal-animal.component';
-import { UpdateProfileFormComponent } from './components/forms/update-profile-form/update-profile-form.component';
-import { UpdateProfileComponent } from './components/update-profile/update-profile.component';
+import { ModalAnimalComponent } from "./components/modal-animal/modal-animal.component";
+import { UpdateProfileFormComponent } from "./components/forms/update-profile-form/update-profile-form.component";
+import { UpdateProfileComponent } from "./components/update-profile/update-profile.component";
 
 @NgModule({
   declarations: [

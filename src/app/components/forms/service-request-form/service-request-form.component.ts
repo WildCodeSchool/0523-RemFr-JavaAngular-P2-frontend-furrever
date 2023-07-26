@@ -34,8 +34,7 @@ export class ServiceRequestFormComponent {
         dateStart: this.requestServiceForm.getRawValue().dateStart,
         dateEnd: this.requestServiceForm.getRawValue().dateEnd,
       };
-      console.log(sendService);
-      this.apiCallService.createTransaction(sendService).subscribe((response) => console.log(response))
+      this.apiCallService.createTransaction(sendService).subscribe();
     }
   }
 
