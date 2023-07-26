@@ -40,6 +40,7 @@ import { PetsitterProfileComponent } from "./pages/petsitter-profile/petsitter-p
 import { TransactionsManagementComponent } from "./pages/transactions-management/transactions-management.component";
 import { TransactionDetailsComponent } from './components/modals/transaction-details/transaction-details.component';
 import { StatusComponent } from './components/status/status.component';
+import { TransactionArrayComponent } from './components/transaction-array/transaction-array.component';
 
 @NgModule({
   declarations: [
@@ -72,6 +73,7 @@ import { StatusComponent } from './components/status/status.component';
     TransactionsManagementComponent,
     TransactionDetailsComponent,
     StatusComponent,
+    TransactionArrayComponent,
   ],
   imports: [
     BrowserModule,

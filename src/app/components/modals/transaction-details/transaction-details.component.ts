@@ -1,5 +1,5 @@
 import { Component, Input } from "@angular/core";
-import { Transation } from "../../../pages/profile/profile.component";
+import { Transaction } from "../../../models/Transaction";
 
 @Component({
   selector: "app-transaction-details",
@@ -7,6 +7,6 @@ import { Transation } from "../../../pages/profile/profile.component";
   styleUrls: ["./transaction-details.component.scss"],
 })
 export class TransactionDetailsComponent {
-  @Input() transaction?: Transation;
+  @Input() transaction?: Transaction;
   @Input() isPetsitter!: boolean;
 }

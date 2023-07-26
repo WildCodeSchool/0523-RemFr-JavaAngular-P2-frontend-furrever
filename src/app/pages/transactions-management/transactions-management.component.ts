@@ -1,7 +1,8 @@
 import { Component, OnInit } from "@angular/core";
-import { Transation } from "../profile/profile.component";
 import { AuthService } from "../../services/auth/auth.service";
 import { Router } from "@angular/router";
+import { ApiCallService } from "../../services/api/api-call.service";
+import { Transaction } from "../../models/Transaction";
 
 @Component({
   selector: "app-transactions-management",
@@ -9,119 +10,65 @@ import { Router } from "@angular/router";
   styleUrls: ["./transactions-management.component.scss"],
 })
 export class TransactionsManagementComponent implements OnInit {
-  showModal = false;
-  transaction?: Transation;
   isPetsitter = false;
-  transactionList: Transation[] = [
-    {
-      id: "1",
-      dateSart: "2023-07-24",
-      dateEnd: "2023-07-30",
-      serviceType: "garde rapporché 1",
-      userName: "Maude",
-      petsitter: "Bruno",
-      status: null,
-      content: "blab blab bla je suis beau, vraiment très beau",
-      statusFlag: "pending",
-    },
-    {
-      id: "2",
-      dateSart: "2023-07-24",
-      dateEnd: "2023-07-30",
-      serviceType: "Promenade quotidienne 2",
-      userName: "Maude",
-      petsitter: "Bruno",
-      status: null,
-      content: "blab blab bla je suis beau, vraiment très beau",
-      statusFlag: "pending",
-    },
-    {
-      id: "3",
-      dateSart: "2023-07-24",
-      dateEnd: "2023-07-30",
-      serviceType: "garde rapporché 3",
-      userName: "Maude",
-      petsitter: "Bruno",
-      status: true,
-      content: "blab blab bla je suis beau, vraiment très beau",
-      statusFlag: "pending",
-    },
-    {
-      id: "4",
-      dateSart: "2023-07-24",
-      dateEnd: "2023-07-30",
-      serviceType: "garde rapporché 4",
-      userName: "Maude",
-      petsitter: "Bruno",
-      status: false,
-      content: "blab blab bla je suis beau, vraiment très beau",
-      statusFlag: "pending",
-    },
-    {
-      id: "5",
-      dateSart: "2023-07-23",
-      dateEnd: "2023-07-23",
-      serviceType: "garde rapporché 1",
-      userName: "Maude",
-      petsitter: "Bruno",
-      status: true,
-      content: "blab blab bla je suis beau, vraiment très beau",
-      statusFlag: "pending",
-    },
-    {
-      id: "6",
-      dateSart: "2023-07-24",
-      dateEnd: "2023-07-30",
-      serviceType: "Promenade quotidienne 2",
-      userName: "Maude",
-      petsitter: "Bruno",
-      status: false,
-      content: "blab blab bla je suis beau, vraiment très beau",
-      statusFlag: "pending",
-    },
-    {
-      id: "7",
-      dateSart: "2023-07-24",
-      dateEnd: "2023-07-30",
-      serviceType: "garde rapporché 3",
-      userName: "Maude",
-      petsitter: "Bruno",
-      status: true,
-      content: "blab blab bla je suis beau, vraiment très beau",
-      statusFlag: "pending",
-    },
-    {
-      id: "89",
-      dateSart: "2023-07-24",
-      dateEnd: "2023-07-30",
-      serviceType: "garde rapporché 4",
-      userName: "Maude",
-      petsitter: "Bruno",
-      status: true,
-      content: "blab blab bla je suis beau, vraiment très beau",
-      statusFlag: "pending",
-    },
-  ];
-  pendingTransactionList: Transation[] = [];
-  transactionListValidated: Transation[] = [];
-  transactionListRefused: Transation[] = [];
-  transactionListCompleted: Transation[] = [];
+  showTransaction = false;
+  transactionPetsitterList: Transaction[] = [];
+  transactionISentList: Transaction[] = [];
+  pendingTransactionList: Transaction[] = [];
+  transactionListValidated: Transaction[] = [];
+  transactionListRefused: Transaction[] = [];
+  transactionListCompleted: Transaction[] = [];
+  counter = 0;
 
-  constructor(private authService: AuthService, private route: Router) {}
+  constructor(private authService: AuthService, private route: Router, private apiCallService: ApiCallService) {}
 
   ngOnInit(): void {
     if (!this.authService.isConnectedVerif()) {
       this.route.navigate(["/login"]);
     }
+    this.apiCallService.getTransactions().subscribe(({ transactionForPetsitter, transactionFromUser, petsitter }) => {
+      this.isPetsitter = petsitter;
+      this.transactionPetsitterList = transactionForPetsitter;
+      this.transactionISentList = transactionFromUser;
+      this.sortTransaction(transactionFromUser);
+      const today = new Date();
+      const forCounter = transactionForPetsitter.filter((transaction) => {
+        const end = new Date(transaction.dateEnd);
+        const timeDiffForEndToday = end.getTime() - today.getTime();
+        return transaction.status === null && timeDiffForEndToday > 0;
+      });
+      this.counter = forCounter.length;
+    });
+  }
+
+  showTransactionRequest() {
+    this.showTransaction = !this.showTransaction;
+    if (this.showTransaction) {
+      this.sortTransaction(this.transactionPetsitterList);
+    } else {
+      this.sortTransaction(this.transactionISentList);
+    }
+  }
+
+  sortTransaction(transactionList: Transaction[]) {
+    console.log(transactionList);
     const today = new Date();
-    this.pendingTransactionList = this.transactionList.filter((transaction) => transaction.status === null);
-    this.transactionListRefused = this.transactionList.filter((transaction) => transaction.status === false);
-    this.transactionListValidated = this.transactionList.filter((transaction) => {
+    this.pendingTransactionList = transactionList.filter((transaction) => {
+      const end = new Date(transaction.dateEnd);
+      const timeDiffForEndToday = end.getTime() - today.getTime();
+      return transaction.status === null && timeDiffForEndToday > 0;
+    });
+    this.transactionListRefused = transactionList.filter((transaction) => {
+      const end = new Date(transaction.dateEnd);
+      const timeDiffForEndToday = end.getTime() - today.getTime();
+      return transaction.status === false || (transaction.status === null && timeDiffForEndToday < 0);
+    });
+    this.transactionListValidated = transactionList.filter((transaction) => {
       const end = new Date(transaction.dateEnd);
       const timeDiffForEndToday = end.getTime() - today.getTime();
       return transaction.status && timeDiffForEndToday > 0;
     });
-    this.transactionListCompleted = this.transactionList.filter((transaction) => {
+    this.transactionListCompleted = transactionList.filter((transaction) => {
       const end = new Date(transaction.dateEnd);
       const timeDiffForEndToday = end.getTime() - today.getTime();
       return transaction.status && timeDiffForEndToday < 0;
@@ -130,12 +77,5 @@ export class TransactionsManagementComponent implements OnInit {
     this.transactionListRefused.forEach((transaction) => (transaction.statusFlag = "refused"));
     this.transactionListValidated.forEach((transaction) => (transaction.statusFlag = "validated"));
     this.transactionListCompleted.forEach((transaction) => (transaction.statusFlag = "completed"));
-  }
-
-  isShowModal(id: string) {
-    if (id !== "close") {
-      this.transaction = this.transactionList.find((transaction) => transaction.id === id);
-    }
-    this.showModal = !this.showModal;
   }
 }

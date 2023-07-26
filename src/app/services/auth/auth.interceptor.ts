@@ -12,7 +12,7 @@ export class AuthInterceptor implements HttpInterceptor {
     if (this.authService.isConnectedVerif()) {
       const token = localStorage.getItem("authToken");
       const callApiRoute = request.url.startsWith(
-        this.apiCallService.API_URL + this.apiCallService.endPoints.createTransaction
+        this.apiCallService.API_URL + this.apiCallService.endPoints.transaction
       );
       if (token && callApiRoute) {
         request = request.clone({

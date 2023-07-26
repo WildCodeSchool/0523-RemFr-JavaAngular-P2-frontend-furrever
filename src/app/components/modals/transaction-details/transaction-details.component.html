@@ -1,7 +1,7 @@
 <div *ngIf="isPetsitter" class="modal">
   <div>
     <h3>
-      Demande de {{ transaction?.userName }}
+      Demande de {{ transaction?.ownerFirstName }}
     </h3>
     <div class="status">
       <app-status [statusFlag]="transaction?.statusFlag"></app-status>
@@ -10,11 +10,11 @@
       <img class="my-icon" src="../../../../assets/images/patoune.png" alt="une patoune" />
       <p>
         <b>Motif : </b>
-        {{ transaction?.serviceType }} .
+        {{ transaction?.typeService }} .
       </p>
       <p>
         <b>Du </b>
-        {{ transaction?.dateSart }}
+        {{ transaction?.dateStart }}
         <b>au </b>
         {{ transaction?.dateEnd }} .
       </p>
@@ -35,7 +35,7 @@
 <div *ngIf="!isPetsitter" class="modal">
   <div>
     <h3>
-      Demande à {{ transaction?.petsitter }}
+      Demande à {{ transaction?.petSitterFirstName }}
     </h3>
     <div class="status">
       <app-status [statusFlag]="transaction?.statusFlag"></app-status>
@@ -44,11 +44,11 @@
       <img class="my-icon" src="../../../../assets/images/patoune.png" alt="une patoune" />
       <p>
         <b>Motif : </b>
-        {{ transaction?.serviceType }} .
+        {{ transaction?.typeService }} .
       </p>
       <p>
         <b>Du </b>
-        {{ transaction?.dateSart }}
+        {{ transaction?.dateStart }}
         <b>au </b>
         {{ transaction?.dateEnd }} .
       </p>

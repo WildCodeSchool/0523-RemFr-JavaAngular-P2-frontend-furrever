@@ -1,3 +1,6 @@
+import { Service } from "./Service";
+import { Comment } from "./Comment";
+
 export class PetsitterViewByOwner {
   constructor(
     public idPetsitter: string,
@@ -14,3 +17,9 @@ export class PetsitterViewByOwner {
     public zipCode: string
   ) {}
 }
+
+export type InfoPertsitter = {
+  commentTemplateList: Comment[];
+  petSitterProfile: PetsitterViewByOwner;
+  serviceTemplateList: Service[];
+};

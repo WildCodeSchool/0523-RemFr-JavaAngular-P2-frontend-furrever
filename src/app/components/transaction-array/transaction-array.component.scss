@@ -1,0 +1,109 @@
+section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 2.5rem;
+
+  table {
+    box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
+  }
+
+  table.blueTable {
+    background-color: #f2f2f2;
+    width: 100%;
+    text-align: center;
+    border-collapse: collapse;
+  }
+
+  table.blueTable td, table.blueTable th {
+    padding: 3px 2px;
+  }
+
+  table.blueTable tbody td {
+    padding: 1rem;
+    font-size: .8em;
+  }
+
+  table.blueTable tr:nth-child(even) {
+    background: white;
+  }
+
+  table.blueTable thead th {
+    font-weight: bold;
+    color: #FFFFFF;
+  }
+
+  th, td {
+    max-width: 100px;
+    min-width: 100px;
+  }
+
+  .pending {
+    table.blueTable thead {
+      background: #b17a3a;
+    }
+  }
+
+  .validate {
+    table.blueTable thead {
+      background: #355f5b;
+    }
+  }
+
+  .refused {
+    table.blueTable thead {
+      background: #800000;
+    }
+  }
+
+  .completed {
+    table.blueTable thead {
+      background: #62686e;
+    }
+  }
+
+  a {
+    display: inline-block;
+    cursor: pointer;
+  }
+}
+
+.modal{
+  position: fixed;
+  background-color: rgba(0, 0, 0, 0.7);
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  right: 0;
+  z-index: 9;
+
+  div{
+    background-color: white;
+    width: 90%;
+    align-content: center;
+    margin: 20% auto auto;
+    padding: 15px 15px 25px;
+/*    display: flex;
+    flex-direction: row-reverse;*/
+    position: relative;
+    border-radius: 20px;
+  }
+
+  .close {
+    left: 90%;
+  }
+
+  .button{
+    text-align: end;
+    margin: 0;
+    position: absolute;
+    top: 10px;
+    font-weight: bolder;
+    font-size: larger;
+    color: #355f5b;
+    padding: 0.5rem;
+    cursor: pointer;
+    background-color: #ffffff;
+    border: 0;
+  }
+}
