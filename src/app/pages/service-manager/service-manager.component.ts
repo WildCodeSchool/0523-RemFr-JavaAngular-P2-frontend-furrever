@@ -15,7 +15,7 @@ export class ServiceManagerComponent implements OnInit {
   speciesList: Species[] = [];
   speciesSelect: string[] = [];
   addService = new FormGroup({
-    serviceType: new FormControl("Promenade quotidienne"),
+    serviceType: new FormControl(""),
     price: new FormControl(""),
     description: new FormControl(""),
   });

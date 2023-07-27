@@ -6,8 +6,7 @@
 form {
   width: 100%;
   max-width: 450px;
-  padding: 2rem 0;
-  margin: 1rem;
+  margin: 5rem 1rem;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -22,10 +21,17 @@ form {
     justify-content: space-evenly;
     padding: 1rem 0;
 
+    .container-label-species{
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: 1fr 1fr 1fr;
+    }
+
     p {
       font-size: 1.3em;
       color: #355f5b;
       margin-bottom: 0;
+      text-align: center;
     }
 
     .control {
@@ -38,7 +44,6 @@ form {
       font-size: 16px;
       margin: 1.5rem 1rem;
       width: 90%;
-
     }
 
     .control input {
@@ -164,6 +169,11 @@ form {
     }
 
     input:focus {
+      padding-bottom: 6px;
+      border-width: 3px;
+      border-bottom: 2px solid #b17a3a;
+      border-image-slice: 1;
+
       ~ label {
         position: absolute;
         top: 0;
@@ -172,11 +182,6 @@ form {
         font-size: 1rem;
         color: #b17a3a;
       }
-
-      padding-bottom: 6px;
-      border-width: 3px;
-      border-bottom: 2px solid #b17a3a;
-      border-image-slice: 1;
     }
   }
 
@@ -286,6 +291,11 @@ form {
   }
 
   input:focus, textarea:focus {
+    padding-bottom: 6px;
+    border-width: 3px;
+    border-bottom: 2px solid #b17a3a;
+    border-image-slice: 1;
+
     ~ label {
       top: 0;
       display: block;
@@ -293,10 +303,5 @@ form {
       font-size: 1rem;
       color: #b17a3a;
     }
-
-    padding-bottom: 6px;
-    border-width: 3px;
-    border-bottom: 2px solid #b17a3a;
-    border-image-slice: 1;
   }
 }
