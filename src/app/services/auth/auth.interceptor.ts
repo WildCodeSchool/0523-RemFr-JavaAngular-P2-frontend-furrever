@@ -18,9 +18,12 @@ export class AuthInterceptor implements HttpInterceptor {
         this.apiCallService.API_URL + this.apiCallService.endPoints.createAnimal
       );
       const callApiRouteUser = request.url.startsWith(
-        this.apiCallService.API_URL + this.apiCallService.endPoints.getCurrentUser
+        this.apiCallService.API_URL + this.apiCallService.endPoints.user
       );
-      if (token && (callApiRouteTransaction || callApiRouteAnimal || callApiRouteUser)) {
+      const callApiRouteService = request.url.startsWith(
+        this.apiCallService.API_URL + this.apiCallService.endPoints.services
+      );
+      if (token && (callApiRouteTransaction || callApiRouteAnimal || callApiRouteUser || callApiRouteService)) {
         request = request.clone({
           setHeaders: { Authorization: `Bearer ${token}` },
         });

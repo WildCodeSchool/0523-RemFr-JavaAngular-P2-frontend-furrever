@@ -24,7 +24,7 @@
   <input class="button" type="button" (click)="resquestService(service.id)" value="Réserver ce service" />
 </section>
 <app-service-request-form
-  *ngIf="isResquest"
+  *ngIf="isResquest && service.id"
   [petSitterFirstName]="petSitterFirstName"
   [serviceId]="service.id"
 ></app-service-request-form>

@@ -5,6 +5,7 @@ import { Species } from "../../models/Species";
 import { PetsitterPreview, PetsitterResponse, ResponsePetSitter } from "../../models/PetsitterPreview";
 import { SearchRequest } from "../../models/SearchRequest";
 import { User } from "../../models/UserProfile";
+import { Service } from "../../models/Service";
 import { TokenJwt } from "../../models/TokenJwt";
 import { Login } from "../../models/Login";
 import { SendService } from "../../models/SendService";
@@ -28,9 +29,9 @@ export class ApiCallService {
     transaction: "transactions",
     transactionSlash: "transactions/",
     createAnimal: "users/animals",
-    getCurrentUser: "users",
-    updateUser: "users",
     comment: "/comments",
+    user: "users",
+    services: "services",
   };
 
   constructor(public http: HttpClient) {}
@@ -80,11 +81,14 @@ export class ApiCallService {
   }
 
   getCurrentUser() {
-    return this.http.get<GetProfileUserResponse>(this.API_URL + this.endPoints.getCurrentUser);
+    return this.http.get<GetProfileUserResponse>(this.API_URL + this.endPoints.user);
   }
 
+  createService(payload: Service) {
+    return this.http.post<Service>(this.API_URL + this.endPoints.services, payload);
+  }
   updateUser(payload: any) {
-    return this.http.put<any>(this.API_URL + this.endPoints.updateUser, payload);
+    return this.http.put<any>(this.API_URL + this.endPoints.user, payload);
   }
 
   createComment(payload: Comment, id: string) {

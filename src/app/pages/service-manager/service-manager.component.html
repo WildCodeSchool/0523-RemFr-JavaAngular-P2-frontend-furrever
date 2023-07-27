@@ -4,9 +4,9 @@
     <div class="species_service_container">
       <p>Sélectionnez les espèces en lien avec le service</p>
       <div class="container-label-species">
-        <label *ngFor="let species of speciesList" class="control control-checkbox">
+        <label *ngFor="let species of speciesListShow" class="control control-checkbox">
           {{ species.name | titlecase }}
-          <input type="checkbox" (click)="checkSpecies(species.name)" />
+          <input type="checkbox" (click)="checkSpecies(species)" />
           <div class="control_indicator"></div>
         </label>
       </div>
@@ -15,23 +15,38 @@
       <p>Sélectionnez le service</p>
       <label class="control control-checkbox">
         Promenade quotidienne
-        <input type="radio" id="walk" value="Promenade quotidienne" name="service" formControlName="service" checked />
+        <input type="radio" id="walk" value="Promenade quotidienne" name="typeService" formControlName="typeService" checked />
         <div class="control_indicator"></div>
       </label>
       <label class="control control-checkbox">
         Visite à domicile
-        <input type="radio" id="visit" value="Visite à domicile" name="service" formControlName="service" />
+        <input type="radio" id="visit" value="Visite à domicile" name="typeService" formControlName="typeService" />
         <div class="control_indicator"></div>
       </label>
       <label class="control control-checkbox">
         Garde prolongée
-        <input type="radio" id="homeKeeping" value="Garde prolongée" name="service" formControlName="service" />
+        <input type="radio" id="homeKeeping" value="Garde prolongée" name="typeService" formControlName="typeService" />
         <div class="control_indicator"></div>
       </label>
     </div>
     <div class="field">
       <input formControlName="price" id="price" name="price" placeholder="price" required type="price" />
       <label for="price">Prix du service (€)</label>
+    </div>
+    <div class="field">
+      <input formControlName="weightMin" id="weightMin" name="weightMin" placeholder="weightMin" required type="weightMin" />
+      <label for="weightMin">Poids minimum</label>
+    </div>
+    <div class="field">
+      <input formControlName="weightMax" id="weightMax" name="weightMax" placeholder="weightMax" required type="weightMax" />
+      <label for="weightMax">Poids maximum</label>
+    </div>
+    <div>
+      <label class="control control-checkbox">
+        J'ai des compétences pour soigner vos animaux.
+        <input formControlName="healer" id="healer" name="healer" type="checkbox" value="true" />
+        <div class="control_indicator"></div>
+      </label>
     </div>
     <div class="field">
       <textarea
@@ -44,6 +59,9 @@
         required
       ></textarea>
       <label for="description">Description</label>
+    </div>
+    <div class="button_container">
+      <input class="button" type="submit" value="Valider" />
     </div>
   </div>
 </form>

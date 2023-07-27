@@ -3,7 +3,7 @@ import { UserProfile } from "../../models/UserProfile";
 import { AuthService } from "../../services/auth/auth.service";
 import { Router } from "@angular/router";
 import { ApiCallService } from "../../services/api/api-call.service";
-import { logMessages } from "@angular-devkit/build-angular/src/builders/browser-esbuild/esbuild";
+import { Service } from "../../models/Service";
 
 @Component({
   selector: "app-user-infos",
@@ -13,6 +13,9 @@ import { logMessages } from "@angular-devkit/build-angular/src/builders/browser-
 export class UserInfosComponent implements OnInit {
   @Input() user!: UserProfile;
   @Input() nbPendingTransactions!: number;
+  @Input() petSitterFirstName!: string;
+  @Input() serviceList: Service[] = [];
+  @Input()
   ngOnInit() {
     if (this.user == undefined) {
       this.user = new UserProfile("", "", "", "", "", "", 0, 0, 0, false, null);
@@ -31,8 +34,4 @@ export class UserInfosComponent implements OnInit {
     }
     this.showModal = !this.showModal;
   }
-
-  // getUserComments(id: string) {
-  //   this.apiCallService.getPetsittersById(this.user.email).subscribe((response) => console.log(response));
-  // }
 }
