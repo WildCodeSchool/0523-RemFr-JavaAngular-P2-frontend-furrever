@@ -4,14 +4,14 @@
     <div *ngIf="user.isPetSitter">
       <label class="control control-checkbox">
         Je ne veux pas être Pet Sitter mais j'ai un animal à faire garder.
-        <input formControlName="isPetSitter" name="isPetSitter" required type="radio" value="false" />
+        <input formControlName="isPetSitter" name="isPetSitter" type="radio" value="false" />
         <div class="control_indicator"></div>
       </label>
     </div>
     <div *ngIf="!user.isPetSitter">
       <label class="control control-checkbox">
         Je deviens Pet Sitter (et je peux aussi avoir un animal à faire garder).
-        <input formControlName="isPetSitter" id="pouet" name="isPetSitter" required type="radio" value="true" />
+        <input formControlName="isPetSitter" id="pouet" name="isPetSitter" type="radio" value="true" />
         <div class="control_indicator"></div>
       </label>
     </div>

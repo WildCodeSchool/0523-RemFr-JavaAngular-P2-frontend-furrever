@@ -117,9 +117,6 @@ export class UpdateProfileFormComponent implements OnInit {
     if (!picture) {
       this.errors.push("Merci de choisir une image de profil.");
     }
-    if (!isPetSitter) {
-      this.errors.push("Merci de cocher un choix.");
-    }
     if (!description) {
       this.errors.push("Merci de remplir la description.");
     }
