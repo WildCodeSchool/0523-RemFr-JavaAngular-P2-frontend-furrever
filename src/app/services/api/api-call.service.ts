@@ -29,9 +29,8 @@ export class ApiCallService {
     transaction: "transactions",
     updateOrDeleteTransaction: "transactions/",
     createAnimal: "users/animals",
-    getCurrentUser: "users",
+    user: "users",
     services: "services",
-    updateUser: "users",
   };
 
   constructor(public http: HttpClient) {}
@@ -81,13 +80,14 @@ export class ApiCallService {
   }
 
   getCurrentUser() {
-    return this.http.get<GetProfileUserResponse>(this.API_URL + this.endPoints.getCurrentUser);
+    return this.http.get<GetProfileUserResponse>(this.API_URL + this.endPoints.user);
   }
 
   createService(payload: Service) {
+    console.log(payload);
     return this.http.post<Service>(this.API_URL + this.endPoints.services, payload);
   }
   updateUser(payload: any) {
-    return this.http.put<any>(this.API_URL + this.endPoints.updateUser, payload);
+    return this.http.put<any>(this.API_URL + this.endPoints.user, payload);
   }
 }

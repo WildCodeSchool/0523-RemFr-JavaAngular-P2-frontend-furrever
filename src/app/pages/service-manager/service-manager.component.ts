@@ -15,8 +15,8 @@ import { AuthService } from "../../services/auth/auth.service";
 })
 export class ServiceManagerComponent implements OnInit {
   user!: UserProfile;
+  speciesListShow: Species[] = [];
   speciesList: Species[] = [];
-  speciesSelect: string[] = [];
   addService = new FormGroup({
     description: new FormControl(""),
     price: new FormControl(0),
@@ -41,24 +41,25 @@ export class ServiceManagerComponent implements OnInit {
       this.user = profile.userProfile;
     });
     this.apiCallService.getSpeciesName().subscribe((speciesList: Species[]) => {
-      this.speciesList = speciesList;
+      this.speciesListShow = speciesList;
     });
-    this.speciesSelect = [];
+    this.speciesList = [];
     if (this.user == undefined) {
       this.user = new UserProfile("", "", "", "", "", "", 0, 0, 0, false, null);
     }
   }
 
-  checkSpecies(name: string) {
-    if (this.speciesSelect.includes(name)) {
-      this.speciesSelect.splice(this.speciesSelect.indexOf(name), 1);
+  checkSpecies(species: Species) {
+    if (this.speciesList.includes(species)) {
+      this.speciesList = this.speciesList.filter((speciesInArray) => {
+        species != speciesInArray;
+      });
     } else {
-      this.speciesSelect.push(name);
+      this.speciesList.push(species);
     }
   }
 
   onSubmit() {
-    console.log(this.user);
     if (this.user.isPetSitter) {
       const description = this.addService.getRawValue().description;
       const price = this.addService.getRawValue().price;
@@ -66,9 +67,9 @@ export class ServiceManagerComponent implements OnInit {
       const weightMin = this.addService.getRawValue().weightMin;
       const weightMax = this.addService.getRawValue().weightMax;
       const healer = this.addService.getRawValue().healer;
-      if (description && price && typeService && healer) {
+      if (description && price && typeService && healer !== null) {
         const newService = new Service(
-          "",
+          null,
           description,
           price,
           typeService,
@@ -78,7 +79,8 @@ export class ServiceManagerComponent implements OnInit {
           healer
         );
         this.apiCallService.createService(newService).subscribe({
-          next: () => {
+          next: (response) => {
+            console.log("coucou", response);
             this.toast.success("Votre service est crée.");
             this.route.navigate(["/profile"]);
           },
