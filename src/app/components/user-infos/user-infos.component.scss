@@ -1,6 +1,7 @@
 section {
   width: 100%;
   display: flex;
+  justify-content: center;
   flex-direction: column;
   margin: 1rem auto 0 auto;
 }
@@ -63,16 +64,18 @@ section {
   }
 }
 
-.button_container{
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  margin-bottom: 25px;
+.button_container {
+  display: grid;
+  justify-items: center;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  gap: 1rem 1rem;
+  margin-bottom: 1.5rem;
 
-  .button{
+  .button {
     display: flex;
-    align-items: center;
     justify-content: center;
+    align-items: center;
     text-decoration: none;
     background-color: #355F5B;
     color: #f2f2f2;
@@ -93,5 +96,6 @@ section {
   font-size: .6em;
   padding: .3rem .5rem;
   position: absolute;
-  margin-left: 5.3rem;
+  margin-left: 5.4rem;
+  margin-bottom: 2rem;
 }

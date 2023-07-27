@@ -1,0 +1,49 @@
+<form [formGroup]="addService" (ngSubmit)="onSubmit()">
+  <div class="species_service_container">
+    <p>Renseignez-vos services</p>
+    <div class="species_service_container">
+      <p>Sélectionnez les espèces en lien avec le service</p>
+      <div class="container-label-species">
+        <label *ngFor="let species of speciesList" class="control control-checkbox">
+          {{ species.name | titlecase }}
+          <input type="checkbox" (click)="checkSpecies(species.name)" />
+          <div class="control_indicator"></div>
+        </label>
+      </div>
+    </div>
+    <div class="species_service_container">
+      <p>Sélectionnez le service</p>
+      <label class="control control-checkbox">
+        Promenade quotidienne
+        <input type="radio" id="walk" value="Promenade quotidienne" name="service" formControlName="service" checked />
+        <div class="control_indicator"></div>
+      </label>
+      <label class="control control-checkbox">
+        Visite à domicile
+        <input type="radio" id="visit" value="Visite à domicile" name="service" formControlName="service" />
+        <div class="control_indicator"></div>
+      </label>
+      <label class="control control-checkbox">
+        Garde prolongée
+        <input type="radio" id="homeKeeping" value="Garde prolongée" name="service" formControlName="service" />
+        <div class="control_indicator"></div>
+      </label>
+    </div>
+    <div class="field">
+      <input formControlName="price" id="price" name="price" placeholder="price" required type="price" />
+      <label for="price">Prix du service (€)</label>
+    </div>
+    <div class="field">
+      <textarea
+        type="text"
+        formControlName="description"
+        placeholder="description"
+        name="description"
+        id="description"
+        class="description"
+        required
+      ></textarea>
+      <label for="description">Description</label>
+    </div>
+  </div>
+</form>

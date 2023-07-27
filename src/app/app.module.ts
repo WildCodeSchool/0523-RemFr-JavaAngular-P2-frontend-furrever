@@ -49,6 +49,7 @@ import { LogInComponent } from "./pages/log-in/log-in.component";
 import { SignUpComponent } from "./pages/sign-up/sign-up.component";
 import { PetsitterProfileComponent } from "./pages/petsitter-profile/petsitter-profile.component";
 import { TransactionsManagementComponent } from "./pages/transactions-management/transactions-management.component";
+import { ServiceManagerComponent } from "./pages/service-manager/service-manager.component";
 
 @NgModule({
   declarations: [
@@ -89,6 +90,7 @@ import { TransactionsManagementComponent } from "./pages/transactions-management
     ModalAnimalComponent,
     UpdateProfileFormComponent,
     UpdateProfileComponent,
+    ServiceManagerComponent,
   ],
   imports: [
     BrowserModule,
