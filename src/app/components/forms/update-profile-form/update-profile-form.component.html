@@ -1,1 +1,115 @@
-<p>update-profile-form works!</p>
+<form (ngSubmit)="sendUpdateUserForm()" [formGroup]="updateUserForm">
+  <div class="species_service_container">
+    <p>Des changements?</p>
+    <div *ngIf="user.isPetSitter">
+      <label class="control control-checkbox">
+        Je ne veux pas être Pet Sitter mais j'ai un animal à faire garder.
+        <input formControlName="isPetSitter" name="isPetSitter" required type="radio" value="false" />
+        <div class="control_indicator"></div>
+      </label>
+    </div>
+    <div *ngIf="!user.isPetSitter">
+      <label class="control control-checkbox">
+        Je deviens Pet Sitter (et je peux aussi avoir un animal à faire garder).
+        <input formControlName="isPetSitter" id="pouet" name="isPetSitter" required type="radio" value="true" />
+        <div class="control_indicator"></div>
+      </label>
+    </div>
+    <div class="images_choice">
+      <div>
+        <p>Choisissez une image de profil</p>
+      </div>
+      <div class="images_container">
+        <div>
+          <label>
+            <input checked formControlName="picture" name="picture" required type="radio" value="lion.jpg" />
+            <img src="assets/images/lion.jpg" />
+          </label>
+        </div>
+        <div>
+          <label>
+            <input formControlName="picture" name="picture" required type="radio" value="gorilla.png" />
+            <img src="assets/images/gorilla.png" />
+          </label>
+        </div>
+        <div>
+          <label>
+            <input formControlName="picture" name="picture" required type="radio" value="cow.jpg" />
+            <img src="assets/images/cow.jpg" />
+          </label>
+        </div>
+        <div>
+          <label>
+            <input formControlName="picture" name="picture" required type="radio" value="sea_lion.jpg" />
+            <img src="assets/images/sea_lion.jpg" />
+          </label>
+        </div>
+        <div>
+          <label>
+            <input formControlName="picture" name="picture" required type="radio" value="donkey.jpg" />
+            <img src="assets/images/donkey.jpg" />
+          </label>
+        </div>
+        <div>
+          <label>
+            <input formControlName="picture" name="picture" required type="radio" value="otter.jpg" />
+            <img src="assets/images/otter.jpg" />
+          </label>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="field">
+    <input formControlName="firstname" id="firstname" name="firstname" placeholder="Prénom" required type="text" />
+    <label for="firstname">Prénom</label>
+  </div>
+  <div class="field">
+    <input formControlName="lastname" id="lastname" name="lastname" placeholder="Nom" required type="text" />
+    <label for="lastname">Nom</label>
+  </div>
+  <div class="field">
+    <textarea
+      formControlName="description"
+      id="description"
+      name="description"
+      placeholder="Description"
+      required
+      type="textarea"
+    ></textarea>
+    <label for="description">Décrivez-vous !</label>
+  </div>
+  <div class="field">
+    <input formControlName="streetNumber" id="streetNumber" name="streetNumber" placeholder="N° de rue" type="text" />
+    <label for="streetNumber">N° de rue</label>
+  </div>
+  <div class="field">
+    <input formControlName="street" id="street" name="street" placeholder="Rue" required type="text" />
+    <label for="street">Rue</label>
+  </div>
+  <div class="field">
+    <input
+      formControlName="additionalAddress"
+      id="additionalAddress"
+      name="additionalAddress"
+      placeholder="Complément d'adresse"
+      required
+      type="text"
+    />
+    <label for="additionalAddress">Complément d'adresse</label>
+  </div>
+  <div class="field">
+    <input formControlName="city" id="city" name="city" placeholder="Ville" required type="text" />
+    <label for="city">Ville</label>
+  </div>
+  <div class="field">
+    <input formControlName="zipCode" id="zipCode" name="zipCode" placeholder="Code postal" required type="text" />
+    <label for="zipCode">Code postal</label>
+  </div>
+  <div *ngIf="errors.length > 0">
+    <p *ngFor="let error of errors" class="errors">{{ error }}</p>
+  </div>
+  <input class="button" type="submit" value="Modifier mon profil" />
+  <!--  <div *ngIf="errors.length > 0">-->
+  <!--    <p class="errors" *ngFor="let error of errors">{{ error }}</p>-->
+  <!--  </div>-->
+</form>

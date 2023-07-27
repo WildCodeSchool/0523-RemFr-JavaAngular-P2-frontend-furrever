@@ -22,6 +22,8 @@ export class SignupFormComponent implements OnInit {
     lastname: new FormControl("", [Validators.required, Validators.minLength(2)]),
     picture: new FormControl("lionHero.jpg", [Validators.required]),
     isPetSitter: new FormControl(false, [Validators.required]),
+    location: new FormControl(null),
+    description: new FormControl(null),
   });
 
   errorRegistration?: string;
@@ -57,5 +59,8 @@ export class SignupFormComponent implements OnInit {
           "Une erreur est survenue lors de votre inscription, votre adresse email est surement déjà utilisée.";
       },
     });
+    this.apiCallService
+      .createUser(this.signup.getRawValue())
+      .subscribe((response) => console.log("Vous êtes bien inscrit."));
   }
 }
