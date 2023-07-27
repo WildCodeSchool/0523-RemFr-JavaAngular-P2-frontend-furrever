@@ -30,11 +30,11 @@ export class TransactionDetailsComponent {
           this.route.navigateByUrl("/", { skipLocationChange: true }).then(() => this.route.navigate(["transactions"]));
         },
         error: () => {
-          this.toastr.error("Une erreur est survenue, actualisez votre page et réessayer l'opération.");
+          this.toastr.error("Une erreur est survenue, actualisez votre page et réessayez l'opération.");
         },
       });
     } else {
-      this.toastr.error("Une erreur est survenue, actualisez votre page et réessayer l'opération.");
+      this.toastr.error("Une erreur est survenue, actualisez votre page et réessayez l'opération.");
     }
   }
 
@@ -49,11 +49,11 @@ export class TransactionDetailsComponent {
           this.route.navigateByUrl("/", { skipLocationChange: true }).then(() => this.route.navigate(["transactions"]));
         },
         error: () => {
-          this.toastr.error("Une erreur est survenue, actualisez votre page et réessayer l'opération.");
+          this.toastr.error("Une erreur est survenue, actualisez votre page et réessayez l'opération.");
         },
       });
     } else {
-      this.toastr.error("Une erreur est survenue, actualisez votre page et réessayer l'opération.");
+      this.toastr.error("Une erreur est survenue, actualisez votre page et réessayez l'opération.");
     }
   }
 }
