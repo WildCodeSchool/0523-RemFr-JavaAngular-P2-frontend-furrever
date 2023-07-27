@@ -27,13 +27,15 @@ export class SignupFormComponent implements OnInit {
   });
 
   errorRegistration?: string;
+
   constructor(
     private apiCallService: ApiCallService,
     private route: Router,
     private store: Store<{ userStore: boolean }>,
     private authService: AuthService,
     private toastr: ToastrService
-  ) {}
+  ) {
+  }
 
   ngOnInit(): void {
     if (this.authService.isConnectedVerif()) {
@@ -41,6 +43,7 @@ export class SignupFormComponent implements OnInit {
       this.route.navigate(["/profile"]);
     }
   }
+
   sendSignUp() {
     const email = this.signup.getRawValue().email;
     const password = this.signup.getRawValue().password;
@@ -59,4 +62,5 @@ export class SignupFormComponent implements OnInit {
           "Une erreur est survenue lors de votre inscription, votre adresse email est sûrement déjà utilisée.";
       },
     });
+  }
 }

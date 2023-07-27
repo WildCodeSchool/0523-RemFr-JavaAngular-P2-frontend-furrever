@@ -43,7 +43,7 @@
         </span>
       </a>
       <a class="button" routerLink="/">Mes commentaires</a>
-      <a class="button" routerLink="/services">Mes services</a>
+      <a *ngIf="user.isPetSitter" class="button" routerLink="/services">Mes services</a>
     </div>
   </div>
   <div class="modal" *ngIf="showModal">
@@ -52,4 +52,11 @@
       <app-modal-user-update [user]="user"></app-modal-user-update>
     </div>
   </div>
+  <section class="petsitter-service">
+    <app-services
+      *ngFor="let oneService of serviceList"
+      [service]="oneService"
+      [petSitterFirstName]="petSitterFirstName"
+    ></app-services>
+  </section>
 </section>
