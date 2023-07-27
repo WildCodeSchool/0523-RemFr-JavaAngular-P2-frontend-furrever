@@ -32,8 +32,7 @@ export class ApiCallService {
     updateUser: "users",
   };
 
-  constructor(public http: HttpClient) {
-  }
+  constructor(public http: HttpClient) {}
 
   getTopComments() {
     return this.http.get<Comment[]>(this.API_URL + this.endPoints.getTopComments);

@@ -52,7 +52,6 @@ export class UpdateProfileFormComponent implements OnInit {
     this.updateUserForm.controls.additionalAddress.setValue(this.user.location!.additionalAddress);
     this.updateUserForm.controls.city.setValue(this.user.location!.city);
     this.updateUserForm.controls.zipCode.setValue(this.user.location!.zipCode);
-
     this.userStore$ = this.store.select("userStore");
   }
 

@@ -38,7 +38,6 @@ form {
       font-size: 16px;
       margin: 1.5rem 1rem;
       width: 90%;
-
     }
 
     .control input {
@@ -132,9 +131,10 @@ form {
     width: 70%;
     margin-bottom: 1rem;
 
-    textarea{
+    textarea {
       height: 6rem;
     }
+
     input, textarea {
       width: 100%;
       border: 0;
@@ -242,6 +242,7 @@ form {
 [type=radio]:checked + img {
   outline: thick double #355F5B;
 }
+
 .error-msg {
   color: red;
   margin-top: 0.3rem;
