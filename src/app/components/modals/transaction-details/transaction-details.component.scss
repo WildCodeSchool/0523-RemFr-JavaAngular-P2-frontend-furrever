@@ -100,7 +100,9 @@ p, span {
 }
 
 .button {
-  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   color: #f2f2f2;
   border-radius: 25px;
   border: none;
@@ -108,7 +110,6 @@ p, span {
   padding: 0.7rem 1.8em;
   font-size: 0.8rem;
   cursor: pointer;
-  width: 100px;
   white-space: normal;
   background-color: #b17a3a;
 }

@@ -14,15 +14,17 @@ import { UserProfile } from "../../models/UserProfile";
 export class ProfileComponent implements OnInit {
   animalList: Animal[] = [];
   user!: UserProfile;
+  nbPendingTransactions = 0;
   constructor(private authService: AuthService, private route: Router, private apiCallService: ApiCallService) {}
 
   ngOnInit(): void {
     if (!this.authService.isConnectedVerif()) {
       this.route.navigate(["/login"]);
     }
-    this.apiCallService.getCurrentUser().subscribe((profile: GetProfileUserResponse) => {
+    this.apiCallService.getCurrentUser().subscribe((profile) => {
       this.animalList = profile.animalTemplateList;
       this.user = profile.userProfile;
+      this.nbPendingTransactions = profile.nbPendingTransactions;
     });
   }
 }

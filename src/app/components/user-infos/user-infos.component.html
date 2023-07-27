@@ -31,6 +31,9 @@
     <div class="button_container">
       <input type="button" value="Modifier le profil" class="button" />
       <a class="button" routerLink="/transactions">Mes demandes</a>
+      <span class="badge" *ngIf="nbPendingTransactions > 0 && user.idPetsitter">
+        <b>{{ nbPendingTransactions }}</b>
+      </span>
       <a class="button" routerLink="/">Mes commentaires</a>
     </div>
   </div>

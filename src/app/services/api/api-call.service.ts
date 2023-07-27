@@ -27,7 +27,7 @@ export class ApiCallService {
     getPetSitterById: "petsitters/",
     createUser: "auth/register",
     transaction: "transactions",
-    updateTransaction: "transactions/",
+    updateOrDeleteTransaction: "transactions/",
     createAnimal: "users/animals",
     getCurrentUser: "users",
   };
@@ -68,8 +68,12 @@ export class ApiCallService {
 
   //TODO pour pas que Bastien nous embete :D
   /*updateTransaction(payload: any) {
-    return this.http.post<any>(this.API_URL + this.endPoints.updateTransaction, payload);
+    return this.http.post<any>(this.API_URL + this.endPoints.updateOrDeleteTransaction, payload);
   }*/
+
+  deleteTransaction(id: string) {
+    return this.http.delete<void>(this.API_URL + this.endPoints.updateOrDeleteTransaction + id);
+  }
 
   createAnimal(payload: Animal) {
     return this.http.post<Animal>(this.API_URL + this.endPoints.createAnimal, payload);
