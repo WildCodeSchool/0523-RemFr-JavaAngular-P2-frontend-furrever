@@ -23,8 +23,20 @@
     </div>
   </div>
   <div *ngIf="transaction?.statusFlag === 'pending'" class="buttonGroupe">
-    <input class="button accept" type="button" value="Accepter" />
-    <input class="button refuse" type="button" value="Refuser" />
+    <input
+      *ngIf="transaction"
+      class="button accept"
+      (click)="valide(true, transaction)"
+      type="button"
+      value="Accepter"
+    />
+    <input
+      *ngIf="transaction"
+      class="button refuse"
+      (click)="valide(false, transaction)"
+      type="button"
+      value="Refuser"
+    />
   </div>
   <div *ngIf="transaction?.statusFlag === 'completed'" class="buttonGroupe">
     <input class="button comment" type="button" value="Commentaire" />

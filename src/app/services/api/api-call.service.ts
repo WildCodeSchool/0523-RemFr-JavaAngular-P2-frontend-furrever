@@ -66,10 +66,9 @@ export class ApiCallService {
     return this.http.get<GetTransaction>(this.API_URL + this.endPoints.transaction);
   }
 
-  //TODO pour pas que Bastien nous embete :D
-  /*updateTransaction(payload: any) {
-    return this.http.post<any>(this.API_URL + this.endPoints.updateOrDeleteTransaction, payload);
-  }*/
+  updateTransaction(payload: boolean) {
+    return this.http.post<void>(this.API_URL + this.endPoints.updateOrDeleteTransaction, payload);
+  }
 
   deleteTransaction(id: string) {
     return this.http.delete<void>(this.API_URL + this.endPoints.updateOrDeleteTransaction + id);
