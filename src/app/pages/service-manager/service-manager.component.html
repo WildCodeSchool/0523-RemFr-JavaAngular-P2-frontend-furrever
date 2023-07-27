@@ -1,9 +1,6 @@
 <form [formGroup]="addService" (ngSubmit)="onSubmit()">
-
   <div class="species_service_container">
-
     <p>Renseignez-vos services</p>
-
     <div class="species_service_container">
       <p>Sélectionnez les espèces en lien avec le service</p>
       <div class="container-label-species">
@@ -14,8 +11,6 @@
         </label>
       </div>
     </div>
-
-
     <div class="species_service_container">
       <p>Sélectionnez le service</p>
       <label class="control control-checkbox">
@@ -34,12 +29,10 @@
         <div class="control_indicator"></div>
       </label>
     </div>
-
     <div class="field">
       <input formControlName="price" id="price" name="price" placeholder="price" required type="price" />
       <label for="price">Prix du service (€)</label>
     </div>
-
     <div class="field">
       <textarea
         type="text"
@@ -52,6 +45,5 @@
       ></textarea>
       <label for="description">Description</label>
     </div>
-
   </div>
 </form>
