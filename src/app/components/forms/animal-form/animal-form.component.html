@@ -4,6 +4,13 @@
       <p>
         Merci d'indiquer, le prénom, l'espèce ainsi que la date de naissance de votre animal.
       </p>
+      <div class="species_container">
+        <label *ngFor="let species of speciesList" class="control control-checkbox">
+          {{ species.name | titlecase }}
+          <input (click)="getSpeciesId(species.id)" type="radio" name="species" value="{{ species.id }}" />
+          <div class="control_indicator"></div>
+        </label>
+      </div>
       <div class="field">
         <input
           type="text"
@@ -16,12 +23,16 @@
         />
         <label for="firstname">Prénom de l'animal</label>
       </div>
-      <div class="species_container">
-        <label *ngFor="let species of speciesList" class="control control-checkbox">
-          {{ species.name | titlecase }}
-          <input formControlName="species" type="radio" name="species" value="{{ species.id }}" />
-          <div class="control_indicator"></div>
-        </label>
+      <div class="field">
+        <input
+          type="text"
+          formControlName="weight"
+          placeholder="Poids de l'animal"
+          name="weight"
+          id="weight"
+          class="weight"
+        />
+        <label for="firstname">Poids de l'animal</label>
       </div>
       <div class="field">
         <input
@@ -49,7 +60,7 @@
     </div>
   </div>
   <input class="button" type="button" (click)="sendAnimalForm()" value="Créer l'animal" />
-<!--  <div *ngIf="errors.length > 0">-->
-<!--    <p class="errors" *ngFor="let error of errors">{{ error }}</p>-->
-<!--  </div>-->
+  <div *ngIf="errors.length > 0">
+    <p class="errors" *ngFor="let error of errors">{{ error }}</p>
+  </div>
 </form>

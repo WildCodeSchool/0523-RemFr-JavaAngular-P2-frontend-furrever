@@ -33,8 +33,8 @@ section {
   .date {
     font-size: .8em;
     text-align: right;
-    margin-top: 5px;
-    margin-right: 5px;
+    margin-top: 0.5rem;
+    margin-right: 0.2rem;
   }
 
   .image-container {
@@ -54,10 +54,26 @@ section {
     margin-top: 8px;
     margin-bottom: 0;
     overflow-y: scroll;
+
+    div {
+      display: flex;
+      width: 100%;
+      justify-content: space-between;
+
+      .weight {
+        margin: 0 0.2rem 0 0;
+        font-size: 0.9em;
+      }
+    }
+
+    .animal {
+      margin-top: 0.2rem;
+    }
   }
 
   .title {
     font-style: normal;
     font-weight: 500;
+    margin-bottom: 0;
   }
 }
