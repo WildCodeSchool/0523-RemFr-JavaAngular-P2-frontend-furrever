@@ -40,7 +40,7 @@ import { CarouselAnimalComponent } from "./components/carousel-animal/carousel-a
 import { AnimalFormComponent } from "./components/forms/animal-form/animal-form.component";
 import { ModalAnimalComponent } from "./components/modals/modal-animal/modal-animal.component";
 import { UpdateProfileFormComponent } from "./components/forms/update-profile-form/update-profile-form.component";
-import { UpdateProfileComponent } from "./components/update-profile/update-profile.component";
+import { ModalUserUpdateComponent } from "./components/modals/modal-user-update/modal-user-update.component";
 
 import { HomeComponent } from "./pages/home/home.component";
 import { ProfileComponent } from "./pages/profile/profile.component";
@@ -89,8 +89,8 @@ import { ServiceManagerComponent } from "./pages/service-manager/service-manager
     AnimalFormComponent,
     ModalAnimalComponent,
     UpdateProfileFormComponent,
-    UpdateProfileComponent,
     ServiceManagerComponent,
+    ModalUserUpdateComponent
   ],
   imports: [
     BrowserModule,

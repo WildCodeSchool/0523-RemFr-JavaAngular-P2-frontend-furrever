@@ -31,6 +31,7 @@ export class ApiCallService {
     createAnimal: "users/animals",
     getCurrentUser: "users",
     services: "services",
+    updateUser: "users",
   };
 
   constructor(public http: HttpClient) {}
@@ -85,5 +86,8 @@ export class ApiCallService {
 
   createService(payload: Service) {
     return this.http.post<Service>(this.API_URL + this.endPoints.services, payload);
+  }
+  updateUser(payload: any) {
+    return this.http.put<any>(this.API_URL + this.endPoints.updateUser, payload);
   }
 }

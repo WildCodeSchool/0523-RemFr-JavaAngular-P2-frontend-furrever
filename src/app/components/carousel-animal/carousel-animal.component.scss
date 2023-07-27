@@ -114,12 +114,13 @@ p {
   height: 100vh;
   right: 0;
   z-index: 1000;
+  overflow-y: auto;
 
   div{
     background-color: white;
     width: 90%;
     align-content: center;
-    margin: 20% auto auto;
+    margin: 1rem auto auto;
     padding: 15px 15px 25px;
     display: flex;
     flex-direction: row-reverse;
