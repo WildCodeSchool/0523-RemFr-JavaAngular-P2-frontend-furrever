@@ -15,6 +15,29 @@ export class TransactionDetailsComponent {
 
   constructor(private apiCallService: ApiCallService, private toastr: ToastrService, private route: Router) {}
 
+  valide(decision: boolean, transaction: Transaction) {
+    const today = new Date();
+    const end = new Date(transaction.dateEnd);
+    const timeDiffForEndToday = end.getTime() - today.getTime();
+    if (transaction && transaction.status === null && timeDiffForEndToday > 0) {
+      this.apiCallService.updateTransaction(decision).subscribe({
+        next: () => {
+          if (decision) {
+            this.toastr.success("Vous avez accepté la demande de transaction.");
+          } else {
+            this.toastr.success("Vous avez refusé la demande de transaction.");
+          }
+          this.route.navigateByUrl("/", { skipLocationChange: true }).then(() => this.route.navigate(["transactions"]));
+        },
+        error: () => {
+          this.toastr.error("Une erreur est survenue, actualisez votre page et réessayer l'opération.");
+        },
+      });
+    } else {
+      this.toastr.error("Une erreur est survenue, actualisez votre page et réessayer l'opération.");
+    }
+  }
+
   delete(transaction: Transaction) {
     const today = new Date();
     const end = new Date(transaction.dateEnd);
