@@ -23,4 +23,6 @@ export type User = {
   password: string | null;
   isPetSitter: boolean | null;
   picture: string | null;
+  location: Location | null;
+  description: string | null;
 };

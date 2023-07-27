@@ -3,8 +3,8 @@
     <img alt="image de l'utilisateur" class="avatar" src="assets/images/{{ user.picture }}" />
     <div>
       <p class="name">{{ user.firstname }} {{ user.lastname }}</p>
-      <p *ngIf="user.isPetSitter" class="average">Moyenne du Pet Sitter</p>
-      <div *ngIf="user.isPetSitter" class="note_container">
+      <p *ngIf="user.isPetSitter && user.rating < 1" class="average">Moyenne du Pet Sitter</p>
+      <div *ngIf="user.isPetSitter && user.rating < 1" class="note_container">
         <div class="image-container">
           <img
             *ngFor="let in of counter(user.rating)"
@@ -24,9 +24,15 @@
     </div>
   </div>
   <div class="second_container">
-    <h4 *ngIf="user.description">À propos de ce User</h4>
+    <h4 *ngIf="user.description">À propos de moi</h4>
     <p *ngIf="user.description">
       {{ user.description }}
+    </p>
+    <h4>Mon adresse</h4>
+    <p>
+      {{ user.location?.streetNumber }}
+      <span *ngIf="user.location?.additionalAddress">, {{ user.location?.additionalAddress }}</span>
+      , {{ user.location?.street }}, {{ user.location?.zipCode }}, {{ user.location?.city }}
     </p>
     <div class="button_container">
       <input type="button" value="Modifier le profil" class="button" (click)="showModalForUpdateUser()" />

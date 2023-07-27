@@ -20,7 +20,7 @@ form {
     justify-content: space-evenly;
     border: dashed 2px #b17a3a;
     border-radius: 20px;
-    margin: 0 auto;
+    margin: 0 auto 1rem auto;
 
     p {
       font-size: 1.3em;
@@ -132,7 +132,10 @@ form {
     width: 70%;
     margin-bottom: 1rem;
 
-    input {
+    textarea{
+      height: 6rem;
+    }
+    input, textarea {
       width: 100%;
       border: 0;
       border-bottom: 2px solid #355f5b;
@@ -213,6 +216,7 @@ form {
       justify-content: center;
       align-items: center;
       flex-flow: row wrap;
+      padding-bottom: 1rem;
     }
 
     img {

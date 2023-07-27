@@ -22,6 +22,8 @@ export class SignupFormComponent implements OnInit {
     lastname: new FormControl("", [Validators.required, Validators.minLength(2)]),
     picture: new FormControl("lionHero.jpg", [Validators.required]),
     isPetSitter: new FormControl(false, [Validators.required]),
+    location: new FormControl(null),
+    description: new FormControl(null),
   });
 
   errorRegistration?: string;

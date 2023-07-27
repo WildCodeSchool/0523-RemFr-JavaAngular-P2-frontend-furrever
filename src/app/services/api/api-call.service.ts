@@ -84,7 +84,6 @@ export class ApiCallService {
   }
 
   updateUser(payload: any) {
-    console.log(payload);
     return this.http.put<any>(this.API_URL + this.endPoints.updateUser, payload);
   }
 }
