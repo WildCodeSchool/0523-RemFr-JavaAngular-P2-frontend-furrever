@@ -56,11 +56,7 @@ export class SignupFormComponent implements OnInit {
       },
       error: () => {
         this.errorRegistration =
-          "Une erreur est survenue lors de votre inscription, votre adresse email est surement déjà utilisée.";
+          "Une erreur est survenue lors de votre inscription, votre adresse email est sûrement déjà utilisée.";
       },
     });
-    this.apiCallService
-      .createUser(this.signup.getRawValue())
-      .subscribe((response) => console.log("Vous êtes bien inscrit."));
-  }
 }

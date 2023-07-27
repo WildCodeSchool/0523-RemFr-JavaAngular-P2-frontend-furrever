@@ -2,7 +2,7 @@ import { Species } from "./Species";
 
 export class Service {
   constructor(
-    public id: string,
+    public id: string | null,
     public description: string,
     public price: number,
     public typeService: string,

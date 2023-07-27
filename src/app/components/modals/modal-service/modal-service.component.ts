@@ -15,7 +15,7 @@ export class ModalServiceComponent {
 
   constructor(private authService: AuthService, private activatedRoute: ActivatedRoute, private route: Router) {}
 
-  resquestService(id: string) {
+  resquestService(id: string | null) {
     if (!this.authService.isConnectedVerif()) {
       const petsitter = this.activatedRoute.snapshot.params;
       this.route.navigate(["/login"], { queryParams: petsitter });
