@@ -52,7 +52,7 @@
       <app-modal-user-update [user]="user"></app-modal-user-update>
     </div>
   </div>
-  <section class="petsitter-service">
+  <section class="petsitter-service" *ngIf="user.isPetSitter && serviceList.length > 0">
     <app-services
       *ngFor="let oneService of serviceList"
       [service]="oneService"
