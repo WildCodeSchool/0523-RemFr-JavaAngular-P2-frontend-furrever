@@ -1,1 +1,99 @@
-<p>update-profile-form works!</p>
+<form (ngSubmit)="updateUserForm.valid && sendUpdateUserForm()" [formGroup]="updateUserForm">
+  <div class="species_service_container">
+    <p>Des changements?</p>
+    <div *ngIf="user.isPetSitter">
+      <label class="control control-checkbox">
+        Je ne souhaite plus être Pet Sitter mais j'ai un animal à faire garder.
+        <input checked formControlName="isPetSitter" id="test" name="isPetSitter" required type="radio" value="false" />
+        <div class="control_indicator"></div>
+      </label>
+    </div>
+    <div *ngIf="!user.isPetSitter">
+      <label class="control control-checkbox">
+        Je deviens Pet Sitter
+        <input formControlName="isPetSitter" id="pouet" name="isPetSitter" required type="radio" value="true" />
+        <div class="control_indicator"></div>
+      </label>
+    </div>
+    <div class="images_choice">
+      <div>
+        <p>Choisissez une image de profil :</p>
+      </div>
+      <div class="images_container">
+        <div>
+          <label>
+            <input checked formControlName="picture" name="picture" required type="radio" value="lion.jpg" />
+            <img src="assets/images/lion1.jpg" />
+          </label>
+        </div>
+        <div>
+          <label>
+            <input formControlName="picture" name="picture" required type="radio" value="gorilla.png" />
+            <img src="assets/images/gorilla.png" />
+          </label>
+        </div>
+        <div>
+          <label>
+            <input formControlName="picture" name="picture" required type="radio" value="cow.jpg" />
+            <img src="assets/images/cow.jpg" />
+          </label>
+        </div>
+        <div>
+          <label>
+            <input formControlName="picture" name="picture" required type="radio" value="sea_lion.jpg" />
+            <img src="assets/images/sea_lion.jpg" />
+          </label>
+        </div>
+        <div>
+          <label>
+            <input formControlName="picture" name="picture" required type="radio" value="donkey.jpg" />
+            <img src="assets/images/donkey.jpg" />
+          </label>
+        </div>
+        <div>
+          <label>
+            <input formControlName="picture" name="picture" required type="radio" value="otter.jpg" />
+            <img src="assets/images/otter.jpg" />
+          </label>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="field">
+    <input
+      formControlName="firstname"
+      id="firstname"
+      name="firstname"
+      placeholder="Prénom"
+      required
+      type="text"
+    />
+    <label for="firstname">Prénom</label>
+    <div
+      *ngIf="updateUserForm.controls['firstname'].errors && !updateUserForm.controls['firstname'].pristine"
+      class="error-msg"
+    >
+      <div [hidden]="!updateUserForm.controls['firstname'].errors?.['required']">
+        Le prénom doit faire 2 caractères minimum.
+      </div>
+      <div [hidden]="!updateUserForm.controls['firstname'].invalid">Le prénom n'est pas valide.</div>
+    </div>
+  </div>
+  <div class="field">
+    <input formControlName="lastname" id="lastname" name="lastname" placeholder="Nom" required type="text" />
+    <label for="lastname">Nom</label>
+    <div
+      *ngIf="updateUserForm.controls['lastname'].errors && !updateUserForm.controls['lastname'].pristine"
+      class="error-msg"
+    >
+      <div [hidden]="!updateUserForm.controls['lastname'].errors?.['required']">
+        Le nom doit faire 2 caractères minimum.
+      </div>
+      <div [hidden]="!updateUserForm.controls['lastname'].invalid">Le nom n'est pas valide.</div>
+    </div>
+  </div>
+  <input (click)="sendUpdateUserForm()" class="button" type="button" value="Modifier mon profil" />
+  <!--  <div *ngIf="errors.length > 0">-->
+  <!--    <p class="errors" *ngFor="let error of errors">{{ error }}</p>-->
+  <!--  </div>-->
+</form>

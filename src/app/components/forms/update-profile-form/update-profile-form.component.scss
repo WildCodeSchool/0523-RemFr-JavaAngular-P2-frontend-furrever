@@ -1,0 +1,245 @@
+:host {
+  display: flex;
+  justify-content: center;
+}
+
+form {
+  width: 100%;
+  max-width: 450px;
+  margin: 1rem 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 20px;
+
+  .species_service_container {
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    border: dashed 2px #b17a3a;
+    border-radius: 20px;
+    margin: 0 auto;
+
+    p {
+      font-size: 1.3em;
+      color: #355f5b;
+      margin-bottom: 0;
+    }
+
+    .control {
+      display: flex;
+      align-items: center;
+      position: relative;
+      padding-left: 30px;
+      padding-top: 3px;
+      cursor: pointer;
+      font-size: 16px;
+      margin: 1.5rem 1rem;
+      width: 90%;
+
+    }
+
+    .control input {
+      position: absolute;
+      z-index: -1;
+      opacity: 0;
+    }
+
+    .control_indicator {
+      position: absolute;
+      left: 0;
+      height: 20px;
+      width: 20px;
+      background: #ffffff;
+      border: 1px solid #355f5b;
+      border-radius: 4px;
+    }
+
+    .control input:checked ~ .control_indicator {
+      background: #b17a3a;
+      border: none;
+    }
+
+    .control_indicator:after {
+      box-sizing: unset;
+      content: '';
+      position: absolute;
+      display: none;
+    }
+
+    .control input:checked ~ .control_indicator:after {
+      display: block;
+    }
+
+    .control-checkbox .control_indicator::before {
+      content: '';
+      display: block;
+      width: 4.5rem;
+      height: 4.5rem;
+      margin-left: -1.6rem;
+      margin-top: -1.6rem;
+      background: #355F5B;
+      border-radius: 3rem;
+      opacity: 0.6;
+      z-index: 99999;
+      transform: scale(0);
+    }
+
+    @keyframes s-ripple {
+      0% {
+        transform: scale(0);
+      }
+      20% {
+        transform: scale(1);
+      }
+      100% {
+        opacity: 0;
+        transform: scale(1);
+      }
+    }
+
+    @keyframes s-ripple-dup {
+      0% {
+        transform: scale(0);
+      }
+      30% {
+        transform: scale(1);
+      }
+      60% {
+        transform: scale(1);
+      }
+      100% {
+        opacity: 0;
+        transform: scale(1);
+      }
+    }
+
+    .control-checkbox input + .control_indicator::before {
+      animation: s-ripple 250ms ease-out;
+    }
+
+    .control-checkbox input:checked + .control_indicator::before {
+      animation-name: s-ripple-dup;
+    }
+  }
+
+  .field {
+    position: relative;
+    padding: 15px 0 0;
+    margin-top: 10px;
+    width: 70%;
+    margin-bottom: 1rem;
+
+    input {
+      width: 100%;
+      border: 0;
+      border-bottom: 2px solid #355f5b;
+      outline: 0;
+      font-size: 1.2rem;
+      padding: 7px 0;
+      background: transparent;
+      transition: border-color 0.2s;
+
+      &::placeholder {
+        color: transparent;
+      }
+
+      &:placeholder-shown ~ label {
+        font-size: 1.2rem;
+        cursor: text;
+        top: 20px;
+        color: #355f5b;
+      }
+    }
+
+    label {
+      position: absolute;
+      top: 0;
+      display: block;
+      transition: 0.2s;
+      font-size: 1rem;
+      color: #355f5b;
+    }
+
+    input:focus {
+      ~ label {
+        position: absolute;
+        top: 0;
+        display: block;
+        transition: 0.2s;
+        font-size: 1rem;
+        color: #b17a3a;
+      }
+
+      padding-bottom: 6px;
+      border-width: 3px;
+      border-bottom: 2px solid #b17a3a;
+      border-image-slice: 1;
+    }
+  }
+
+  .button {
+    background-color: #355F5B;
+    color: #f2f2f2;
+    cursor: pointer;
+    border-radius: 25px;
+    border: none;
+    margin-top: 1rem;
+    padding: 0.7rem 1.8em;
+    font-size: 1.2rem;
+  }
+
+  a {
+    margin-top: 1rem;
+    text-decoration: none;
+    color: #355f5b;
+  }
+
+  .images_choice {
+    display: flex;
+    flex-direction: column;
+
+    p {
+      margin: 0 0 1rem 0;
+      text-align: center;
+    }
+
+    .images_container {
+      width: 100%;
+      margin: 0 auto;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-flow: row wrap;
+    }
+
+    img {
+      width: 60px;
+      height: 60px;
+      border-radius: 50px;
+      margin: 0.5rem;
+    }
+  }
+}
+
+[type=radio] {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+[type=radio] + img {
+  cursor: pointer;
+}
+
+[type=radio]:checked + img {
+  outline: thick double #355F5B;
+}
+.error-msg {
+  color: red;
+  margin-top: 0.3rem;
+  font-size: 0.8em;
+}
