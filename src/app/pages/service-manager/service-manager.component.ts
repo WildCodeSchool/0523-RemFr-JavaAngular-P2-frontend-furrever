@@ -80,7 +80,6 @@ export class ServiceManagerComponent implements OnInit {
         );
         this.apiCallService.createService(newService).subscribe({
           next: (response) => {
-            console.log("coucou", response);
             this.toast.success("Votre service est crée.");
             this.route.navigate(["/profile"]);
           },

@@ -84,7 +84,6 @@ export class ApiCallService {
   }
 
   createService(payload: Service) {
-    console.log(payload);
     return this.http.post<Service>(this.API_URL + this.endPoints.services, payload);
   }
   updateUser(payload: any) {
