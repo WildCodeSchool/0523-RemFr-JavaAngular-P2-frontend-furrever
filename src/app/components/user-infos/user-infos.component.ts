@@ -3,6 +3,7 @@ import { UserProfile } from "../../models/UserProfile";
 import { AuthService } from "../../services/auth/auth.service";
 import { Router } from "@angular/router";
 import { ApiCallService } from "../../services/api/api-call.service";
+import { logMessages } from "@angular-devkit/build-angular/src/builders/browser-esbuild/esbuild";
 
 @Component({
   selector: "app-user-infos",
@@ -30,4 +31,8 @@ export class UserInfosComponent implements OnInit {
     }
     this.showModal = !this.showModal;
   }
+
+  // getUserComments(id: string) {
+  //   this.apiCallService.getPetsittersById(this.user.email).subscribe((response) => console.log(response));
+  // }
 }

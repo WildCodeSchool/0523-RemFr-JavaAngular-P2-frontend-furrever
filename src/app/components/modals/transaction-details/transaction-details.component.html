@@ -69,7 +69,10 @@
   <div *ngIf="transaction?.statusFlag === 'pending'" class="buttonGroupe">
     <input *ngIf="transaction" class="button accept" (click)="delete(transaction)" type="button" value="Supprimer" />
   </div>
-  <div *ngIf="transaction?.statusFlag === 'completed'" class="buttonGroupe">
-    <input class="button comment" type="button" value="Commenter" />
+  <div *ngIf="transaction?.statusFlag === 'completed' && !commentModal" class="buttonGroupe">
+    <input (click)="openCommentModale()" class="button comment" type="button" value="Commenter" />
+  </div>
+  <div *ngIf="commentModal">
+    <app-comment-form *ngIf="transaction" [transaction]="transaction"></app-comment-form>
   </div>
 </div>

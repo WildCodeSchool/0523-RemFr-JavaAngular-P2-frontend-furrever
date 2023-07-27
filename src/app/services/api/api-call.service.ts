@@ -26,10 +26,11 @@ export class ApiCallService {
     getPetSitterById: "petsitters/",
     createUser: "auth/register",
     transaction: "transactions",
-    updateOrDeleteTransaction: "transactions/",
+    transactionSlash: "transactions/",
     createAnimal: "users/animals",
     getCurrentUser: "users",
     updateUser: "users",
+    comment: "/comments",
   };
 
   constructor(public http: HttpClient) {}
@@ -67,11 +68,11 @@ export class ApiCallService {
   }
 
   updateTransaction(payload: boolean) {
-    return this.http.post<void>(this.API_URL + this.endPoints.updateOrDeleteTransaction, payload);
+    return this.http.post<void>(this.API_URL + this.endPoints.transactionSlash, payload);
   }
 
   deleteTransaction(id: string) {
-    return this.http.delete<void>(this.API_URL + this.endPoints.updateOrDeleteTransaction + id);
+    return this.http.delete<void>(this.API_URL + this.endPoints.transactionSlash + id);
   }
 
   createAnimal(payload: Animal) {
@@ -84,5 +85,17 @@ export class ApiCallService {
 
   updateUser(payload: any) {
     return this.http.put<any>(this.API_URL + this.endPoints.updateUser, payload);
+  }
+
+  createComment(payload: Comment, id: string) {
+    console.log(payload);
+    return this.http.post<Comment>(
+      this.API_URL + this.endPoints.transactionSlash + id + this.endPoints.comment,
+      payload
+    );
+  }
+
+  getCommentByUserId(id: string){
+    return this.http.get<Comment>(this.API_URL + this.endPoints.getPetSitterById + id);
   }
 }
