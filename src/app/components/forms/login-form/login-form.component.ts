@@ -46,17 +46,20 @@ export class LoginFormComponent implements OnInit {
     this.errors = [];
     this.validation(this.login.getRawValue().email, this.login.getRawValue().password);
     if (this.errors.length <= 0) {
-      this.apiCallService.loginRequest(this.login.getRawValue()).subscribe(({ token }) => {
-        localStorage.setItem("authToken", token);
-        const payloadToken: PayloadToken = jwtDecode(token);
-        this.store.dispatch(addUserOnStore({ picture: payloadToken.picture }));
-        const queryParam = this.activatedRoute.snapshot.queryParams;
-        this.toastr.success("Vous êtes connecté !");
-        if (queryParam["id"]) {
-          this.route.navigate(["profile-petsitter/" + queryParam["id"]]);
-        } else {
-          this.route.navigate(["/profile"]);
-        }
+      this.apiCallService.loginRequest(this.login.getRawValue()).subscribe({
+        next: ({ token }) => {
+          localStorage.setItem("authToken", token);
+          const payloadToken: PayloadToken = jwtDecode(token);
+          this.store.dispatch(addUserOnStore({ picture: payloadToken.picture }));
+          const queryParam = this.activatedRoute.snapshot.queryParams;
+          this.toastr.success("Vous êtes connecté !");
+          if (queryParam["id"]) {
+            this.route.navigate(["profile-petsitter/" + queryParam["id"]]);
+          } else {
+            this.route.navigate(["/profile"]);
+          }
+        },
+        error: () => this.errors.push("Votre mot de passe et ou votre email sont incorrectes."),
       });
     }
   }
