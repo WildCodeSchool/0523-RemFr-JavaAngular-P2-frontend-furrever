@@ -34,7 +34,7 @@ export class TransactionArrayComponent implements OnInit {
   }
   isShowModal(id: string) {
     if (id !== "close") {
-      this.transaction = this.transactionList?.find((transaction) => transaction.id === id);
+      this.transaction = this.transactionList?.find((transaction) => transaction.idTransaction === id);
     }
     this.showModal = !this.showModal;
   }

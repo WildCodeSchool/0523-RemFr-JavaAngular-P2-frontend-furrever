@@ -1,5 +1,5 @@
 export type Transaction = {
-  id: string;
+  idTransaction: string;
   dateStart: string;
   dateEnd: string;
   status: boolean | null;

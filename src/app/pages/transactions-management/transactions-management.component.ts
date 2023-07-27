@@ -26,13 +26,13 @@ export class TransactionsManagementComponent implements OnInit {
     if (!this.authService.isConnectedVerif()) {
       this.route.navigate(["/login"]);
     }
-    this.apiCallService.getTransactions().subscribe(({ transactionForPetsitter, transactionFromUser, petsitter }) => {
-      this.isPetsitter = petsitter;
-      this.transactionPetsitterList = transactionForPetsitter;
-      this.transactionISentList = transactionFromUser;
-      this.sortTransaction(transactionFromUser);
+    this.apiCallService.getTransactions().subscribe((response) => {
+      this.isPetsitter = response.petsitter;
+      this.transactionPetsitterList = response.transactionForPetsitter;
+      this.transactionISentList = response.transactionFromUser;
+      this.sortTransaction(response.transactionFromUser);
       const today = new Date();
-      const forCounter = transactionForPetsitter.filter((transaction) => {
+      const forCounter = response.transactionForPetsitter.filter((transaction) => {
         const end = new Date(transaction.dateEnd);
         const timeDiffForEndToday = end.getTime() - today.getTime();
         return transaction.status === null && timeDiffForEndToday > 0;
@@ -51,7 +51,6 @@ export class TransactionsManagementComponent implements OnInit {
   }
 
   sortTransaction(transactionList: Transaction[]) {
-    console.log(transactionList);
     const today = new Date();
     this.pendingTransactionList = transactionList.filter((transaction) => {
       const end = new Date(transaction.dateEnd);

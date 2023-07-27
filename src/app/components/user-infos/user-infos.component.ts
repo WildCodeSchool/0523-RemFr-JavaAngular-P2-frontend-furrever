@@ -8,7 +8,7 @@ import { UserProfile } from "../../models/UserProfile";
 })
 export class UserInfosComponent implements OnInit {
   @Input() user!: UserProfile;
-
+  @Input() nbPendingTransactions!: number;
   ngOnInit() {
     if (this.user == undefined) {
       this.user = new UserProfile("", "", "", "", "", "", 0, 0, 0, false, null);

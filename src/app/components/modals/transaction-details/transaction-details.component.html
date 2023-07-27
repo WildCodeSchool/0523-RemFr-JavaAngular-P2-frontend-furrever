@@ -1,8 +1,6 @@
 <div *ngIf="isPetsitter" class="modal">
   <div>
-    <h3>
-      Demande de {{ transaction?.ownerFirstName }}
-    </h3>
+    <h3>Demande de {{ transaction?.ownerFirstName }}</h3>
     <div class="status">
       <app-status [statusFlag]="transaction?.statusFlag"></app-status>
     </div>
@@ -34,9 +32,7 @@
 </div>
 <div *ngIf="!isPetsitter" class="modal">
   <div>
-    <h3>
-      Demande à {{ transaction?.petSitterFirstName }}
-    </h3>
+    <h3>Demande à {{ transaction?.petSitterFirstName }}</h3>
     <div class="status">
       <app-status [statusFlag]="transaction?.statusFlag"></app-status>
     </div>
@@ -59,7 +55,7 @@
     </div>
   </div>
   <div *ngIf="transaction?.statusFlag === 'pending'" class="buttonGroupe">
-    <input class="button accept" type="button" value="Supprimer" />
+    <input *ngIf="transaction" class="button accept" (click)="delete(transaction)" type="button" value="Supprimer" />
   </div>
   <div *ngIf="transaction?.statusFlag === 'completed'" class="buttonGroupe">
     <input class="button comment" type="button" value="Commenter" />
