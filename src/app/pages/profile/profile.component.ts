@@ -21,10 +21,10 @@ export class ProfileComponent implements OnInit {
     if (!this.authService.isConnectedVerif()) {
       this.route.navigate(["/login"]);
     }
-    this.apiCallService.getCurrentUser().subscribe((profile) => {
-      this.animalList = profile.animalTemplateList;
-      this.user = profile.userProfile;
-      this.nbPendingTransactions = profile.nbPendingTransactions;
-    });
+    //this.apiCallService.getCurrentUser().subscribe((profile) => {
+      // this.animalList = profile.animalTemplateList;
+      // this.user = profile.userProfile;
+      // this.nbPendingTransactions = profile.nbPendingTransactions;
+    //});
   }
 }
