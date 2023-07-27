@@ -40,13 +40,7 @@ export class ServiceManagerComponent implements OnInit {
     }
   }
 
-  onSubmit() {
-    // const addService = new (
-    //   this.addService.getRawValue().service,
-    //   this.speciesSelect
-    // );
-    // this.route.navigate(["/search-result"], { queryParams: addService });
-  }
+  onSubmit() {}
 
   counter(i: number) {
     return new Array(i);
