@@ -15,17 +15,17 @@
       <p>Sélectionnez le service</p>
       <label class="control control-checkbox">
         Promenade quotidienne
-        <input type="radio" id="walk" value="Promenade quotidienne" name="service" formControlName="service" checked />
+        <input type="radio" id="walk" value="Promenade quotidienne" name="typeService" formControlName="typeService" checked />
         <div class="control_indicator"></div>
       </label>
       <label class="control control-checkbox">
         Visite à domicile
-        <input type="radio" id="visit" value="Visite à domicile" name="service" formControlName="service" />
+        <input type="radio" id="visit" value="Visite à domicile" name="typeService" formControlName="typeService" />
         <div class="control_indicator"></div>
       </label>
       <label class="control control-checkbox">
         Garde prolongée
-        <input type="radio" id="homeKeeping" value="Garde prolongée" name="service" formControlName="service" />
+        <input type="radio" id="homeKeeping" value="Garde prolongée" name="typeService" formControlName="typeService" />
         <div class="control_indicator"></div>
       </label>
     </div>
@@ -44,6 +44,9 @@
         required
       ></textarea>
       <label for="description">Description</label>
+    </div>
+    <div class="button_container">
+      <input class="button" type="submit" value="Valider" />
     </div>
   </div>
 </form>

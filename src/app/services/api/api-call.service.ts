@@ -4,7 +4,7 @@ import { Comment } from "../../models/Comment";
 import { Species } from "../../models/Species";
 import { PetsitterPreview, PetsitterResponse, ResponsePetSitter } from "../../models/PetsitterPreview";
 import { SearchRequest } from "../../models/SearchRequest";
-import {User, UserProfile} from "../../models/UserProfile";
+import { User } from "../../models/UserProfile";
 import { Service } from "../../models/Service";
 import { TokenJwt } from "../../models/TokenJwt";
 import { Login } from "../../models/Login";
@@ -30,6 +30,7 @@ export class ApiCallService {
     updateOrDeleteTransaction: "transactions/",
     createAnimal: "users/animals",
     getCurrentUser: "users",
+    services: "services",
   };
 
   constructor(public http: HttpClient) {}
@@ -80,5 +81,9 @@ export class ApiCallService {
 
   getCurrentUser() {
     return this.http.get<GetProfileUserResponse>(this.API_URL + this.endPoints.getCurrentUser);
+  }
+
+  createService(payload: Service) {
+    return this.http.post<Service>(this.API_URL + this.endPoints.services, payload);
   }
 }

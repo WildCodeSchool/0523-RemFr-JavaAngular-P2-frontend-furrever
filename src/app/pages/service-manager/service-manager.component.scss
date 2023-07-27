@@ -243,6 +243,7 @@ form {
 [type=radio]:checked + img {
   outline: thick double #355F5B;
 }
+
 .error-msg {
   color: red;
   margin-top: 0.3rem;
@@ -303,5 +304,23 @@ form {
       font-size: 1rem;
       color: #b17a3a;
     }
+  }
+}
+
+.button_container {
+  margin-top: 2rem;
+  margin-bottom: 1.5rem;
+
+  .button {
+    text-decoration: none;
+    background-color: #355F5B;
+    color: #f2f2f2;
+    border-radius: 25px;
+    border: none;
+    font-size: 1em;
+    cursor: pointer;
+    padding: 10px;
+    white-space: normal;
+    width: 6rem;
   }
 }

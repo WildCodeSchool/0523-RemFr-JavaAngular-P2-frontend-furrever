@@ -42,6 +42,7 @@ export class SignupFormComponent implements OnInit {
   sendSignUp() {
     const email = this.signup.getRawValue().email;
     const password = this.signup.getRawValue().password;
+    console.log(this.signup.getRawValue());
     this.apiCallService.createUser(this.signup.getRawValue()).subscribe({
       next: () => {
         this.apiCallService.loginRequest({ email, password }).subscribe(({ token }) => {
@@ -54,7 +55,7 @@ export class SignupFormComponent implements OnInit {
       },
       error: () => {
         this.errorRegistration =
-          "Une erreur est survenue lors de votre inscription, votre adresse email est surement déjà utilisée.";
+          "Une erreur est survenue lors de votre inscription, votre adresse email est sûrement déjà utilisée.";
       },
     });
   }
