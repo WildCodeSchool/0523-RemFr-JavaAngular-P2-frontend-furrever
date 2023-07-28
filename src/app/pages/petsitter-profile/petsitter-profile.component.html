@@ -5,6 +5,7 @@
   <app-petsitter-infos [petSitterProfile]="petSitterProfile"></app-petsitter-infos>
   <article>
     <app-services-list
+      *ngIf="serviceList.length > 0"
       [serviceList]="serviceList"
       [petSitterFirstName]="petSitterProfile.firstname"
     ></app-services-list>

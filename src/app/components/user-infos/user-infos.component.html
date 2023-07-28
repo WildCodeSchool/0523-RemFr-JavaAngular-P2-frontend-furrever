@@ -32,7 +32,7 @@
     <p>
       {{ user.location?.streetNumber }}
       <span *ngIf="user.location?.additionalAddress">, {{ user.location?.additionalAddress }}</span>
-      , {{ user.location?.street }}, {{ user.location?.zipCode }}, {{ user.location?.city }}
+      , {{ user.location?.street }}, {{ user.location?.zipCode }}, {{ user.location?.city | titlecase }}
     </p>
     <div class="button_container">
       <input type="button" value="Modifier le profil" class="button" (click)="showModalForUpdateUser()" />

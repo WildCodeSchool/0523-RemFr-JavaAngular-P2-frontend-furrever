@@ -1,10 +1,14 @@
+:host {
+  width: 100%;
+}
+
 section{
   background-color: #f4f4f4;
   padding: 1rem;
   border-radius: 25px;
   box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
   margin: 1rem auto 3rem auto;
-  width: 80%;
+  width: 90%;
 }
 
 h1{
