@@ -63,7 +63,7 @@ form {
       background-repeat: no-repeat;
       border: none;
 
-      >:hover {
+      &:hover {
         background-image: url("../../../../assets/images/patoune.png");
       }
     }

@@ -52,7 +52,7 @@ export class CommentFormComponent implements OnInit {
     if (this.errors.length <= 0 && this.transaction) {
       this.apiCallService.createComment(createdComment, this.transaction!.idTransaction).subscribe(() => {
         this.redirectTo("/profile");
-        this.toastr.success("Votre profil a bien été mis à jour.");
+        this.toastr.success("Votre commentaire à bien été envoyé.");
       });
     }
   }

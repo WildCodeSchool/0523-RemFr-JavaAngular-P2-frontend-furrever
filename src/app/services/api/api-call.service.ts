@@ -92,7 +92,6 @@ export class ApiCallService {
   }
 
   createComment(payload: Comment, id: string) {
-    console.log(payload);
     return this.http.post<Comment>(
       this.API_URL + this.endPoints.transactionSlash + id + this.endPoints.comment,
       payload

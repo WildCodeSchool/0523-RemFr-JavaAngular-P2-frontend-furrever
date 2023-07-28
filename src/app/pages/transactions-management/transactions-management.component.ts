@@ -30,7 +30,7 @@ export class TransactionsManagementComponent implements OnInit {
       this.isPetsitter = response.petsitter;
       this.transactionPetsitterList = response.transactionForPetsitter;
       this.transactionISentList = response.transactionFromUser;
-      this.sortTransaction(response.transactionFromUser);
+      this.sortTransaction(response.transactionFromUser)
       const today = new Date();
       const forCounter = response.transactionForPetsitter.filter((transaction) => {
         const end = new Date(transaction.dateEnd);
