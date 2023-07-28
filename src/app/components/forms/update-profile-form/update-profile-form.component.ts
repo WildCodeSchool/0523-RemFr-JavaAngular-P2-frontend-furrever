@@ -80,7 +80,7 @@ export class UpdateProfileFormComponent implements OnInit {
         streetNumber: this.updateUserForm.getRawValue().streetNumber,
         street: this.updateUserForm.getRawValue().street,
         additionalAddress: this.updateUserForm.getRawValue().additionalAddress,
-        city: this.updateUserForm.getRawValue().city,
+        city: this.updateUserForm.getRawValue().city!.toLowerCase(),
         zipCode: this.updateUserForm.getRawValue().zipCode,
       },
     };

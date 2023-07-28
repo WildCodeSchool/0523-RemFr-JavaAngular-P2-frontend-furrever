@@ -21,8 +21,8 @@ export class ServiceManagerComponent implements OnInit {
     description: new FormControl(""),
     price: new FormControl(0),
     typeService: new FormControl(""),
-    weightMin: new FormControl(0),
-    weightMax: new FormControl(0),
+    weightMin: new FormControl(null),
+    weightMax: new FormControl(null),
     healer: new FormControl(false),
   });
 
@@ -63,7 +63,7 @@ export class ServiceManagerComponent implements OnInit {
     if (this.user.isPetSitter) {
       const description = this.addService.getRawValue().description;
       const price = this.addService.getRawValue().price;
-      const typeService = this.addService.getRawValue().typeService;
+      const typeService = this.addService.getRawValue().typeService?.toLowerCase();
       const weightMin = this.addService.getRawValue().weightMin;
       const weightMax = this.addService.getRawValue().weightMax;
       const healer = this.addService.getRawValue().healer;
