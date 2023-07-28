@@ -10,6 +10,7 @@ export class ServicesComponent {
   @Input() service!: Service;
   showModal = false;
   @Input() petSitterFirstName!: string;
+  @Input() userInfoView?: boolean;
   isShowModal() {
     this.showModal = !this.showModal;
   }
