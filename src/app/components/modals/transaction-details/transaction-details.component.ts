@@ -58,7 +58,6 @@ export class TransactionDetailsComponent {
   }
 
   openCommentModale(){
-    console.log(this.transaction);
     this.commentModal = !this.commentModal;
   }
 }
