@@ -32,6 +32,7 @@ export class ApiCallService {
     comment: "/comments",
     user: "users",
     services: "services",
+    servicesSlash: "services/",
   };
 
   constructor(public http: HttpClient) {}
@@ -98,7 +99,11 @@ export class ApiCallService {
     );
   }
 
-  getCommentByUserId(id: string){
+  getCommentByUserId(id: string) {
     return this.http.get<Comment>(this.API_URL + this.endPoints.getPetSitterById + id);
+  }
+
+  deleteService(id: string) {
+    return this.http.delete<void>(this.API_URL + this.endPoints.servicesSlash + id);
   }
 }

@@ -15,6 +15,7 @@ export class UserInfosComponent implements OnInit {
   @Input() nbPendingTransactions!: number;
   @Input() petSitterFirstName!: string;
   @Input() serviceList: Service[] = [];
+  userInfoView = true;
   @Input()
   ngOnInit() {
     if (this.user == undefined) {
