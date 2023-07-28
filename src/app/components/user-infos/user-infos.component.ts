@@ -15,6 +15,7 @@ export class UserInfosComponent implements OnInit {
   @Input() nbPendingTransactions!: number;
   @Input() petSitterFirstName!: string;
   @Input() serviceList: Service[] = [];
+  //@Input() commentListIfIAmUser!: Comment[];
   @Input()
   ngOnInit() {
     if (this.user == undefined) {
@@ -28,10 +29,18 @@ export class UserInfosComponent implements OnInit {
 
   constructor(private authService: AuthService, private route: Router, private apiCallService: ApiCallService) {}
   showModal = false;
+  showModalUserComments = false;
   showModalForUpdateUser() {
     if (!this.authService.isConnectedVerif()) {
       this.route.navigate(["/login"]);
     }
     this.showModal = !this.showModal;
+  }
+
+  showModalForUserComments() {
+    if (!this.authService.isConnectedVerif()) {
+      this.route.navigate(["/login"]);
+    }
+    this.showModalUserComments = !this.showModalUserComments;
   }
 }

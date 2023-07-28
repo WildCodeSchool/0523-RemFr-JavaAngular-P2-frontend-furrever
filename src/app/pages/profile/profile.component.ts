@@ -18,6 +18,7 @@ export class ProfileComponent implements OnInit {
   nbPendingTransactions = 0;
   serviceList: Service[] = [];
   commentList: Comment[] = [];
+  //commentListIfIAmUser: Comment[] = [];
   constructor(private authService: AuthService, private route: Router, private apiCallService: ApiCallService) {}
 
   ngOnInit(): void {
@@ -30,6 +31,8 @@ export class ProfileComponent implements OnInit {
       this.nbPendingTransactions = profile.nbPendingTransactions;
       this.serviceList = profile.serviceTemplateList;
       this.commentList = profile.commentTemplateList;
+      //this.commentListIfIAmUser = profile.commentTemplateListIfIAmUser;
+      //console.log(this.commentListIfIAmUser);
     });
   }
 }

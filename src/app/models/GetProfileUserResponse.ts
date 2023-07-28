@@ -7,6 +7,7 @@ export type GetProfileUserResponse = {
   animalTemplateList: Animal[];
   serviceTemplateList: Service[];
   commentTemplateList: Comment[];
+  // commentTemplateListIfIAmUser: Comment[];
   nbPendingTransactions: number;
   userProfile: UserProfile;
 };

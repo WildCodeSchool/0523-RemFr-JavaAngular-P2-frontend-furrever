@@ -42,7 +42,7 @@
           <b>{{ nbPendingTransactions }}</b>
         </span>
       </a>
-      <a class="button">Mes commentaires postés</a>
+      <a (click)="showModalForUserComments()" class="button">Commentaires postés</a>
       <a *ngIf="user.isPetSitter" class="button" routerLink="/services">Mes services</a>
     </div>
   </div>
@@ -50,6 +50,12 @@
     <div>
       <input type="button" class="button" (click)="showModalForUpdateUser()" value="X" />
       <app-modal-user-update [user]="user"></app-modal-user-update>
+    </div>
+  </div>
+  <div class="modal" *ngIf="showModalUserComments">
+    <div>
+      <input type="button" class="button" (click)="showModalForUserComments()" value="X" />
+      <app-modal-user-comments [user]="user" ></app-modal-user-comments> <!--[commentListIfIAmUser]="commentListIfIAmUser"-->
     </div>
   </div>
   <section class="petsitter-service" *ngIf="user.isPetSitter && serviceList.length > 0">

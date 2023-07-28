@@ -1,7 +1,5 @@
-<app-user-infos
-  [user]="user"
-  [nbPendingTransactions]="nbPendingTransactions"
-  [serviceList]="serviceList"
-></app-user-infos>
+<app-user-infos [user]="user" [nbPendingTransactions]="nbPendingTransactions" [serviceList]="serviceList">
+  <!--[commentListIfIAmUser]="commentListIfIAmUser"-->
+</app-user-infos>
 <app-carousel-animal [animalList]="animalList"></app-carousel-animal>
-<app-carousel [commentList]="commentList"></app-carousel>
+<app-carousel [commentList]="commentList" *ngIf="user.isPetSitter"></app-carousel>
