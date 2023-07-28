@@ -12,7 +12,7 @@ import { Router } from "@angular/router";
 export class TransactionDetailsComponent {
   @Input() transaction?: Transaction;
   @Input() isPetsitter!: boolean;
-  commentModal: boolean = false;
+  commentModal = false;
   constructor(private apiCallService: ApiCallService, private toastr: ToastrService, private route: Router) {}
 
   valide(decision: boolean, transaction: Transaction) {
@@ -58,6 +58,7 @@ export class TransactionDetailsComponent {
   }
 
   openCommentModale(){
+    console.log(this.transaction);
     this.commentModal = !this.commentModal;
   }
 }

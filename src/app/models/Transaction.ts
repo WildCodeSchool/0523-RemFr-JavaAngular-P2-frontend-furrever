@@ -12,6 +12,7 @@ export type Transaction = {
   petSitterFirstName: string;
   petSitterLastName: string;
   statusFlag: string | null;
+  commentedTransaction: boolean;
 };
 
 export type GetTransaction = {
