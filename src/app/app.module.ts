@@ -50,6 +50,7 @@ import { SignUpComponent } from "./pages/sign-up/sign-up.component";
 import { PetsitterProfileComponent } from "./pages/petsitter-profile/petsitter-profile.component";
 import { TransactionsManagementComponent } from "./pages/transactions-management/transactions-management.component";
 import { ServiceManagerComponent } from "./pages/service-manager/service-manager.component";
+import { CommentFormComponent } from './components/forms/comment-form/comment-form.component';
 
 @NgModule({
   declarations: [
@@ -90,7 +91,8 @@ import { ServiceManagerComponent } from "./pages/service-manager/service-manager
     ModalAnimalComponent,
     UpdateProfileFormComponent,
     ServiceManagerComponent,
-    ModalUserUpdateComponent
+    ModalUserUpdateComponent,
+    CommentFormComponent
   ],
   imports: [
     BrowserModule,

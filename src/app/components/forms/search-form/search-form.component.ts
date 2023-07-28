@@ -38,8 +38,8 @@ export class SearchFormComponent implements OnInit {
 
   onSubmit() {
     const searchRequest = new SearchRequest(
-      this.searchForm.getRawValue().city,
-      this.searchForm.getRawValue().service,
+      this.searchForm.getRawValue().city!.toLowerCase(),
+      this.searchForm.getRawValue().service!.toLowerCase(),
       this.speciesSelect
     );
     this.route.navigate(["/search-result"], { queryParams: searchRequest });

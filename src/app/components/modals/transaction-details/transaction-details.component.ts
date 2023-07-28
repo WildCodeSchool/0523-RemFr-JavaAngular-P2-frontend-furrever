@@ -12,7 +12,7 @@ import { Router } from "@angular/router";
 export class TransactionDetailsComponent {
   @Input() transaction?: Transaction;
   @Input() isPetsitter!: boolean;
-
+  commentModal = false;
   constructor(private apiCallService: ApiCallService, private toastr: ToastrService, private route: Router) {}
 
   valide(decision: boolean, transaction: Transaction) {
@@ -55,5 +55,9 @@ export class TransactionDetailsComponent {
     } else {
       this.toastr.error("Une erreur est survenue, actualisez votre page et réessayez l'opération.");
     }
+  }
+
+  openCommentModale(){
+    this.commentModal = !this.commentModal;
   }
 }

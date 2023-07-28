@@ -3,7 +3,6 @@ import { UserProfile } from "../../models/UserProfile";
 import { AuthService } from "../../services/auth/auth.service";
 import { Router } from "@angular/router";
 import { ApiCallService } from "../../services/api/api-call.service";
-import { Species } from "../../models/Species";
 import { Service } from "../../models/Service";
 
 @Component({

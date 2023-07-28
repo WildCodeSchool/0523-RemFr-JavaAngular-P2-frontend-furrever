@@ -1,9 +1,9 @@
 export class Comment {
   constructor(
-    public firstname: string,
-    public initialLastName: string,
-    public date: Date,
+    public firstname: string | null,
+    public initialLastName: string | null,
+    public date: string | null,
     public note: number,
-    public content: string
+    public content: string | null
   ) {}
 }

@@ -1,0 +1,45 @@
+<form (ngSubmit)="sendCommentForm()" [formGroup]="commentForm">
+  <div class="field">
+    <label>Laisser mon commentaire</label>
+    <textarea
+      formControlName="content"
+      id="content"
+      name="content"
+      placeholder="Laisser mon commentaire"
+      required
+      type="textarea"
+    ></textarea>
+  </div>
+  <h4>Laisser une note</h4>
+  <div class="species_service_container">
+    <label class="control control-checkbox">
+      1
+      <input type="radio" value="1" name="note" formControlName="note" checked />
+      <div class="control_indicator"></div>
+    </label>
+    <label class="control control-checkbox">
+      2
+      <input type="radio" value="2" name="note" formControlName="note" />
+      <div class="control_indicator"></div>
+    </label>
+    <label class="control control-checkbox">
+      3
+      <input type="radio" value="3" name="note" formControlName="note" />
+      <div class="control_indicator"></div>
+    </label>
+    <label class="control control-checkbox">
+      4
+      <input type="radio" value="4" name="note" formControlName="note" />
+      <div class="control_indicator"></div>
+    </label>
+    <label class="control control-checkbox">
+      5
+      <input type="radio" value="5" name="note" formControlName="note" />
+      <div class="control_indicator"></div>
+    </label>
+  </div>
+  <input class="button" type="submit" value="Laisser mon commentaire" />
+  <div *ngIf="errors.length > 0">
+    <p class="errors" *ngFor="let error of errors">{{ error }}</p>
+  </div>
+</form>
