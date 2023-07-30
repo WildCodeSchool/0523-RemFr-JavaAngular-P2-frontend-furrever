@@ -16,7 +16,7 @@ export class UserInfosComponent implements OnInit {
   @Input() petSitterFirstName!: string;
   @Input() serviceList: Service[] = [];
   userInfoView = true;
-  @Input()
+
   ngOnInit() {
     if (this.user == undefined) {
       this.user = new UserProfile("", "", "", "", "", "", 0, 0, 0, false, null);

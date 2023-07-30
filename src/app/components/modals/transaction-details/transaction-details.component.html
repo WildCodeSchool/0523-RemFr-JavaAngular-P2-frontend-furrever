@@ -1,4 +1,4 @@
-<div *ngIf="isPetsitter" class="modal">
+<div *ngIf="viewForPetsitter" class="modal">
   <div>
     <h3>Demande de {{ transaction?.ownerFirstName }}</h3>
     <div class="status">
@@ -19,6 +19,10 @@
       <p>
         <b>Description : </b>
         {{ transaction?.content }}
+      </p>
+      <p *ngIf="transaction?.statusFlag === 'validated' || emailOwner">
+        <b>Email : </b>
+        {{ transaction?.ownerEmail }}
       </p>
     </div>
   </div>
@@ -42,7 +46,7 @@
     <input class="button comment" type="button" value="Commentaire" />
   </div>
 </div>
-<div *ngIf="!isPetsitter" class="modal">
+<div *ngIf="!viewForPetsitter" class="modal">
   <div>
     <h3>Demande à {{ transaction?.petSitterFirstName }}</h3>
     <div class="status">
@@ -69,7 +73,10 @@
   <div *ngIf="transaction?.statusFlag === 'pending'" class="buttonGroupe">
     <input *ngIf="transaction" class="button accept" (click)="delete(transaction)" type="button" value="Supprimer" />
   </div>
-  <div *ngIf="transaction?.statusFlag === 'completed' && !commentModal && !transaction?.commentedTransaction" class="buttonGroupe">
+  <div
+    *ngIf="transaction?.statusFlag === 'completed' && !commentModal && !transaction?.commentedTransaction"
+    class="buttonGroupe"
+  >
     <input (click)="openCommentModale()" class="button comment" type="button" value="Commenter" />
   </div>
   <div *ngIf="commentModal">

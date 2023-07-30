@@ -12,7 +12,9 @@ import { Router } from "@angular/router";
 export class TransactionDetailsComponent {
   @Input() transaction?: Transaction;
   @Input() isPetsitter!: boolean;
+  @Input() viewForPetsitter!: boolean;
   commentModal = false;
+  emailOwner = false;
   constructor(private apiCallService: ApiCallService, private toastr: ToastrService, private route: Router) {}
 
   valide(decision: boolean, transaction: Transaction) {
@@ -20,14 +22,17 @@ export class TransactionDetailsComponent {
     const end = new Date(transaction.dateEnd);
     const timeDiffForEndToday = end.getTime() - today.getTime();
     if (transaction && transaction.status === null && timeDiffForEndToday > 0) {
-      this.apiCallService.updateTransaction(decision).subscribe({
+      this.apiCallService.updateTransaction(decision, transaction.idTransaction).subscribe({
         next: () => {
           if (decision) {
-            this.toastr.success("Vous avez accepté la demande de transaction.");
+            this.toastr.success("Vous avez accepté la demande de transaction. Vous pouvez voir l'email du demandeur");
+            this.emailOwner = true;
           } else {
             this.toastr.success("Vous avez refusé la demande de transaction.");
           }
-          this.route.navigateByUrl("/", { skipLocationChange: true }).then(() => this.route.navigate(["transactions"]));
+          this.route
+            .navigateByUrl("/", { skipLocationChange: true })
+            .then(() => this.route.navigate(["transactions"], { queryParams: { viewforpetsitter: true } }));
         },
         error: () => {
           this.toastr.error("Une erreur est survenue, actualisez votre page et réessayez l'opération.");
@@ -57,7 +62,7 @@ export class TransactionDetailsComponent {
     }
   }
 
-  openCommentModale(){
+  openCommentModale() {
     this.commentModal = !this.commentModal;
   }
 }

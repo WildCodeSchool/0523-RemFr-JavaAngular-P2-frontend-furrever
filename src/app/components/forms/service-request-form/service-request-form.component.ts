@@ -71,7 +71,9 @@ export class ServiceRequestFormComponent {
       }
       const timeDiff = end.getTime() - start.getTime();
       if (!timeDiff || timeDiff < 0) {
-        this.errors.push("La date de début doit être avant celle de fin.");
+        if (end.getTime() != start.getTime()) {
+          this.errors.push("La date de début doit être avant celle de fin.");
+        }
       }
     }
     if (!content || !content.trim() || content.length < 6) {

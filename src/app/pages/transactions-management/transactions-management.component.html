@@ -1,4 +1,5 @@
-<article>
+<app-loader *ngIf="loader"></app-loader>
+<article *ngIf="!loader">
   <p>Liste de vos transactions, cliquez sur le "type" pour voir le détail.</p>
   <div *ngIf="isPetsitter" class="btnGroup">
     <input *ngIf="!showTransaction" (click)="showTransactionRequest()" class="button" type="button" value="Reçues" />
@@ -15,8 +16,24 @@
   </div>
   <h3 *ngIf="showTransaction">Vos demandes de transactions reçues</h3>
   <h3 *ngIf="!showTransaction">Vos demandes de transactions envoyées</h3>
-  <app-transaction-array [className]="'pending'" [transactionList]="pendingTransactionList"></app-transaction-array>
-  <app-transaction-array [className]="'validate'" [transactionList]="transactionListValidated"></app-transaction-array>
-  <app-transaction-array [className]="'refused'" [transactionList]="transactionListRefused"></app-transaction-array>
-  <app-transaction-array [className]="'completed'" [transactionList]="transactionListCompleted"></app-transaction-array>
+  <app-transaction-array
+    [className]="'pending'"
+    [viewForPetsitter]="viewForPetsitter"
+    [transactionList]="pendingTransactionList"
+  ></app-transaction-array>
+  <app-transaction-array
+    [className]="'validate'"
+    [viewForPetsitter]="viewForPetsitter"
+    [transactionList]="transactionListValidated"
+  ></app-transaction-array>
+  <app-transaction-array
+    [className]="'refused'"
+    [viewForPetsitter]="viewForPetsitter"
+    [transactionList]="transactionListRefused"
+  ></app-transaction-array>
+  <app-transaction-array
+    [className]="'completed'"
+    [viewForPetsitter]="viewForPetsitter"
+    [transactionList]="transactionListCompleted"
+  ></app-transaction-array>
 </article>

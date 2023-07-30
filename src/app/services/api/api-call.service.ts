@@ -69,8 +69,8 @@ export class ApiCallService {
     return this.http.get<GetTransaction>(this.API_URL + this.endPoints.transaction);
   }
 
-  updateTransaction(payload: boolean) {
-    return this.http.post<void>(this.API_URL + this.endPoints.transactionSlash, payload);
+  updateTransaction(payload: boolean, id: string) {
+    return this.http.put<void>(this.API_URL + this.endPoints.transactionSlash + id, payload);
   }
 
   deleteTransaction(id: string) {

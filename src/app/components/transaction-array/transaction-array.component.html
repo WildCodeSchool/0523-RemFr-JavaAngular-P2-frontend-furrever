@@ -4,6 +4,7 @@
       <input (click)="isShowModal('close')" class="button close" type="button" value="X" />
       <app-transaction-details
         *ngIf="transaction"
+        [viewForPetsitter]="viewForPetsitter"
         [isPetsitter]="isPetsitter"
         [transaction]="transaction"
       ></app-transaction-details>
