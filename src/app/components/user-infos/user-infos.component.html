@@ -1,6 +1,6 @@
 <section>
   <div class="first_container">
-    <img alt="image de l'utilisateur" class="avatar" src="assets/images/{{ user.picture }}" />
+    <img *ngIf="user.picture" alt="image de l'utilisateur" class="avatar" src="assets/images/{{ user.picture }}" />
     <div>
       <p class="name">{{ user.firstname }} {{ user.lastname }}</p>
       <p *ngIf="user.isPetSitter && user.rating < 1" class="average">Moyenne du Pet Sitter</p>

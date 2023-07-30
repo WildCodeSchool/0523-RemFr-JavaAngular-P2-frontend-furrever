@@ -7,7 +7,12 @@
     </li>
     <li>
       <a routerLink="/profile">
-        <img src="assets/images/{{ (userStore | async)?.picture }}" alt="icon profile" title="Profile" />
+        <img
+          *ngIf="userStore | async"
+          src="assets/images/{{ (userStore | async)?.picture }}"
+          alt="icon profile"
+          title="Profile"
+        />
       </a>
     </li>
     <li>
