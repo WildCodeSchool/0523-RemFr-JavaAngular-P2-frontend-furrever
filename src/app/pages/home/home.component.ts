@@ -2,7 +2,6 @@ import { Component, OnInit } from "@angular/core";
 import { ApiCallService } from "../../services/api/api-call.service";
 import { Comment } from "../../models/Comment";
 import { AuthService } from "../../services/auth/auth.service";
-import {ToastrService} from "ngx-toastr";
 
 @Component({
   selector: "app-home",
