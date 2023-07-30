@@ -5,8 +5,8 @@
       <p class="name">
         {{ petSitterProfile.firstname }} {{ petSitterProfile.lastname ? (petSitterProfile.lastname | initial) : "" }}.
       </p>
-      <p class="average">Moyenne du Pet Sitter</p>
-      <div class="note_container">
+      <p class="average" *ngIf="petSitterProfile.rating">Moyenne du Pet Sitter</p>
+      <div class="note_container" *ngIf="petSitterProfile.rating">
         <div class="image-container">
           <img
             *ngFor="let in of counter(petSitterProfile.rating)"
@@ -23,6 +23,7 @@
         </div>
         <p>sur {{ petSitterProfile.ratingQuantity }} avis</p>
       </div>
+      <p class="average" *ngIf="!petSitterProfile.rating">Ce Pet Sitter n'a pas de note.</p>
     </div>
   </div>
   <div class="second_container">
