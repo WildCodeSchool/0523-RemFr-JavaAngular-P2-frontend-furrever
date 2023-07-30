@@ -38,11 +38,11 @@
       <input type="button" value="Modifier le profil" class="button" (click)="showModalForUpdateUser()" />
       <a class="button" routerLink="/transactions">
         Mes demandes
-        <span class="badge" *ngIf="nbPendingTransactions > 0 && user.idPetsitter">
+        <span class="badge" *ngIf="nbPendingTransactions && nbPendingTransactions > 0 && user.isPetSitter">
           <b>{{ nbPendingTransactions }}</b>
         </span>
       </a>
-      <a class="button">Mes commentaires postés</a>
+      <a class="button">Commentaires postés</a>
       <a *ngIf="user.isPetSitter" class="button" routerLink="/services">Mes services</a>
     </div>
   </div>

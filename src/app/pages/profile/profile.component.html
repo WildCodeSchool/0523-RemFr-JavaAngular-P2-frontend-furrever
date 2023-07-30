@@ -1,7 +1,9 @@
+<app-loader *ngIf="loader"></app-loader>
 <app-user-infos
+  *ngIf="!loader"
   [user]="user"
   [nbPendingTransactions]="nbPendingTransactions"
   [serviceList]="serviceList"
 ></app-user-infos>
-<app-carousel-animal [animalList]="animalList"></app-carousel-animal>
-<app-carousel [commentList]="commentList"></app-carousel>
+<app-carousel-animal *ngIf="loader" [animalList]="animalList"></app-carousel-animal>
+<app-carousel *ngIf="loader" [commentList]="commentList"></app-carousel>

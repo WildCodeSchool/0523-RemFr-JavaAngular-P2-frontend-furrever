@@ -9,6 +9,7 @@ import { Transaction } from "../../models/Transaction";
 export class TransactionArrayComponent implements OnInit {
   @Input() transactionList: Transaction[] = [];
   @Input() isPetsitter!: boolean;
+  @Input() viewForPetsitter!: boolean ;
   transaction?: Transaction;
   showModal = false;
   @Input() className!: string;

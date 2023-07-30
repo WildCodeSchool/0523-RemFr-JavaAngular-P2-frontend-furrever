@@ -1,6 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import { AuthService } from "../../services/auth/auth.service";
-import { Router } from "@angular/router";
+import {ActivatedRoute, Router} from "@angular/router";
 import { ApiCallService } from "../../services/api/api-call.service";
 import { Transaction } from "../../models/Transaction";
 
@@ -11,6 +11,7 @@ import { Transaction } from "../../models/Transaction";
 })
 export class TransactionsManagementComponent implements OnInit {
   isPetsitter = false;
+  viewForPetsitter = false;
   showTransaction = false;
   transactionPetsitterList: Transaction[] = [];
   transactionISentList: Transaction[] = [];
@@ -19,18 +20,34 @@ export class TransactionsManagementComponent implements OnInit {
   transactionListRefused: Transaction[] = [];
   transactionListCompleted: Transaction[] = [];
   counter = 0;
+  loader = true;
 
-  constructor(private authService: AuthService, private route: Router, private apiCallService: ApiCallService) {}
+  constructor(
+    private authService: AuthService,
+    private route: Router,
+    private apiCallService: ApiCallService,
+    private activatedRoute: ActivatedRoute
+  ) {}
 
   ngOnInit(): void {
     if (!this.authService.isConnectedVerif()) {
       this.route.navigate(["/login"]);
     }
+    const param = this.activatedRoute.snapshot.queryParams;
+    if (param["viewforpetsitter"] && typeof param["viewforpetsitter"] === "boolean") {
+      this.viewForPetsitter = param["viewforpetsitter"];
+    }
     this.apiCallService.getTransactions().subscribe((response) => {
       this.isPetsitter = response.petsitter;
       this.transactionPetsitterList = response.transactionForPetsitter;
       this.transactionISentList = response.transactionFromUser;
-      this.sortTransaction(response.transactionFromUser)
+      if (param["viewforpetsitter"] && response.petsitter) {
+        this.sortTransaction(response.transactionForPetsitter);
+        this.showTransaction = true;
+        this.viewForPetsitter = true;
+      } else {
+        this.sortTransaction(response.transactionFromUser);
+      }
       const today = new Date();
       const forCounter = response.transactionForPetsitter.filter((transaction) => {
         const end = new Date(transaction.dateEnd);
@@ -38,6 +55,7 @@ export class TransactionsManagementComponent implements OnInit {
         return transaction.status === null && timeDiffForEndToday > 0;
       });
       this.counter = forCounter.length;
+      this.loader = false;
     });
   }
 
@@ -45,8 +63,10 @@ export class TransactionsManagementComponent implements OnInit {
     this.showTransaction = !this.showTransaction;
     if (this.showTransaction) {
       this.sortTransaction(this.transactionPetsitterList);
+      this.viewForPetsitter = true;
     } else {
       this.sortTransaction(this.transactionISentList);
+      this.viewForPetsitter = false;
     }
   }
 
