@@ -1,4 +1,4 @@
-<form [formGroup]="addService" (ngSubmit)="onSubmit()">
+<form *ngIf="!loader" [formGroup]="addService" (ngSubmit)="onSubmit()">
   <div class="species_service_container">
     <p>Renseignez-vos services</p>
     <div class="species_service_container">
@@ -72,3 +72,4 @@
     </div>
   </div>
 </form>
+<app-loader *ngIf="loader"></app-loader>

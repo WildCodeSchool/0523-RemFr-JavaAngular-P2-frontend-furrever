@@ -29,7 +29,7 @@
       {{ user.description }}
     </p>
     <h4>Mon adresse</h4>
-    <p>
+    <p *ngIf="user.location?.city">
       {{ user.location?.streetNumber }}
       <span *ngIf="user.location?.additionalAddress">, {{ user.location?.additionalAddress }}</span>
       , {{ user.location?.street }}, {{ user.location?.zipCode }}, {{ user.location?.city | titlecase }}

@@ -34,6 +34,12 @@ export class ProfileComponent implements OnInit {
     this.apiCallService.getCurrentUser().subscribe((profile) => {
       this.animalList = profile.animalTemplateList;
       this.user = profile.userProfile;
+      if (!profile.userProfile.location?.city && profile.userProfile.isPetSitter) {
+        this.toastr.info("Merci de compléter votre profil afin que vos services soient rendu visible.", "Information", {
+          timeOut: 10000,
+          closeButton: true,
+        });
+      }
       this.nbPendingTransactions = profile.nbPendingTransactions;
       this.serviceList = profile.serviceTemplateList;
       this.commentList = profile.commentTemplateList;

@@ -14,12 +14,13 @@ import { AuthService } from "../../services/auth/auth.service";
   styleUrls: ["./service-manager.component.scss"],
 })
 export class ServiceManagerComponent implements OnInit {
+  loader = true;
   user!: UserProfile;
   speciesListShow: Species[] = [];
   speciesList: Species[] = [];
   addService = new FormGroup({
     description: new FormControl(""),
-    price: new FormControl(0),
+    price: new FormControl(null),
     typeService: new FormControl(""),
     weightMin: new FormControl(null),
     weightMax: new FormControl(null),
@@ -47,6 +48,7 @@ export class ServiceManagerComponent implements OnInit {
     if (this.user == undefined) {
       this.user = new UserProfile("", "", "", "", "", "", 0, 0, 0, false, null);
     }
+    this.loader = false;
   }
 
   checkSpecies(species: Species) {
@@ -78,12 +80,14 @@ export class ServiceManagerComponent implements OnInit {
           this.speciesList,
           healer
         );
+        this.loader = true;
         this.apiCallService.createService(newService).subscribe({
-          next: (response) => {
+          next: () => {
             this.toast.success("Votre service est crée.");
             this.route.navigate(["/profile"]);
           },
           error: () => {
+            this.loader = false;
             this.toast.error(
               "Un problème est survenu. Vous n'êtes peut-être pas autorisé à créer un service. Sinon merci de réessayer."
             );
