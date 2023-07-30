@@ -15,9 +15,11 @@ export class TransactionDetailsComponent {
   @Input() viewForPetsitter!: boolean;
   commentModal = false;
   emailOwner = false;
+  loader = false;
   constructor(private apiCallService: ApiCallService, private toastr: ToastrService, private route: Router) {}
 
   valide(decision: boolean, transaction: Transaction) {
+    this.loader = true;
     const today = new Date();
     const end = new Date(transaction.dateEnd);
     const timeDiffForEndToday = end.getTime() - today.getTime();
@@ -35,10 +37,12 @@ export class TransactionDetailsComponent {
             .then(() => this.route.navigate(["transactions"], { queryParams: { viewforpetsitter: true } }));
         },
         error: () => {
+          this.loader = false;
           this.toastr.error("Une erreur est survenue, actualisez votre page et réessayez l'opération.");
         },
       });
     } else {
+      this.loader = false;
       this.toastr.error("Une erreur est survenue, actualisez votre page et réessayez l'opération.");
     }
   }

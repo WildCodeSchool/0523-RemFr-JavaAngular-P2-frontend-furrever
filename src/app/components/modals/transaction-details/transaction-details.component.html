@@ -1,4 +1,4 @@
-<div *ngIf="viewForPetsitter" class="modal">
+<div *ngIf="viewForPetsitter && !loader" class="modal">
   <div>
     <h3>Demande de {{ transaction?.ownerFirstName }}</h3>
     <div class="status">
@@ -46,7 +46,7 @@
     <input class="button comment" type="button" value="Commentaire" />
   </div>
 </div>
-<div *ngIf="!viewForPetsitter" class="modal">
+<div *ngIf="!viewForPetsitter && !loader" class="modal">
   <div>
     <h3>Demande à {{ transaction?.petSitterFirstName }}</h3>
     <div class="status">
@@ -82,4 +82,7 @@
   <div *ngIf="commentModal">
     <app-comment-form *ngIf="transaction" [transaction]="transaction"></app-comment-form>
   </div>
+</div>
+<div *ngIf="loader" class="modal loader">
+  <app-loader></app-loader>
 </div>
