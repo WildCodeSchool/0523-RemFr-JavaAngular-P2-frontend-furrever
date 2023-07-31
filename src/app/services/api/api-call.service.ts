@@ -12,12 +12,13 @@ import { SendService } from "../../models/SendService";
 import { CreateTransactionResponse, GetTransaction } from "../../models/Transaction";
 import { Animal } from "../../models/Animal";
 import { GetProfileUserResponse } from "../../models/GetProfileUserResponse";
+import { environment } from "src/environments/environment.development";
 
 @Injectable({
   providedIn: "root",
 })
 export class ApiCallService {
-  readonly API_URL = "http://localhost:8080/api/";
+  readonly API_URL = environment.apiUrl + "/api/";
 
   readonly endPoints = {
     getTopComments: "comments/top",
