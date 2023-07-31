@@ -55,6 +55,7 @@ section {
     padding: 15px 15px 25px;
     display: flex;
     flex-direction: row-reverse;
+    justify-content: center;
     position: relative;
     border-radius: 20px;
   }
@@ -64,6 +65,7 @@ section {
     margin: 0;
     position: absolute;
     top: 10px;
+    left: 87%;
     font-weight: bolder;
     font-size: larger;
     color: #355f5b;
