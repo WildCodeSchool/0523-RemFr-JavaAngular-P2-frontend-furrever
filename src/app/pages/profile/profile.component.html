@@ -1,4 +1,5 @@
 <app-user-infos
+  *ngIf="user"
   [myCommentList]="myCommentList"
   [user]="user"
   [nbPendingTransactions]="nbPendingTransactions"
@@ -6,4 +7,4 @@
   [serviceList]="serviceList"
 ></app-user-infos>
 <app-carousel-animal [animalList]="animalList"></app-carousel-animal>
-<app-carousel *ngIf="user.isPetSitter" [commentList]="commentList"></app-carousel>
+<app-carousel *ngIf="user && user.isPetSitter" [commentList]="commentList"></app-carousel>
