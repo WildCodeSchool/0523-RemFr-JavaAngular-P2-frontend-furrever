@@ -20,6 +20,7 @@ export class ProfileComponent implements OnInit {
   serviceList: Service[] = [];
   commentList: Comment[] = [];
   loader = true;
+  myCommentList: Comment[] = [];
   petSitterFirstName!: string;
   constructor(
     private authService: AuthService,
@@ -35,6 +36,7 @@ export class ProfileComponent implements OnInit {
     this.apiCallService.getCurrentUser().subscribe((profile) => {
       this.animalList = profile.animalTemplateList;
       this.user = profile.userProfile;
+      this.myCommentList = profile.myCommentList;
       this.petSitterFirstName = this.user.firstname;
       if (!profile.userProfile.location?.city && profile.userProfile.isPetSitter) {
         this.toastr.info(
