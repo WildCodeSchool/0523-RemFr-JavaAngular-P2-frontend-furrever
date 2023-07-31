@@ -1,8 +1,11 @@
 # Dockerfile frontend
 # build environment
-FROM node:lts-slim as build
+FROM node:18.17 as builder
 WORKDIR /build
 COPY . .
+ENV PATH ./node_modules/.bin:$PATH
+RUN npm ci
+RUN ng build --configuration production --output-path=dist
 
 # production environment
 FROM nginx:stable-alpine-slim
