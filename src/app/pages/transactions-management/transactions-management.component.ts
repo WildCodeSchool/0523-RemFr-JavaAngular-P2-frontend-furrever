@@ -1,6 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import { AuthService } from "../../services/auth/auth.service";
-import {ActivatedRoute, Router} from "@angular/router";
+import { ActivatedRoute, Router} from "@angular/router";
 import { ApiCallService } from "../../services/api/api-call.service";
 import { Transaction } from "../../models/Transaction";
 
