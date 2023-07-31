@@ -9,7 +9,7 @@
       <p>
         <b>{{ service.price }}€</b>
       </p>
-      <h2>Ce service comprend les animaux suivants :</h2>
+      <h2>Ce service couvre les animaux suivants :</h2>
       <span *ngFor="let oneSpecies of service.speciesList; let i = index">
         {{ oneSpecies.name }} <span *ngIf="service.speciesList[i + 1]">,</span>
       </span>

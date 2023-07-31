@@ -1,6 +1,7 @@
 <app-loader *ngIf="loader"></app-loader>
 <article *ngIf="!loader">
-  <p>Liste de vos transactions, cliquez sur le "type" pour voir le détail.</p>
+  <h3>Liste de vos transactions</h3>
+  <p>Cliquez sur le "type" pour voir le détail.</p>
   <div *ngIf="isPetsitter" class="btnGroup">
     <input *ngIf="!showTransaction" (click)="showTransactionRequest()" class="button" type="button" value="Reçues" />
     <span *ngIf="counter > 0 && !showTransaction">

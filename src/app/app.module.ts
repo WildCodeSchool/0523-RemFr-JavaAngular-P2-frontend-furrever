@@ -10,7 +10,6 @@ import { ToastrModule } from "ngx-toastr";
 
 import { DemoPipe } from "./pipes/demo.pipe";
 import { InitialPipe } from "./pipes/initial.pipe";
-import { DemoDirective } from "./directives/demo.directive";
 import { userStoreReducer } from "./services/state/userStore.reducer";
 import { AuthInterceptor } from "./services/auth/auth.interceptor";
 
@@ -50,14 +49,13 @@ import { SignUpComponent } from "./pages/sign-up/sign-up.component";
 import { PetsitterProfileComponent } from "./pages/petsitter-profile/petsitter-profile.component";
 import { TransactionsManagementComponent } from "./pages/transactions-management/transactions-management.component";
 import { ServiceManagerComponent } from "./pages/service-manager/service-manager.component";
-import { CommentFormComponent } from './components/forms/comment-form/comment-form.component';
+import { CommentFormComponent } from "./components/forms/comment-form/comment-form.component";
 
 @NgModule({
   declarations: [
     AppComponent,
     DemoPipe,
     InitialPipe,
-    DemoDirective,
     NavbarComponent,
     HomeComponent,
     ProfileComponent,
@@ -92,7 +90,7 @@ import { CommentFormComponent } from './components/forms/comment-form/comment-fo
     UpdateProfileFormComponent,
     ServiceManagerComponent,
     ModalUserUpdateComponent,
-    CommentFormComponent
+    CommentFormComponent,
   ],
   imports: [
     BrowserModule,
