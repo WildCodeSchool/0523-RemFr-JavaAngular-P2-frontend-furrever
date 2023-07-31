@@ -12,7 +12,7 @@ import { SendService } from "../../models/SendService";
 import { CreateTransactionResponse, GetTransaction } from "../../models/Transaction";
 import { Animal } from "../../models/Animal";
 import { GetProfileUserResponse } from "../../models/GetProfileUserResponse";
-import { environment } from "src/environments/environment.development";
+import { environment } from "src/environments/environment";
 
 @Injectable({
   providedIn: "root",
