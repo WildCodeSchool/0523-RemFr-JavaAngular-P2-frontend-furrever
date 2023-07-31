@@ -83,7 +83,7 @@ export class ServiceManagerComponent implements OnInit {
         this.loader = true;
         this.apiCallService.createService(newService).subscribe({
           next: () => {
-            this.toast.success("Votre service est crée.");
+            this.toast.success("Votre service est créé.");
             this.route.navigate(["/profile"]);
           },
           error: () => {

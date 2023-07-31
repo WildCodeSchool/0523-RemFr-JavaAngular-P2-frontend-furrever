@@ -59,14 +59,14 @@ export class LoginFormComponent implements OnInit {
             this.route.navigate(["/profile"]);
           }
         },
-        error: () => this.errors.push("Votre mot de passe et ou votre email sont incorrectes."),
+        error: () => this.errors.push("Votre mot de passe et/ou votre email sont incorrects."),
       });
     }
   }
 
   validation(email: string | null, password: string | null) {
     if (!email || !email.trim() || !email.match(/[a-z0-9_\-\.]+@[a-z0-9_\-\.]+\.[a-z]+/i)) {
-      this.errors.push("Votre adresse mail n'est pas une adresse valide.");
+      this.errors.push("Votre adresse email n'est pas une adresse valide.");
     }
     if (!password) {
       this.errors.push("Votre mot de passe n'est pas un mot de passe valide.");

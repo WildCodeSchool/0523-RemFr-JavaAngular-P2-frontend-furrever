@@ -10,7 +10,6 @@ import { ToastrModule } from "ngx-toastr";
 
 import { DemoPipe } from "./pipes/demo.pipe";
 import { InitialPipe } from "./pipes/initial.pipe";
-import { DemoDirective } from "./directives/demo.directive";
 import { userStoreReducer } from "./services/state/userStore.reducer";
 import { AuthInterceptor } from "./services/auth/auth.interceptor";
 
@@ -58,7 +57,6 @@ import { ModalMycommentsComponent } from './components/modals/modal-mycomments/m
     AppComponent,
     DemoPipe,
     InitialPipe,
-    DemoDirective,
     NavbarComponent,
     HomeComponent,
     ProfileComponent,
