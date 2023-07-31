@@ -53,6 +53,7 @@
     </div>
   </div>
   <section class="petsitter-service" *ngIf="user.isPetSitter && serviceList.length > 0">
+    <h1>Mes services</h1>
     <app-services
       *ngFor="let oneService of serviceList"
       [service]="oneService"
@@ -60,4 +61,5 @@
       [userInfoView]="userInfoView"
     ></app-services>
   </section>
+  <!--<app-carousel-animal></app-carousel-animal>-->
 </section>
