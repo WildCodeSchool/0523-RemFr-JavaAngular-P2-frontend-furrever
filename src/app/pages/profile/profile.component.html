@@ -1,6 +1,7 @@
 <app-loader *ngIf="loader"></app-loader>
 <app-user-infos
   *ngIf="!loader"
+  [myCommentList]="myCommentList"
   [user]="user"
   [nbPendingTransactions]="nbPendingTransactions"
   [serviceList]="serviceList"

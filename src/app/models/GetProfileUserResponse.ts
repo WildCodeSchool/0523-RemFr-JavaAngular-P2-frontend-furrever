@@ -9,4 +9,5 @@ export type GetProfileUserResponse = {
   commentTemplateList: Comment[];
   nbPendingTransactions: number;
   userProfile: UserProfile;
+  myCommentList: Comment[];
 };

@@ -4,6 +4,7 @@ import { AuthService } from "../../services/auth/auth.service";
 import { Router } from "@angular/router";
 import { ApiCallService } from "../../services/api/api-call.service";
 import { Service } from "../../models/Service";
+import { Comment } from "../../models/Comment";
 
 @Component({
   selector: "app-user-infos",
@@ -15,7 +16,9 @@ export class UserInfosComponent implements OnInit {
   @Input() nbPendingTransactions!: number;
   @Input() petSitterFirstName!: string;
   @Input() serviceList: Service[] = [];
+  @Input() myCommentList!: Comment[];
   userInfoView = true;
+  showModalMyCommentCondition = false;
 
   ngOnInit() {
     if (this.user == undefined) {
@@ -34,5 +37,9 @@ export class UserInfosComponent implements OnInit {
       this.route.navigate(["/login"]);
     }
     this.showModal = !this.showModal;
+  }
+
+  showModalMyComment() {
+    this.showModalMyCommentCondition = !this.showModalMyCommentCondition;
   }
 }
