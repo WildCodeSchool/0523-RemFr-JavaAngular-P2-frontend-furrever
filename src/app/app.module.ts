@@ -51,6 +51,7 @@ import { PetsitterProfileComponent } from "./pages/petsitter-profile/petsitter-p
 import { TransactionsManagementComponent } from "./pages/transactions-management/transactions-management.component";
 import { ServiceManagerComponent } from "./pages/service-manager/service-manager.component";
 import { CommentFormComponent } from './components/forms/comment-form/comment-form.component';
+import { ModalMycommentsComponent } from './components/modals/modal-mycomments/modal-mycomments.component';
 
 @NgModule({
   declarations: [
@@ -92,7 +93,8 @@ import { CommentFormComponent } from './components/forms/comment-form/comment-fo
     UpdateProfileFormComponent,
     ServiceManagerComponent,
     ModalUserUpdateComponent,
-    CommentFormComponent
+    CommentFormComponent,
+    ModalMycommentsComponent
   ],
   imports: [
     BrowserModule,

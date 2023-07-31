@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from "@angular/core";
+import { Component, Input } from "@angular/core";
 import { Comment } from "../../models/Comment";
 
 @Component({
@@ -7,8 +7,7 @@ import { Comment } from "../../models/Comment";
   styleUrls: ["./comment-card.component.scss"],
 })
 export class CommentCardComponent {
-  @Input()
-  commentCard!: Comment;
+  @Input() commentCard!: Comment;
   counter(i: number) {
     return new Array(i);
   }

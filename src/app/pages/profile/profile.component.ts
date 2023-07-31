@@ -20,6 +20,7 @@ export class ProfileComponent implements OnInit {
   serviceList: Service[] = [];
   commentList: Comment[] = [];
   loader = true;
+  myCommentList: Comment[] = [];
   petSitterFirstName!: string;
   constructor(
     private authService: AuthService,
@@ -35,6 +36,7 @@ export class ProfileComponent implements OnInit {
     this.apiCallService.getCurrentUser().subscribe((profile) => {
       this.animalList = profile.animalTemplateList;
       this.user = profile.userProfile;
+      this.myCommentList = profile.myCommentList;
       this.petSitterFirstName = this.user.firstname;
       if (!profile.userProfile.location?.city && profile.userProfile.isPetSitter) {
         this.toastr.info("Merci de compléter votre profil afin que vos services soient rendu visible.", "Information", {
@@ -47,7 +49,7 @@ export class ProfileComponent implements OnInit {
       this.commentList = profile.commentTemplateList;
       if (profile.nbPendingTransactions > 0) {
         this.toastr.warning(
-          `Vous aver ${profile.nbPendingTransactions} demande de service en attentent de validation.`
+          `Vous avez ${profile.nbPendingTransactions} demande de service en attentent de validation.`
         );
       }
       this.loader = false;
