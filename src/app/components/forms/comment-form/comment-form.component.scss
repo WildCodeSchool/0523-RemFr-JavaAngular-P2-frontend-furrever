@@ -262,3 +262,12 @@ form {
   font-size: 0.8em;
 }
 
+.loader {
+  height: 60vh;
+  background: white;
+  z-index: 1001;
+  position: absolute;
+  top: 0px;
+  width: 100%;
+  border-radius: 20px;
+}

@@ -1,4 +1,4 @@
-<form (ngSubmit)="sendCommentForm()" [formGroup]="commentForm">
+<form *ngIf="!loader" (ngSubmit)="sendCommentForm()" [formGroup]="commentForm">
   <div class="field">
     <label>Laisser mon commentaire</label>
     <textarea
@@ -43,3 +43,4 @@
     <p class="errors" *ngFor="let error of errors">{{ error }}</p>
   </div>
 </form>
+<div class="loader" *ngIf="loader"><app-loader></app-loader></div>
