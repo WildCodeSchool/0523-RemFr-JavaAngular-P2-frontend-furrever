@@ -17,6 +17,7 @@ export class CommentFormComponent implements OnInit {
   @Input() transaction!: Transaction;
   errors: string[] = [];
   date!: string;
+  loader = false;
   ngOnInit() {
     const dateObject = new Date();
     const year = dateObject.getFullYear();
@@ -48,10 +49,11 @@ export class CommentFormComponent implements OnInit {
       note: this.commentForm.getRawValue().note!,
       content: this.commentForm.getRawValue().content,
     };
-
     if (this.errors.length <= 0 && this.transaction) {
+      this.loader = true;
       this.apiCallService.createComment(createdComment, this.transaction!.idTransaction).subscribe(() => {
         this.redirectTo("/profile");
+        this.loader = false;
         this.toastr.success("Votre commentaire a bien été envoyé.");
       });
     }
