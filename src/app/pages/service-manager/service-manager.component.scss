@@ -20,11 +20,12 @@ form {
     align-items: center;
     justify-content: space-evenly;
     padding: 1rem 0;
+
     h2 {
       margin-bottom: 0;
     }
 
-    .container-label-species{
+    .container-label-species {
       display: grid;
       grid-template-columns: 1fr 1fr;
       grid-template-rows: 1fr 1fr 1fr;
