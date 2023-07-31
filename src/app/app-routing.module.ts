@@ -18,6 +18,7 @@ const routes: Routes = [
   { path: "profile-petsitter/:id", component: PetsitterProfileComponent },
   { path: "transactions", component: TransactionsManagementComponent },
   { path: "services", component: ServiceManagerComponent },
+  { path: "**", redirectTo: "", pathMatch: "full" },
 ];
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
