@@ -6,7 +6,7 @@
 form {
   width: 100%;
   max-width: 450px;
-  margin: 5rem 1rem;
+  margin: 1rem;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -21,7 +21,11 @@ form {
     justify-content: space-evenly;
     padding: 1rem 0;
 
-    .container-label-species{
+    h2 {
+      margin-bottom: 0;
+    }
+
+    .container-label-species {
       display: grid;
       grid-template-columns: 1fr 1fr;
       grid-template-rows: 1fr 1fr 1fr;
