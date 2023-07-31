@@ -22,13 +22,7 @@
       </div>
     </div>
   </div>
-  <input
-    *ngIf="!userInfoView"
-    class="button"
-    type="button"
-    (click)="resquestService(service.id)"
-    value="Réserver ce service"
-  />
+  <input *ngIf="!userInfoView" class="button" type="button" (click)="resquestService()" value="Réserver ce service" />
   <input
     *ngIf="userInfoView"
     class="button"

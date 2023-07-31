@@ -1,3 +1,6 @@
 <div *ngFor="let comment of myCommentList">
   <app-comment-card [commentCard]="comment"></app-comment-card>
 </div>
+<div *ngIf="myCommentList.length < 1">
+  <p>Vous n'avez pas encore posté de commentaire.</p>
+</div>

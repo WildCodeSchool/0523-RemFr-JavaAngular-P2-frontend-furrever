@@ -34,8 +34,7 @@ export class SignupFormComponent implements OnInit {
     private store: Store<{ userStore: boolean }>,
     private authService: AuthService,
     private toastr: ToastrService
-  ) {
-  }
+  ) {}
 
   ngOnInit(): void {
     if (this.authService.isConnectedVerif()) {

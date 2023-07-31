@@ -1,6 +1,6 @@
 import { Component, Input } from "@angular/core";
 import { AuthService } from "../../../services/auth/auth.service";
-import { ActivatedRoute, Router } from "@angular/router";
+import { Router } from "@angular/router";
 import { Animal } from "../../../models/Animal";
 
 @Component({
@@ -9,14 +9,6 @@ import { Animal } from "../../../models/Animal";
   styleUrls: ["./modal-animal.component.scss"],
 })
 export class ModalAnimalComponent {
-  constructor(private authService: AuthService, private activatedRoute: ActivatedRoute, private route: Router) {}
+  constructor(private authService: AuthService, private route: Router) {}
   @Input() animalList: Animal[] = [];
-  isResquest = false;
-
-  createAnimal() {
-    if (!this.authService.isConnectedVerif()) {
-      this.route.navigate(["/login"]);
-    }
-    this.isResquest = true;
-  }
 }
