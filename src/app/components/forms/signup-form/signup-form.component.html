@@ -61,7 +61,7 @@
     <input formControlName="email" id="email" name="email" placeholder="Email" required type="email" />
     <label for="email">Email</label>
     <div *ngIf="signup.controls['email'].errors && !signup.controls['email'].pristine" class="error-msg">
-      <div [hidden]="!signup.controls['email'].errors?.['required']">Une adresse mail est requise.</div>
+      <div [hidden]="!signup.controls['email'].errors['required']">Une adresse mail est requise.</div>
       <div [hidden]="!signup.controls['email'].invalid">L'adresse mail n'est pas valide.</div>
     </div>
   </div>
@@ -76,7 +76,7 @@
     />
     <label for="password">Mot de passe</label>
     <div *ngIf="signup.controls['password'].errors && !signup.controls['password'].pristine" class="error-msg">
-      <div [hidden]="!signup.controls['password'].errors?.['required']">Un mot de passe est requis.</div>
+      <div [hidden]="!signup.controls['password'].errors['required']">Un mot de passe est requis.</div>
       <div [hidden]="!signup.controls['password'].invalid">Le mot de passe n'est pas valide.</div>
     </div>
   </div>
@@ -84,9 +84,7 @@
     <input formControlName="firstname" id="firstname" name="firstname" placeholder="Prénom" required type="text" />
     <label for="firstname">Prénom</label>
     <div *ngIf="signup.controls['firstname'].errors && !signup.controls['firstname'].pristine" class="error-msg">
-      <div [hidden]="!signup.controls['firstname'].errors?.['required']">
-        Le prénom doit faire 2 caractères minimum.
-      </div>
+      <div [hidden]="!signup.controls['firstname'].errors['required']">Le prénom doit faire 2 caractères minimum.</div>
       <div [hidden]="!signup.controls['firstname'].invalid">Le prénom n'est pas valide.</div>
     </div>
   </div>
@@ -94,7 +92,7 @@
     <input formControlName="lastname" id="lastname" name="lastname" placeholder="Nom" required type="text" />
     <label for="lastname">Nom</label>
     <div *ngIf="signup.controls['lastname'].errors && !signup.controls['lastname'].pristine" class="error-msg">
-      <div [hidden]="!signup.controls['lastname'].errors?.['required']">Le nom doit faire 2 caractères minimum.</div>
+      <div [hidden]="!signup.controls['lastname'].errors['required']">Le nom doit faire 2 caractères minimum.</div>
       <div [hidden]="!signup.controls['lastname'].invalid">Le nom n'est pas valide.</div>
     </div>
   </div>
