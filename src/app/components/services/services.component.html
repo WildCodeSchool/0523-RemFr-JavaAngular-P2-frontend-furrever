@@ -1,6 +1,6 @@
 <section class="before_modal" (click)="isShowModal()">
   <div class="main-services">
-    <h2 class="services_title">{{ service.typeService }}</h2>
+    <h2 class="services_title">{{ service.typeService | titlecase }}</h2>
     <p class="description">
       <i>{{ service.description }}</i>
     </p>

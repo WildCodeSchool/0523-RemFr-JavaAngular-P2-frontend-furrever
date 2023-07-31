@@ -1,4 +1,4 @@
-import { Component, OnInit } from "@angular/core";
+import { Component, Input, OnInit } from "@angular/core";
 import { AuthService } from "../../services/auth/auth.service";
 import { Router } from "@angular/router";
 import { Animal } from "../../models/Animal";
@@ -20,6 +20,7 @@ export class ProfileComponent implements OnInit {
   serviceList: Service[] = [];
   commentList: Comment[] = [];
   loader = true;
+  petSitterFirstName!: string;
   constructor(
     private authService: AuthService,
     private route: Router,
@@ -34,6 +35,7 @@ export class ProfileComponent implements OnInit {
     this.apiCallService.getCurrentUser().subscribe((profile) => {
       this.animalList = profile.animalTemplateList;
       this.user = profile.userProfile;
+      this.petSitterFirstName = this.user.firstname;
       if (!profile.userProfile.location?.city && profile.userProfile.isPetSitter) {
         this.toastr.info("Merci de compléter votre profil afin que vos services soient rendu visible.", "Information", {
           timeOut: 10000,
