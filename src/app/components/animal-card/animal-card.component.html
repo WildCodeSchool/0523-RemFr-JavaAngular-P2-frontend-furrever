@@ -1,7 +1,7 @@
 <section>
   <div class="content">
     <div>
-      <p class="user">{{ animal.firstname | uppercase}}</p>
+      <p class="user">{{ animal.firstname | uppercase }}</p>
       <p *ngIf="animal.weight" class="weight">{{ animal.weight }} kg</p>
     </div>
     <p class="date">Né le : {{ animal.birthday | date : "dd/MM/YYYY" }}</p>

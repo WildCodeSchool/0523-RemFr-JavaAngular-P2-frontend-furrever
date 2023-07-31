@@ -1,10 +1,9 @@
-<app-loader *ngIf="loader"></app-loader>
 <app-user-infos
-  *ngIf="!loader"
   [myCommentList]="myCommentList"
   [user]="user"
   [nbPendingTransactions]="nbPendingTransactions"
+  [petSitterFirstName]="petSitterFirstName"
   [serviceList]="serviceList"
 ></app-user-infos>
-<app-carousel-animal *ngIf="loader" [animalList]="animalList"></app-carousel-animal>
-<app-carousel *ngIf="loader" [commentList]="commentList"></app-carousel>
+<app-carousel-animal [animalList]="animalList"></app-carousel-animal>
+<app-carousel *ngIf="user.isPetSitter" [commentList]="commentList"></app-carousel>
