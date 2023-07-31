@@ -37,17 +37,21 @@ export class ProfileComponent implements OnInit {
       this.user = profile.userProfile;
       this.petSitterFirstName = this.user.firstname;
       if (!profile.userProfile.location?.city && profile.userProfile.isPetSitter) {
-        this.toastr.info("Merci de compléter votre profil afin que vos services soient rendu visible.", "Information", {
-          timeOut: 10000,
-          closeButton: true,
-        });
+        this.toastr.info(
+          "Merci de compléter votre profil afin que vos services soient rendus visibles.",
+          "Information",
+          {
+            timeOut: 10000,
+            closeButton: true,
+          }
+        );
       }
       this.nbPendingTransactions = profile.nbPendingTransactions;
       this.serviceList = profile.serviceTemplateList;
       this.commentList = profile.commentTemplateList;
       if (profile.nbPendingTransactions > 0) {
         this.toastr.warning(
-          `Vous aver ${profile.nbPendingTransactions} demande de service en attentent de validation.`
+          `Vous avez ${profile.nbPendingTransactions} demande(s) de service en attente de validation.`
         );
       }
       this.loader = false;
