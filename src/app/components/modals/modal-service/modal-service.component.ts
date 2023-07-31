@@ -22,10 +22,9 @@ export class ModalServiceComponent {
     private route: Router,
     private apiCallService: ApiCallService,
     private toastr: ToastrService
-  ) {
-  }
+  ) {}
 
-  resquestService(id: string | null) {
+  resquestService() {
     if (!this.authService.isConnectedVerif()) {
       const petsitter = this.activatedRoute.snapshot.params;
       this.route.navigate(["/login"], { queryParams: petsitter });

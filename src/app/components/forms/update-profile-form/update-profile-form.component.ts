@@ -2,7 +2,7 @@ import { Component, Input, OnInit } from "@angular/core";
 import { ApiCallService } from "../../../services/api/api-call.service";
 import { FormBuilder } from "@angular/forms";
 import { User, UserProfile } from "../../../models/UserProfile";
-import { ActivatedRoute, Router } from "@angular/router";
+import { Router } from "@angular/router";
 import { Store } from "@ngrx/store";
 import { ToastrService } from "ngx-toastr";
 import { Observable } from "rxjs";
@@ -33,13 +33,11 @@ export class UpdateProfileFormComponent implements OnInit {
 
   constructor(
     private apiCallService: ApiCallService,
-    private activatedRoute: ActivatedRoute,
     private store: Store<{ userStore: boolean }>,
     private toastr: ToastrService,
     private route: Router,
-    private fb: FormBuilder,
-  ) {
-  }
+    private fb: FormBuilder
+  ) {}
 
   ngOnInit() {
     this.updateUserForm.controls.firstname.setValue(this.user.firstname);
@@ -65,7 +63,7 @@ export class UpdateProfileFormComponent implements OnInit {
       this.updateUserForm.getRawValue().description,
       this.updateUserForm.getRawValue().street,
       this.updateUserForm.getRawValue().city,
-      this.updateUserForm.getRawValue().zipCode,
+      this.updateUserForm.getRawValue().zipCode
     );
     const updateUser: User = {
       firstname: this.updateUserForm.getRawValue().firstname,
@@ -106,7 +104,7 @@ export class UpdateProfileFormComponent implements OnInit {
     description: string | null,
     street: string | null,
     city: string | null,
-    zipCode: string | null,
+    zipCode: string | null
   ) {
     if (!firstname) {
       this.errors.push("Votre prénom n'est pas valide.");

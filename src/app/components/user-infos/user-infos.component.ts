@@ -2,7 +2,6 @@ import { Component, Input, OnInit } from "@angular/core";
 import { UserProfile } from "../../models/UserProfile";
 import { AuthService } from "../../services/auth/auth.service";
 import { Router } from "@angular/router";
-import { ApiCallService } from "../../services/api/api-call.service";
 import { Service } from "../../models/Service";
 import { Comment } from "../../models/Comment";
 
@@ -30,7 +29,7 @@ export class UserInfosComponent implements OnInit {
     return new Array(i);
   }
 
-  constructor(private authService: AuthService, private route: Router, private apiCallService: ApiCallService) {}
+  constructor(private authService: AuthService, private route: Router) {}
   showModal = false;
   showModalForUpdateUser() {
     if (!this.authService.isConnectedVerif()) {

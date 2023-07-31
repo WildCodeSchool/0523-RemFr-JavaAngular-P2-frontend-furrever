@@ -1,7 +1,6 @@
 import { Component, Input } from "@angular/core";
 import { trigger, transition, useAnimation } from "@angular/animations";
 import { fadeIn, fadeOut, scaleIn, scaleOut } from "./carousel.animations";
-import { Router } from "@angular/router";
 import { Comment } from "../../models/Comment";
 
 @Component({
@@ -19,7 +18,6 @@ import { Comment } from "../../models/Comment";
   ],
 })
 export class CarouselComponent {
-  constructor(private router: Router) {}
   @Input() commentList: Comment[] = [];
 
   currentSlide = 0;

@@ -8,7 +8,6 @@ import { HTTP_INTERCEPTORS, HttpClientModule } from "@angular/common/http";
 import { StoreModule } from "@ngrx/store";
 import { ToastrModule } from "ngx-toastr";
 
-import { DemoPipe } from "./pipes/demo.pipe";
 import { InitialPipe } from "./pipes/initial.pipe";
 import { userStoreReducer } from "./services/state/userStore.reducer";
 import { AuthInterceptor } from "./services/auth/auth.interceptor";
@@ -40,6 +39,8 @@ import { AnimalFormComponent } from "./components/forms/animal-form/animal-form.
 import { ModalAnimalComponent } from "./components/modals/modal-animal/modal-animal.component";
 import { UpdateProfileFormComponent } from "./components/forms/update-profile-form/update-profile-form.component";
 import { ModalUserUpdateComponent } from "./components/modals/modal-user-update/modal-user-update.component";
+import { CommentFormComponent } from "./components/forms/comment-form/comment-form.component";
+import { ModalMycommentsComponent } from "./components/modals/modal-mycomments/modal-mycomments.component";
 
 import { HomeComponent } from "./pages/home/home.component";
 import { ProfileComponent } from "./pages/profile/profile.component";
@@ -49,13 +50,10 @@ import { SignUpComponent } from "./pages/sign-up/sign-up.component";
 import { PetsitterProfileComponent } from "./pages/petsitter-profile/petsitter-profile.component";
 import { TransactionsManagementComponent } from "./pages/transactions-management/transactions-management.component";
 import { ServiceManagerComponent } from "./pages/service-manager/service-manager.component";
-import { CommentFormComponent } from './components/forms/comment-form/comment-form.component';
-import { ModalMycommentsComponent } from './components/modals/modal-mycomments/modal-mycomments.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    DemoPipe,
     InitialPipe,
     NavbarComponent,
     HomeComponent,
@@ -92,7 +90,7 @@ import { ModalMycommentsComponent } from './components/modals/modal-mycomments/m
     ServiceManagerComponent,
     ModalUserUpdateComponent,
     CommentFormComponent,
-    ModalMycommentsComponent
+    ModalMycommentsComponent,
   ],
   imports: [
     BrowserModule,

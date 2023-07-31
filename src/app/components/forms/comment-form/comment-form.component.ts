@@ -1,7 +1,5 @@
 import { Component, Input, OnInit } from "@angular/core";
 import { FormBuilder } from "@angular/forms";
-import { User } from "../../../models/UserProfile";
-import { addUserOnStore } from "../../../services/state/userStore.actions";
 import { Comment } from "../../../models/Comment";
 import { Transaction } from "../../../models/Transaction";
 import { ApiCallService } from "../../../services/api/api-call.service";

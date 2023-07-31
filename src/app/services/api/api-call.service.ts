@@ -89,8 +89,8 @@ export class ApiCallService {
   createService(payload: Service) {
     return this.http.post<Service>(this.API_URL + this.endPoints.services, payload);
   }
-  updateUser(payload: any) {
-    return this.http.put<any>(this.API_URL + this.endPoints.user, payload);
+  updateUser(payload: User) {
+    return this.http.put<void>(this.API_URL + this.endPoints.user, payload);
   }
 
   createComment(payload: Comment, id: string) {
@@ -98,10 +98,6 @@ export class ApiCallService {
       this.API_URL + this.endPoints.transactionSlash + id + this.endPoints.comment,
       payload
     );
-  }
-
-  getCommentByUserId(id: string) {
-    return this.http.get<Comment>(this.API_URL + this.endPoints.getPetSitterById + id);
   }
 
   deleteService(id: string) {

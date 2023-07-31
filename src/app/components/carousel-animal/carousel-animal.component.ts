@@ -1,7 +1,7 @@
 import { Component, Input } from "@angular/core";
 import { transition, trigger, useAnimation } from "@angular/animations";
 import { fadeIn, fadeOut, scaleIn, scaleOut } from "../carousel/carousel.animations";
-import { ActivatedRoute, Router } from "@angular/router";
+import { Router } from "@angular/router";
 import { Animal } from "../../models/Animal";
 import { AuthService } from "../../services/auth/auth.service";
 
@@ -20,7 +20,7 @@ import { AuthService } from "../../services/auth/auth.service";
   ],
 })
 export class CarouselAnimalComponent {
-  constructor(private authService: AuthService, private activatedRoute: ActivatedRoute, private route: Router) {}
+  constructor(private authService: AuthService, private route: Router) {}
   @Input() animalList: Animal[] = [];
   showModalAnimal = false;
 
